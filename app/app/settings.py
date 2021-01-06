@@ -25,7 +25,7 @@ SECRET_KEY = 'xnubsf)ft^2!at&8u-&ps@&qir53%l(4rk572tn4x-k(21(=p!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['app.com', 'app.localhost', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,9 +39,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = ['mptt']
 
-CUSTOM_APPS = []
+CUSTOM_APPS = ['core']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
