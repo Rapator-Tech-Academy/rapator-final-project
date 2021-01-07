@@ -25,7 +25,7 @@ SECRET_KEY = 'xnubsf)ft^2!at&8u-&ps@&qir53%l(4rk572tn4x-k(21(=p!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['app.com', 'app.localhost', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,8 +41,10 @@ DJANGO_APPS = [
     'django.contrib.flatpages',
 ]
 
+
 THIRD_PARTY_APPS = [
-    'ckeditor'
+    'ckeditor',
+    'mptt'
 ]
 
 CUSTOM_APPS = [
