@@ -34,14 +34,22 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  
+    'django.contrib.flatpages',
 ]
 
-THIRD_PARTY_APPS = ['mptt']
 
-CUSTOM_APPS = ['core']
+THIRD_PARTY_APPS = [
+    'ckeditor',
+    'mptt'
+]
+
+CUSTOM_APPS = [
+    'core'
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
@@ -80,10 +88,6 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('POSTGRES_DB', "app_db"),
@@ -139,3 +143,10 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Site configurations
+SITE_ID = 1
+
+# CK Editor configurations
+CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "media/"
