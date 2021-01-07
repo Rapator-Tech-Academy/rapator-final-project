@@ -4,6 +4,7 @@ from django.contrib.flatpages.models import FlatPage
 from django.db import models
 
 from ckeditor.widgets import CKEditorWidget
+from mptt.admin import MPTTModelAdmin
 
 from core.models import Category, City, ProductImage, Product
 
@@ -17,6 +18,6 @@ admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, FlatPageCustom)
 
 admin.site.register(City)
-admin.site.register(Category)
+admin.site.register(Category, MPTTModelAdmin)
 admin.site.register(ProductImage)
 admin.site.register(Product)
