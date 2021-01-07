@@ -1,0 +1,23 @@
+nav {
+    font-family: Helvetica, Arial, sans-serif;
+    
+}
+
+#nav {
+    background-color: #555;
+    font-size: 15px;
+    color: #fff;  
+}
+
+#nav a {
+    color: white;
+}
+
+#nav a:hover {
+    background-color: #6f6f6f;
+}
+
+#nav-right {
+    font-weight: bold;
+}
+
