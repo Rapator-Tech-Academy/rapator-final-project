@@ -10,7 +10,6 @@ from core.models import Category, City, ProductImage, Product
 
 class FlatPageCustom(FlatPageAdmin):
     formfield_overrides = {
-        models.CharField: {'widget': CKEditorWidget},
         models.TextField: {'widget': CKEditorWidget}
     }
 

@@ -1,7 +1,9 @@
 {% load static %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,9 +18,9 @@
         <div class='col-md-3'>
             <div class='background-ul'>
                 <ul class='pages'>
-                    <li class='pages-li'> <a href='{{ request.current_url }}'> Qaydalar </a> </li>
-                    <li class='pages-li'> <a href='{{ request.current_url }}'> Haqqımızda </a> </li>
-                    <li class='pages-li-current'> <a href='{{ request.current_url }}'> Saytda reklam </a> </li>
+                  {% for page in flatpages %}
+                    <li class="pages-li{% if page.url in request.path %}-current{% endif %}"> <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/pages{{ page.url }}"> {{ page.title }} </a> </li>
+                  {% endfor %}
                 </ul>
             </div>
         </div>
