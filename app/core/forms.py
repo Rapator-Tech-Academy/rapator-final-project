@@ -4,8 +4,8 @@ from .models import Product
 
 class NewProductForm(forms.Form):
     title = forms.CharField()
-    delivery = forms.BooleanField()
-    is_new = forms.BooleanField()
+    delivery = forms.CheckboxInput()
+    is_new = forms.CheckboxInput()
     category = forms.CharField()
     city = forms.CharField()
     price = forms.DecimalField()

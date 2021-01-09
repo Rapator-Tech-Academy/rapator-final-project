@@ -9,3 +9,4 @@ class ProductEntity:
     description: str
     city: str
     category: str
+    user_email: str

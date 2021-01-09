@@ -48,7 +48,7 @@ THIRD_PARTY_APPS = [
 ]
 
 CUSTOM_APPS = [
-    'core'
+    'core.apps.CoreConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -144,9 +144,29 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
 # Site configurations
 SITE_ID = 1
+
 
 # CK Editor configurations
 CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
+
+
+# Celery configurations
+CELERY_BROKER_URL = os.environ.get(
+    "BROKER_URL",
+    "redis://:dKqs72RhtaPPYyfN@localhost:6379/0"
+)
+
+CELERY_TIMEZONE = TIME_ZONE
+
+
+# EMAIL configurations
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'newstestemailnoreply@gmail.com'
+EMAIL_HOST_PASSWORD = 'Glyv2001'

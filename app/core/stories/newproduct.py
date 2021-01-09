@@ -6,7 +6,7 @@ from core.repository import Repo
 class CreateProduct:
 
     @story
-    @arguments('title', 'delivery', 'is_new', 'price', 'description', 'city', 'category')
+    @arguments('form')
     def create(I):
 
         I.validate_inputs
@@ -15,25 +15,36 @@ class CreateProduct:
         I.done 
     
     def validate_inputs(self, ctx):
+        if ctx.form.data.get('delivery') == None:
+            ctx.delivery = False
+        else:
+            ctx.delivery = True
+
+        if ctx.form.data.get('is_new') == None:
+            ctx.is_new = False
+        else:
+            ctx.is_new = True 
+
         return Success()
 
     def build_product(self, ctx):
         ctx.entity = ProductEntity(
-            title = ctx.title,
+            title = ctx.form.cleaned_data.get('title'),
             delivery = ctx.delivery,
             is_new = ctx.is_new,
-            price = ctx.price,
-            description = ctx.description,
-            city = ctx.city,
-            category = ctx.category,
+            price = ctx.form.cleaned_data.get('price'),
+            description = ctx.form.cleaned_data.get('description'),
+            city = ctx.form.cleaned_data.get('city'),
+            category = ctx.form.cleaned_data.get('category'),
+            user_email = ctx.form.cleaned_data.get('email')
         )
         return Success()
     
     def persist_product(self, ctx):
-        print(ctx.entity.title)
         ctx.result = Repo().create_product(
             payload = ctx.entity
         )
+        print(ctx.result)
         return Success()
     
     def done(self, ctx):

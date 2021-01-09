@@ -1,6 +1,6 @@
 STATUS_TYPES = (
-    (0, 'Seçilməyib'), 
-    (1, 'Yoxlama prosesində'),
-    (2, 'Qəbul edilib'), 
-    (3, 'Qəbul edilməyib'), 
+    (0, 'Pending'), 
+    (1, 'Accepted'),
+    (2, 'Finished'), 
+    (3, 'Rejected'), 
 )

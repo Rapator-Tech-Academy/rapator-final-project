@@ -23,24 +23,10 @@ class NewProductFormView(FormView):
         return context
 
     def form_valid(self, form):
-        title = form.cleaned_data.get('title')
-        delivery = form.cleaned_data.get('delivery')
-        is_new = form.cleaned_data.get('is_new')
-        price = float(form.cleaned_data.get('price'))
-        description = form.cleaned_data.get('description')
-        city = form.data.get('city')
-        category = form.data.get('category')
-
-        print(category)
 
         CreateProduct().create(
-            title = title,
-            delivery = delivery,
-            is_new = is_new,
-            price = price,
-            description = description,
-            city = city, 
-            category = category
+            form = form
         )
+
         return super().form_valid(form)
 
