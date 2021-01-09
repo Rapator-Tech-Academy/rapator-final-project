@@ -1,494 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <link rel="stylesheet" href="../static/css/navbar.css">
+{% extends "includes/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock css %}
     
-    <link rel="stylesheet" href="../static/css/navbar.css">
-    <link rel="stylesheet" href="../static/css/header_main.css">
-    <link rel="stylesheet" href="../static/css/header_search.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
+{% block body %}
+<div class="home-page">
+        {% include "includes/navbar.html" %}
+        {% include "includes/header_main.html" %}
+        {% include "includes/header_search.html" %}
+       
 
-    <title>Tap.az</title>
-    <link rel="icon"  type="image/jpg"  href="../static/img/title.jpg">
-</head>
-<body>
-    <nav class="navbar navbar-expand-md" id="nav">   
-        <div class="container">        
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li>
-                            <a class="nav-link active" href="#"><i class ="fa fa-fw fa-home"></i> Əsas səhifə</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">по-русски</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Saytda reklam</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav ml-auto" id="nav-right">
-                        <li>
-                            <a class="nav-link fa fa-instagram fa-lg" target="_blank" href="https://www.instagram.com/tap.az/"></a>
-                        </li>
-                        <li>
-                            <a class="nav-link fa fa-facebook fa-lg" target="_blank"  href="https://www.facebook.com/www.tap.az"></a>
-                        <li>
-                            <a class="nav-link fa fa-apple fa-lg" target="_blank" href="https://itunes.apple.com/us/app/tap.az-pulsuz-elanlar/id1132083305?ls=1&amp;mt=8"></a>
-                        </li>
-                        <li>
-                            <a class="nav-link fa fa-android fa-lg"  target="_blank" href="https://play.google.com/store/apps/details?id=org.tapaz.android"></a>
-                        </li>
-                        <li>
-                            <a class="nav-link">Dəstək:</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="tel:+994125990805">(012) 599-08-05; </a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="tel:+994125058585">(012) 505-85-85</a>   
-                        </li>                                 
-                </ul>
-            </div>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="header-main">
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="logo">
-                            <img src="../static/img/logo.jpg" alt="logo">
-                        </div>
-                    </div>
-                    <div class="col-md-8 mt-3 mb-3 pr-4">
-                        <div class="pull-right">
-                            <a class="bookmarks-link" href="#"> <i class="fa fa-fw fa-heart "></i>Seçilmişlər</a>
-                            <a class="login-link" href="#"> <i class="fa fa-fw fa-user "></i>Giriş</a>
-                            <a type="button" class="header-btn"><i class="fa fa-fw fa-plus"></i>Elan yerləşdir</a>
-                        </div> 
-                    </div>   
-               </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-navigation">
-        <div class="container">
-            <div class="container-fluid"> 
-                <div class="row">        
-                    <div class="col-md-12 pt-4">
-                        <form method="GET" class="form-inline">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group has-search">
-                                            <span class="fa fa-search form-control-feedback"></span>
-                                            <input type="text" class="form-control" placeholder="Məsələn, iPhone X">
-                                        </div>  
-                                    </div>              
-                                    <div class="col-md-6">
-                                        <div class="form-group has-select">
-                                            <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
-                                            <select class="form-control">
-                                                <option value="0">BÜTÜN AZƏRBAYCAN</option>
-                                                <option value="1">Abşeron</option>
-                                                <option value="2">Ağcabədi</option>
-                                                <option value="3">Ağdam</option>
-                                                <option value="4">Ağdaş</option>
-                                                <option value="5">Ağstafa</option>
-                                                <option value="6">Ağsu</option>
-                                                <option value="7">Astara</option>
-                                                <option value="8">Balakən</option>
-                                                <option value="9">Bərdə</option>
-                                                <option value="10">Beyləqan</option>
-                                                <option value="11">Biləsuvar</option>
-                                                <option value="12">Cəbrayıl</option>
-                                                <option value="13">Cəlilabad</option>
-                                                <option value="14">Daşkəsən</option>
-                                                <option value="15">Fizuli</option>
-                                                <option value="16">Gəncə</option>
-                                            </select>
-                                        </div>  
-                                        <div class="form-group btn-navigation">
-                                            <button type="button" class="btn-header-navigation">Tap
-                                            <span class="fa fa-search fa-lg form-control"></span></button> 
-                                        </div>  
-                                    </div>                                    
-                                </div>  
-                            </div>   
-                        </form>
-                    </div>
-                
-                    <div class="header-categories pt-4 ">
-                        <div class="row">
-
-
-                            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                <a class="header-category house-and-cottage" href="#"> 
-                                    <img class="header-category-icon" src="../static/img/washing_mashine.jpg"></div>
-                                    <span>Ev və bağ üçün</span>
-                                </a>
+        <!-- Content-->
+        <div class = "content">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row content-row">
+                        <!-- statistic -->
+                        <div class="statistic-counters-container">
+                            <div class="l-center">
+                                <div class="statistic-counters-i">
+                                    <div class="statistic-counters-quantity day-visits">
+                                        <span>1</span>
+                                        <span>8</span>
+                                        <span>7</span>
+                                        <span>6</span>
+                                        <span>0</span>
+                                        <span>0</span>
+                                    </div>
+                                    <div class="statistic-counters-text">istifadəçi<br>gün ərzində</div>
+                                </div>
+                                <div class="statistic-counters-i">
+                                    <div class="statistic-counters-quantity day-hits">
+                                        <span>4</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>5</span>
+                                        <span>0</span>
+                                        <span>0</span>
+                                        <span>0</span>
+                                    </div>
+                                    <div class="statistic-counters-text">baxış<br>gün ərzində</div>
+                                </div>
+                                <div class="statistic-counters-i">
+                                    <div class="statistic-counters-quantity">
+                                        <span>2</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>6</span>
+                                        <span>0</span>
+                                    </div>
+                                    <div class="statistic-counters-text">yeni elan<br>gün ərzində</div>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                <a class="header-category consumer-electronics" data-for="consumer-electronics" href="#">
-                                    <img src="../static/img/smartphone.png" class="header-category-icon"></div>
-                                    <span>Elektronika</span>
-                                </a>
-                             </div>
-
-                             <div class="col">                                <a class="header-category consumer-electronics" data-for="consumer-electronics" href="#">
-                                    <img src="../static/img/smartphone.png" class="header-category-icon"></div>
-                                    <span>Elektronika</span>
-                                </a>
-                             </div>
-                             <div class="col">
-                                <a class="header-category consumer-electronics" data-for="consumer-electronics" href="#">
-                                    <img src="../static/img/smartphone.png" class="header-category-icon"></div>
-                                    <span>Elektronika</span>
-                                </a>
-                             </div>
                         </div>
-    
-                    
 
+                         <!-- vip products-->
+                        <div class="home-products home-products-vip">
+                            <div class="l-center">
+                                <div class="products-container products-container_vip">
+                                    <div class="section-title">
+                                        <h2 class="section-title_name">VIP ELANLAR</h2>
+                                        <a class="section-title_more" href="#">Bütün VIP elanlar</a>
+                                    </div>
+                                    <div class="products">
+                                         <!-- vip products cards here-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- lates products-->
+                        <div class="products-container products-container_latest">
+                            <div class="section-title">
+                                <h2 class="section-title_name">SON ELANLAR</h2>
+                                <a class="section-title_more" href="#">Hamısını göstər</a>
+                            </div>
+                            <div class="products">
+                                <!-- lates products cards here-->
+                            </div>
+                        </div>
+
+                        <!-- Home products-->
+                        <div class="home-products">
+                            <div class="l-center">
+                                <div class="products-container">
+                                    <div class="section-title">
+                                        <h2 class="section-title_name">PREMİUM ELANLAR</h2>
+                                    </div>
+                                    <div class="products">
+                                    <!-- Home products cards here-->
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer-info-container">
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row l-center footer-info">
-                    <footer class="page_foot main-col_padding">
-                        <div class="footer-contacts">
-                            <div class="links">
-                                <a href="/pages/about">Layihə haqda</a>
-                                <a href="/pages/advertising">Reklam yerləşdirin</a>
-                                <a href="/pages/terms-and-conditions">İstifadəçi razılaşması</a>
-                                </div>
-                                <div class="contacts">Əlaqə: 
-                                    <div class="tel">
-                                        <a href="mailto:tap@tap.az">tap@tap.az</a> / 
-                                        <a href="tel:+994125990805">(012) 599-08-05</a>; 
-                                        <a href="tel:+994125058585">(012) 505-85-85</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer-regions">
-                                <div class="all-regions">
-                                    <div class="row">
-                                        <!--Grid column-->
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                            <ul class="list-unstyled mb-0 ">
-                                                <li>
-                                                    <a href="#">Bakı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sumqayıt</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağcabədi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağdam</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağdaş</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağdərə</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağstafa</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ağsu</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Astara</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Balakən</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Beyləqan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Bərdə</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Biləsuvar</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!--Grid column-->
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                            <ul class="list-unstyled mb-0" >
-                                                <li>
-                                                    <a href="#">Xırdalan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Gəncə</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Cəbrayıl</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Cəlilabad</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Culfa</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Daşkəsən</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Füzuli</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Gədəbəy</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Goranboy</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Göyçay</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Göygöl</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Göytəpə</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Hacıqabul</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li>
-                                                        <a href="#">Qəbələ</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Xaçmaz</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Horadiz</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">İmişli</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">İsmayıllı</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kəlbəcər</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kürdəmir</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Laçın</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Lerik</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Masallı</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Nabran</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Naftalan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Naxçıvan</a>
-                                                    </li>
-                                                </ul>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                            <ul class="list-unstyled mb-0">
-                                                <li>
-                                                    <a href="#">Quba</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şəki</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Neftçala</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Oğuz</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ordubad</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Qax</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Qazax</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Qobustan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Qubadlı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Saatlı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sabirabad</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şabran</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şahbuz</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                
-                                        <!--Grid column-->
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                            <ul class="list-unstyled mb-0">
-                                                <li>
-                                                    <a href="#">Qusar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Mingəçevir</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Salyan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şamaxı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Samux</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şəmkir</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şərur</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şirvan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Siyəzən</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Şuşa</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Tərtər</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Tovuz</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ucar</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!--Grid column-->
-                                        <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                            
-                                            <ul class="list-unstyled mb-0">
-                                                <li>
-                                                    <a href="#">Lənkəran</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Zaqatala</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xankəndi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xızı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xocalı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xocavənd</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xudat</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Yardımlı</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Yevlax</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Zəngilan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Zərdab</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer-bottom">
-                                <div class="side">
-                                    <div class="link_mob">
-                                        <b><a href="#">Mobil versiyası</a></b>
-                                    </div>
-                                    <div class="resp">
-                                        Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.
-                                    </div>
-                                    <div class="copyright">
-                                        © 2008-2021 Digital Classifieds OÜ
-                                    </div>
-                                </div>
-                                <div class="links-sites">
-                                    <a class="link-bossaz" target="_blank" href="https://boss.az">
-                                        <img alt="bos.az" src="../static/img/boss_az.jpg">
-                                    </a>
-                                    <a class="link-turboaz" target="_blank" href="https://turbo.az">
-                                        <img alt="burbo.az" src="../static/img/turbo_az.jpg">
-                                    </a>
-                                    <a class="link-binaaz" target="_blank" href="https://bina.az">
-                                        <img alt="bina.az" src="../static/img/bina_az.jpg"> 
-                                    </a>
-                                
-                                    <div class="counters">
-                                        <a rel="nofollow noopener" target="_blank" href="#">
-                                            <img alt="LiveInternet: показано количество просмотров и посетителей" height="109" src="../static/img/footer_end.png">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-            </div>
-        </div>  
-                
-                
-                       
-                    
-                         
-                      
-                 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-</body>
-</html>
+        <!--Fotter-->
+        {% include 'includes/footer.html'%}
+    </div>                                  
+
+{% endblock body %}
+
+      

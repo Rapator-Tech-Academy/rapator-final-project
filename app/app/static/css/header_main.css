@@ -5,6 +5,9 @@
     font-size: 15px;
 
 }
+.header-main-row{
+    padding: 0 5% 0 5%;
+}
 .header-main a {
     color: #fff; 
     font-weight: bold;

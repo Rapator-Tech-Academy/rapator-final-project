@@ -6,22 +6,20 @@
     color: #454545;
 }
 
+.main-content {
+    line-height: 1.5;
+}
 
 .main-content h1{
-    margin-top: 35px;
-    margin-bottom: 20px;
     display: block;
-    line-height: 1.5;
     font-size: 2em;
     margin-top: 30px;
     font-weight: 600;
 }
 
-.main-content h2{
-    margin-bottom: 20px;
-    display: block;
+.main-content p{
+    margin-top: 30px;
 }
-
 
 .pages{
     margin-top: 35px;

@@ -1,0 +1,125 @@
+@media screen and (max-height: 480px)
+.stage-1 {
+    position: static;
+    padding-top: 20px;
+}
+@media screen and (max-height: 480px)
+.stage-1 {
+    position: static;
+    padding-top: 20px;
+}
+.main {
+    background-color: #f1f3f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.auth {
+    margin: 10% 0% 0% 0%;
+    width: 33%;
+    padding: 39px;
+    border: 1px solid #eaebf2;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px 0 #eaebf2;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+}
+.auth__close-btn {
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    right: 50px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: transparent;
+    font-size: 0;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.login{
+    padding: 10% 0% 5% 0%;
+}
+
+.facebook {
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+.tapaz-logo {
+    width: 106px;
+    height: 32px;
+    margin: 1px auto 20px;
+    background-size: contain;
+}
+.promo {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #a6abb4;
+}
+.confirmation{
+    padding: 4% 4%;;
+}
+.btn--default {
+    background-color: #4b8af9;
+    border: 1px solid #4b8af9;
+    color: #fff;
+}
+.btn {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+}
+.btn--fb {
+    color: #1877f2;
+    border: 1px solid #1877f2;
+    background-color: transparent;
+}
+
+
+.btn--default {
+    background-color: #4b8af9;
+    border: 1px solid #4b8af9;
+    color: #fff;
+}
+
+.confirmation {
+    color: #a6abb4;
+    padding: 4% 4%;
+}
+.confirmation a{
+    color: #a6abb4;
+}
+
+
+@media screen and (max-height: 480px)
+.confirmation {
+    position: static;
+    padding: 20px 40px;
+}
+
+    
+    
