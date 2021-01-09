@@ -16,6 +16,7 @@ Pillow==8.1.0
 prompt-toolkit==3.0.10
 psycopg2-binary==2.8.6
 pytz==2020.5
+redis==3.5.3
 six==1.15.0
 sqlparse==0.4.1
 stories==4.0.0
