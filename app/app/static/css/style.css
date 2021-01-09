@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-* {
-    font-family: 'Open Sans', sans-serif;
-    color: #454545;
-}
 
 .main-content {
+    font-family: 'Open Sans', sans-serif;
+    color: #454545;
     line-height: 1.5;
+    width: 74%;
 }
 
 .main-content h1{
@@ -17,8 +16,12 @@
     font-weight: 600;
 }
 
+.main-content .col-md-9{
+    text-align: justify;
+}
+
 .main-content p{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .pages{
