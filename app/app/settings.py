@@ -48,8 +48,9 @@ THIRD_PARTY_APPS = [
 ]
 
 CUSTOM_APPS = [
-    'core',
+    'core.apps.CoreConfig',
     'users',
+]
 
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -149,9 +150,12 @@ MEDIA_URL = '/media/'
 # Site configurations
 SITE_ID = 1
 
+
 # CK Editor configurations
 CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
+
+
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -163,6 +167,7 @@ CELERY_BROKER_URL = os.environ.get(
 )
 
 CELERY_TIMEZONE = TIME_ZONE
+
 
 # EMAİL configurations
 # DEFAULT_FROM_EMAIL = "Tap.az <tap.az.elanlar@gmail.com>"

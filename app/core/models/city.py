@@ -1,8 +1,11 @@
 from django.db import models
 
+from autoslug import AutoSlugField
 
 class City(models.Model):
-    name = models.CharField(max_length=15)
+    name = models.CharField(max_length=35)
+    slug = AutoSlugField(populate_from='name')
+
 
     class Meta:
         verbose_name = "City"
