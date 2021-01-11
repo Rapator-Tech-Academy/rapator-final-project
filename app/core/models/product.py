@@ -3,8 +3,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 from .city import City
 class Product(models.Model):
-    category = TreeForeignKey(
-        'self',
+    category = TreeForeignKey('self',
         blank=True,
         null=True,
         related_name='child',
@@ -31,5 +30,8 @@ class Product(models.Model):
         verbose_name = "Product"
         verbose_name_plural = "Products"
 
+    def __unicode__(self):
+        return self.title
+
     def __str__(self):
-        return self.name
+        return self.title
