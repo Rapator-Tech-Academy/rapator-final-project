@@ -12,7 +12,19 @@
                         <div class="col-md-8 mt-3 mb-3 pr-4">
                             <div class="pull-right">
                                 <a class="bookmarks-link" href="#"> <i class="fa fa-fw fa-heart "></i>Seçilmişlər</a>
-                                <a class="login-link" href="#"> <i class="fa fa-fw fa-user "></i>Giriş</a>
+                                {% if request.user.is_authenticated %}                 
+                                    <div class="dropdown">
+                                        <a class="dropbtn"><i class="fa fa-fw fa-user "></i>email{{request.user.username}}</a>
+                                        <div class="dropdown-content">
+                                            <a href="#">Mənim elanlarım</a>
+                                            <a href="#">Balansı artır</a>
+                                            <a href="#">Seçilmişlər</a>
+                                            <a href="#">Çıxış</a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <a class="login-link" href="#"> <i class="fa fa-fw fa-user "></i>Giriş</a>
+                                {% endif %}
                                 <a type="button" class="header-btn"><i class="fa fa-fw fa-plus"></i>Elan yerləşdir</a>
                             </div> 
                         </div>   
