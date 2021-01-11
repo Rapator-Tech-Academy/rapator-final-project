@@ -6,13 +6,10 @@
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
-.l-center {
-    width: 950px;
-    margin: 0 auto;
+.footer-info{
+    padding: 0 5% 0 5%;
 }
-.page_foot.main-col_padding {
-    padding: 20px;
-}
+
 
 /* 1 - footer contacts*/
 .page_foot.main-col_padding .footer-contacts {

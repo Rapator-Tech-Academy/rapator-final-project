@@ -1,0 +1,106 @@
+
+/*Statistic counters container*/
+.content{
+    background-color: #f7f6f6;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.content-row{
+    padding: 0 5% 0 5%;
+}
+
+.statistic-counters-container {
+    font-weight: 600;
+    overflow: hidden;
+    padding: 10px 0;
+    
+    border-top: 2px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+.statistic-counters-container .l-center {
+    display: table;
+}
+
+.statistic-counters-i {
+    font-size: 0;
+    display: table-cell;
+}
+
+.statistic-counters-quantity {
+    vertical-align: middle;
+    display: inline-block;
+    background: #f8f8f8;
+    padding: 3px;
+    border-radius: 4px;
+}
+.statistic-counters-quantity span {
+    display: inline-block;
+    color: #ff6e35;
+    font-size: 26pt;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid #dedede;
+    border-right: 1px solid #e5e2e2;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.statistic-counters-quantity span:first-child {
+    border-radius: 4px 0 0 4px;
+}
+.statistic-counters-text {
+    margin-left: 10px;
+    color: #147eb8;
+    font-size: 16px;
+    line-height: 1.4;
+    vertical-align: middle;
+    display: inline-block;
+}
+.statistic-counters-quantity span:before {
+    content: '';
+    display: block;
+    background: rgba(0,0,0,0.06);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+}
+.statistic-counters-quantity span:last-child {
+    border-radius: 0 4px 4px 0;
+    border-right: 0;
+}
+
+
+/*VIP, Lates, Premium product section*/
+.section-title {
+    background-color: #fff;
+    padding: 20px 26px;
+    margin: 0 -25px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+}
+.section-title_name {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.section-title_more {
+    display: inline-block;
+    margin-left: 15px;
+    color: #2289f8;
+    font-size: 16px;
+    float: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+
+}
+.section-title a:hover{
+    text-decoration: none;
+}
+

@@ -1,0 +1,46 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/confirmation.css'%}">
+{% endblock css %}
+{% block body %}
+    <div id="auth-app">
+        <div class="main stage-2">
+            <div class="auth">
+                <a type="button" href="#" class="auth__close-btn">
+                    <img src="{% static 'img/close.jpg' %}">
+                </a>
+                <div class="login">
+                    <a href="#" type="button" class="back-btn" >
+                        <img src="{% static 'img/back.jpg' %}">
+                    </a>
+                    <div class="title title--main">Kodun təsdiqlənməsi</div>
+                     {% if messages %}
+                            
+                            {% for message in messages %}      <!--Django.da danger mesajlari olmadigina gore info mesajini danger kimi gostereceyik-->
+                                {% if message.tags == "info" %}
+                                <div class="alert alert-danger">{{ message }}</div>  <!--burda ise message daha dinamikdi-->
+                                {% else %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                                {% endif %}
+                            {% endfor %}
+
+                    {% endif %}
+                    <div class="promo">Elektron poçta kod göndərildi</div>
+                    <form action="#">
+                        <div class="input-group">
+                            <input class="input-group__field" type="email"> 
+                            <span class="input-group__placeholder">Kod</span>
+                        </div>
+                        
+                        <a href="#" type="button" class="btn code-request "> 
+                            Kod yenidən göndərilsin
+                        </a>
+                    </form>   
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock body %}

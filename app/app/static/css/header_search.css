@@ -4,10 +4,12 @@
     background: #ffd8a2;
 
 }
+.header-nav{
+    padding: 0 5% 0 5%;
+}
 .header-navigation form{
     columns: #fff; 
     font-family: Helvetica, Arial, sans-serif;
-    
     color: #aaa;
    
 }
@@ -15,9 +17,6 @@
 
 /* Bootstrap 4 text input with search icon */
 
-.has-select{
-    display: inline-flex;
-}
 .has-search .form-control {
     padding-left: 2.375rem;
     text-align: left;
@@ -44,10 +43,13 @@
 }
 
 /* Bootstrap 4 text select with search icon */
-
+.has-select{
+    display: inline-flex;
+}
 .has-select .form-control {
     padding-left: 2.375rem;
     text-align: left;
+    padding-top: 12px;
     border-radius: 5px;
     border: none;
     font-size: 16px;
@@ -81,41 +83,22 @@
 .btn-header-navigation {
         background-color: #ff6617;
         font-weight: 600;
+        text-decoration: none;
         padding-left: 21px;
         padding-top: 10px;
         color: #fff;
         text-transform: uppercase;
         text-align: center;
         font-size: 15px;
+        height: auto;
         display: flex;
         min-width: 110px;
-        height: 46px;
         margin: 0;
         outline: 0;
         border: 0;
         border-radius: 4px;
         cursor: pointer;
     }
-/* header categories row */
-
-.header-category  {
-    font-size: 14px;
-    font-weight: bold;
-    color: #147eb8;
-   
-}
-
-
-.header-category-icon{
-    
-    background-color: #fff;
-    height: 41px;
-    width: 47px;
-    border-radius: 50%;
-    margin-right: 6px;
-    transition: all ease 0.3s;
-
-}
 
 
 
