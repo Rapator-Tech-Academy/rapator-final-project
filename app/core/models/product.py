@@ -32,5 +32,8 @@ class Product(models.Model):
         verbose_name = "Product"
         verbose_name_plural = "Products"
 
+    def __unicode__(self):
+        return self.title
+
     def __str__(self):
         return self.title

@@ -37,7 +37,7 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  
+    'django.contrib.staticfiles',
     'django.contrib.flatpages',
 ]
 
@@ -48,9 +48,11 @@ THIRD_PARTY_APPS = [
 ]
 
 CUSTOM_APPS = [
-    'core.apps.CoreConfig'
+    'core.apps.CoreConfig',
+    'users',
 ]
 
+]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
@@ -154,6 +156,10 @@ CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
 
 
+
+AUTH_USER_MODEL = 'users.User'
+
+
 # Celery configurations
 CELERY_BROKER_URL = os.environ.get(
     "BROKER_URL",
@@ -163,10 +169,11 @@ CELERY_BROKER_URL = os.environ.get(
 CELERY_TIMEZONE = TIME_ZONE
 
 
-# EMAIL configurations
+# EMAİL configurations
+# DEFAULT_FROM_EMAIL = "Tap.az <tap.az.elanlar@gmail.com>"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'newstestemailnoreply@gmail.com'
-EMAIL_HOST_PASSWORD = 'Glyv2001'
+EMAIL_HOST_USER = 'tap.az.elanlar@gmail.com'
+EMAIL_HOST_PASSWORD = 'tapazelan'
