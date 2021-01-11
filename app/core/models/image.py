@@ -3,5 +3,5 @@ from core.models import Product
 
 
 class ProductImage(models.Model):
-    name = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    name = models.ManyToManyField(Product, default=None)
     image = models.ImageField(upload_to="images/")

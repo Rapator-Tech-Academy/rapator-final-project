@@ -1,5 +1,7 @@
 {% extends "../includes/base.html" %}
 {% load static %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
     <link rel="stylesheet" href="{% static 'css/header_main.css'%}">
@@ -8,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock css %}
 {% block body %}
+
 {% include "includes/navbar.html" %}
 {% include "includes/header_main.html" %}
  
@@ -16,9 +19,9 @@
         <div class='col-md-3'>
             <div class='background-ul'>
                 <ul class='pages'>
-                    <li class='pages-li'> <a href='{{ request.current_url }}'> Qaydalar </a> </li>
-                    <li class='pages-li'> <a href='{{ request.current_url }}'> Haqqımızda </a> </li>
-                    <li class='pages-li-current'> <a href='{{ request.current_url }}'> Saytda reklam </a> </li>
+                  {% for page in flatpages %}
+                    <li class="pages-li{% if page.url in request.path %}-current{% endif %}"> <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/pages{{ page.url }}"> {{ page.title }} </a> </li>
+                  {% endfor %}
                 </ul>
             </div>
         </div>
