@@ -49,10 +49,10 @@ THIRD_PARTY_APPS = [
 
 CUSTOM_APPS = [
     'core.apps.CoreConfig',
-    'users',
+    'users.apps.UsersConfig',
 ]
 
-]
+
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [

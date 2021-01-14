@@ -1,5 +1,11 @@
 from django.conf import settings
 from django.core.mail import send_mail
+from .utils import account_activation_token
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+
+from django.urls import reverse
+from django.shortcuts import render
+
 
 from django.db import models
 # from .tasks import email_user
@@ -10,6 +16,7 @@ from django.contrib.auth.models import (
 
 
 class UserManager(UserManager):
+
     def create_user(self, email, password=None):
         user = self.model(email=self.normalize_email(email))
         user.set_password(password)
@@ -22,7 +29,6 @@ class UserManager(UserManager):
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
-        return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -42,16 +48,3 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
-
-
-#class EmailConfirmed(models.Model):
-#    user = models.OneToOneField(settings.AUTH_USER_MODEL)
-#    is_active = models.BooleanField(default=False)
-#
-#    def __str__(self):
-#        return str(self.is_active)
-#    
-#    def activate_user_email(self):
-#        message="Click url to activate your account"
-#        email_user.delay(message, settings.DEFAULT_FROM_EMAIL)
-#

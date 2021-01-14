@@ -1,0 +1,274 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{object.title}}</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
+
+        body {
+            font-family: 'Literata', serif;
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        header {
+            background: steelblue;
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            z-index: -99;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-left: 1em;
+            margin-bottom: 0;
+            color: white;
+        }
+
+        header h3 {
+            margin-top: 0;
+            margin-left: 2em;
+            font-size: 1.3em;
+            color: white;
+            font-weight: 500;
+        }
+
+        [data-product-detail] {
+            width: 90%;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            top: 200px;
+            background: white;
+            box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        [data-product-detail] .img-card {
+            width: 40%;
+            height: 80%;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        .img-card .img {
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img-card .img i {
+            color: skyblue;
+            margin-left: 21em;
+            margin-top: 10px;
+        }
+
+        .img-card .img img {
+            width: 70%;
+            height: 200px;
+            position: relative;
+            left: 60px;
+            top: 20px;
+        }
+
+        .img-card .img-options {
+            border-top: 1px solid lightgrey;
+        }
+
+        [data-product-detail] .product-details {
+            height: 80%;
+            width: 50%;
+            /*   border: 1px solid teal; */
+            padding-left: 20px;
+        }
+
+        .product-details h2 {
+            margin: 0;
+            font-size: 35px;
+        }
+
+        .product-details p:first-of-type {
+            margin: 0;
+        }
+
+        .product-details p:nth-of-type(2) {
+            border: 1px solid lightgrey;
+            width: 140px;
+            height: 25px;
+            padding-left: 5px;
+        }
+
+        .product-details p:nth-of-type(2) span {
+            font-size: 12px;
+            position: relative;
+            bottom: 1px;
+        }
+
+        .product-details p:nth-of-type(3) {
+            color: grey;
+            margin-bottom: 0;
+        }
+
+        .product-details p:nth-of-type(4) {
+            margin-top: 0;
+        }
+
+        .product-details p:nth-of-type(4) span:first-of-type {
+            font-weight: 800;
+            font-size: 25px;
+            margin-right: 10px;
+        }
+
+        .product-details p:nth-of-type(4) span:nth-of-type(2) {
+            text-decoration: line-through;
+        }
+
+        .product-details p:nth-of-type(4) span:nth-of-type(3) {
+            color: teal;
+            font-size: 17px;
+            margin-left: 10px;
+        }
+
+        .product-details p:nth-of-type(5) {
+            color: grey;
+            font-size: 14px;
+        }
+
+        .product-details i.fas {
+            color: #FFC107;
+            margin-right: 5px;
+        }
+
+        .sample-colors {
+            display: flex;
+        }
+
+        .sample-colors div {
+            width: 30px;
+            height: 25px;
+            /*   border: 1px solid grey; */
+        }
+
+        .sample-colors div:first-of-type {
+            margin-right: 15px;
+            background: maroon;
+        }
+
+        .sample-colors div:first-of-type div {
+            background: maroon;
+            width: 10px;
+            height: 10px;
+            transform: translate(22px, -5px);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .sample-colors div:not(:first-of-type) {
+            background: teal;
+            margin: 0 15px;
+        }
+
+        button {
+            width: 170px;
+            height: 35px;
+            border: none;
+            margin-top: 14px;
+            font-family: 'Literata', serif;
+        }
+
+        button:first-of-type {
+            background: #4FC3F7;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button:nth-of-type(2) {
+            background: white;
+            border: 2px solid #4FC3F7;
+            border-radius: 4px;
+        }
+
+        .img-options {
+            display: flex;
+            padding-left: 10px;
+        }
+
+        .img-options div {
+            border: 1px solid lightgrey;
+            margin: 10px 20px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .img-options div img {
+            width: 80%;
+            margin: 7px 4px;
+        }
+
+        .img-options div:nth-of-type(2) img {
+            transform: rotate(90deg);
+        }
+
+        .img-options div:nth-of-type(3) img {
+            transform: rotate(-45deg);
+        }
+
+        .img-options div:nth-of-type(4) img {
+            transform: rotate(45deg);
+        }
+    </style>
+    <section>
+
+        <div data-product-detail>
+            <div class="img-card">
+                <div class='img'>
+                    <i class="far fa-heart"></i>
+                    <img
+                        src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                </div>
+                <div class='img-options'>
+                    <div><img
+                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    </div>
+                    <div><img
+                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    </div>
+                    <div><img
+                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    </div>
+                    <div><img
+                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="product-details">
+                <h2>{{object.title}}</h2>
+                <tr>
+                    <td>Şəhər:
+                    </td>
+                    <td>{{object.city}}</td>
+                </tr>
+                <p>Price</p>
+                <p><span>{{object.price}}</span></p>
+                <p>{{object.description}}</p>
+                <div class="sample-colors">
+
+                </div>
+            </div>
+    </section>
+</body>
+
+</html>
