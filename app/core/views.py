@@ -17,16 +17,25 @@ class NewProductFormView(FormView):
 
         context = {
             'categories': Category.objects.filter(level=0),
-            'cities': City.objects.all().order_by('name')
         }
 
         return context
 
     def form_valid(self, form):
+        print(form.cleaned_data.get('title'))
 
         CreateProduct().create(
             form = form
         )
 
         return super().form_valid(form)
+
+
+class HomePageView(TemplateView):
+    template_name = 'home_page.html'
+
+
+class BasicTestView(TemplateView):
+    template_name = 'pages/basic_card.html'
+
 

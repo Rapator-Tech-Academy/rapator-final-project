@@ -18,22 +18,9 @@
                                             <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
                                             <select class="form-control">
                                                 <option value="0">BÜTÜN AZƏRBAYCAN</option>
-                                                <option value="1">Abşeron</option>
-                                                <option value="2">Ağcabədi</option>
-                                                <option value="3">Ağdam</option>
-                                                <option value="4">Ağdaş</option>
-                                                <option value="5">Ağstafa</option>
-                                                <option value="6">Ağsu</option>
-                                                <option value="7">Astara</option>
-                                                <option value="8">Balakən</option>
-                                                <option value="9">Bərdə</option>
-                                                <option value="10">Beyləqan</option>
-                                                <option value="11">Biləsuvar</option>
-                                                <option value="12">Cəbrayıl</option>
-                                                <option value="13">Cəlilabad</option>
-                                                <option value="14">Daşkəsən</option>
-                                                <option value="15">Fizuli</option>
-                                                <option value="16">Gəncə</option>
+                                                {% for city in cities %}
+                                                <option value="{{ city.name }}">{{ city.name }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>  
                                         <div class="form-group btn-navigation">

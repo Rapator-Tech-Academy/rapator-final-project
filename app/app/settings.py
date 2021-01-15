@@ -44,15 +44,16 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'ckeditor',
-    'mptt'
+    'mptt',
+    'rest_framework',
 ]
 
 CUSTOM_APPS = [
     'core.apps.CoreConfig',
     'users',
+    'api'
 ]
 
-]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
@@ -78,6 +79,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom Processors
+                'core.context_processors.cities'
             ],
         },
     },
@@ -177,3 +181,13 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tap.az.elanlar@gmail.com'
 EMAIL_HOST_PASSWORD = 'tapazelan'
+
+
+# Rest Framework Configurations
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
