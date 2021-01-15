@@ -30,8 +30,6 @@ class NewProductFormView(FormView):
 
 
 
-
-
 class PostView(DetailView):
     template_name = "pages/new_product.html"
     model = Product
