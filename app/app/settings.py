@@ -41,7 +41,6 @@ DJANGO_APPS = [
     'django.contrib.flatpages',
 ]
 
-
 THIRD_PARTY_APPS = [
     'ckeditor',
     'mptt',
@@ -53,6 +52,7 @@ CUSTOM_APPS = [
     'users',
     'api'
 ]
+
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
