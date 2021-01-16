@@ -1,0 +1,261 @@
+{% extends "includes/base.html" %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+<link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+{% endblock css %}
+
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+
+
+
+<div class="container">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<div class="container">
+	<div class="row">
+		<div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+
+          
+
+
+
+            
+        </div>
+
+
+        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+  <div class="header-main" style="background-color: #f0f0f0;">
+    <div class="container-fluid">
+      <div class="row header-main-row" id="header">
+        <div class="col-md-4">
+          <div class="price">100 AZN</div>
+
+
+        </div>
+        <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
+          <h3>Samsung Galaxy TAB SM-T295 A 8.0 (2019) LTE</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row" style="padding-top: 1rem;">
+      <div class="col-sm-4">
+        <div class="author">
+          <ul style="list-style: none; align-items: start;">
+            <li style="font-weight: bold;">(050)-123-45-67 <img style="height: 60px;" src="{% static 'img/phone.png'%}">
+            </li>
+            <li>John</li>
+            <li><a style="font-size: 20px;" href="">İstifadəçinin bütün elanları</a></li>
+
+          </ul>
+
+        </div>
+        <div class="additions">
+          <ul style="list-style: none;">
+            <li>Elanın nömrəsi:22111983
+            </li>
+            <li>Baxışların sayı: 12086
+
+            </li>
+            <li>Yeniləndi: Bugün, 17:57
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-8" style="font-size: 20px;">
+        <table class="details">
+
+          <tr>
+            <td>Şəhər</td>
+            <td>Bakı</td>
+          </tr>
+          <tr>
+            <td>Malın növü </td>
+            <td>Planşetlər</td>
+          </tr>
+          <tr>
+            <td>Yeni </td>
+            <td>Bəli</td>
+          </tr>
+          <tr>
+            <td>Çatdırılma? </td>
+            <td>Bəli</td>
+          </tr>
+        </table>
+
+        <p style="padding-top: 1rem;">Аккумулятор - 5100 мАч
+
+          Камера - 8 Мп
+
+          Память - 2/32 ГБ
+
+          Процессор - Qualcomm / Snapdragon 429 / 2 ГГц / 4 ядра
+
+          Связь - 1 SIM / Nano-SIM
+
+          Экран - 8"
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- latest products-->
+  <div class="products-container products-container_latest">
+    <div class="section-title">
+      <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
+      </h2>
+    </div>
+    <div class="products">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- All products here-->
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title </h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg' %}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--products-->
+</div>
+
+
+<script src="{% static 'js/image_slider.js' %}"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock body %}

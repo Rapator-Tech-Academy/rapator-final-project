@@ -39,3 +39,13 @@ class BasicTestView(TemplateView):
     template_name = 'pages/basic_card.html'
 
 
+class UserProfilePageView(TemplateView):
+    template_name='pages/user_profile.html'
+
+    
+class UserAccountSettingsView(TemplateView):
+    template_name='pages/profile_settings.html'
+
+
+class ProductDetailView(TemplateView):
+    template_name='pages/product_detail.html'
