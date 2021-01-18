@@ -1,11 +1,13 @@
 import random
-import datetime
-
 from django.contrib.auth import get_user_model
 from celery import Celery, shared_task
-
-from .models import Product
 from .utils.helpers import send_mail_helper
+
+################# add      ################
+#from celery.decorators import periodic_task 
+from celery.schedules import crontab
+from datetime import date, timedelta 
+from .models import Product
 
 app = Celery()
 
@@ -16,3 +18,32 @@ def send_review_mail(product_id):
 
     if product and product.status == 0:
         send_mail_helper(subject='Your product is under review :) ', to_email_addresses=['ugurguliyev7@gmail.com'])
+
+@app.on_after_configure.connect
+def setup_periodic_tasks(sender, **kwargs):
+    sender.add_periodic_task(
+        crontab(minute=0, hour=0),
+        task_update_product_status.s()
+        )
+
+def task_update_product_status():
+    products = Product.objects.filter(status=1)
+    for product in products:
+        if((product.updated_at + timedelta(days=30)).date() < date.today()):# eger 30 gun kecibse
+            product.status = 2
+            product.save()
+
+'''
+@periodic_task(
+    run_every=crontab(minute=0, hour=0),
+    name          = "task_update_product_status",
+    ignore_result = True
+    )
+def task_update_product_status():
+    products = Product.objects.filter(status=1)
+    for product in products:
+        if((product.updated_at + timedelta(days=30)).date() < date.today()):# eger 30 gun kecibse
+            product.status = 2
+            product.save()
+'''          
+

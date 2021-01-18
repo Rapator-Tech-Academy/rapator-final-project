@@ -1,30 +1,29 @@
 from django.shortcuts import render
 from users.models import User
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
-from users.forms import RegisterForm, LoginForm, ResetPasswordConfirmForm, ResetPasswordForm
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView
-from django.conf import settings
+from django.views.generic import TemplateView, FormView, RedirectView
+from .forms import RegisterForm,  LoginForm
+from django.contrib.auth import logout
 
 
 
-class RegisterView(CreateView):
+
+
+class RegisterView(FormView):
     form_class = RegisterForm
     model = User
     template_name = 'accounts/register.html'
-    success_url = 'accounts/login.html'
+    success_url   = 'accounts/login.html'
 
+class LoginEmailView(FormView):
+    form_class    = LoginForm
+    template_name = 'accounts/login_by_email.html'
+    success_url   = 'accounts/register.html'
 
-class LoginView(LoginView):
-    form_class = LoginForm
+class LoginView(TemplateView):
     template_name = 'accounts/login.html'
-    success_url = 'accounts/register.html'
+
+class EmailConfirmView(TemplateView):
+    template_name = 'accounts/confirmation.html'
 
 
-class ForgetPasswordView(PasswordResetView):
-    form_class = ResetPasswordForm
-    template_name = 'accounts/forget_password.html'
-    success_url='accounts/login.html'
     
-
-

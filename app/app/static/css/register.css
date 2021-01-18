@@ -9,7 +9,7 @@
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 .auth {
-    margin: 10% 0% 0% 0%;
+    margin: 10% 0 10% 0;
     width: 33%;
     padding: 39px;
     border: 1px solid #eaebf2;
@@ -37,40 +37,72 @@
     background-color: transparent;
     cursor: pointer;
 }
+.back-btn {
+    width: 48px;
+    height: 54px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .login{
-    padding: 10% 0% 5% 0%;
+    padding: 10% 2% 5% 2%;
+}
+.title{
+    font-size: 20px;
+    font-weight: 500;
+    color: #4b8af9;
+    font-weight: bold;
+}
+.title--main{
+    line-height: 1.64;
+    margin-bottom: 30px;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+.input-group input{
+
+    height: 46px;
+    padding: 12px 15px 12px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #eaebf2;
+    box-sizing: border-box;
+    box-shadow: none;
+    appearance: none;
+
 }
 
-.facebook {
-    content: "";
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: middle;
+.btn.disabled {
+    opacity: .5;
+    pointer-events: none;
 }
 
-
-.tapaz-logo {
-    width: 106px;
-    height: 32px;
-    margin: 1px auto 20px;
-    background-size: contain;
-}
-.promo {
-    margin-bottom: 25px;
-    font-size: 16px;
-    line-height: 1.25;
-    color: #a6abb4;
-}
-.confirmation{
-    padding: 4% 4%;;
-}
 .btn--default {
     background-color: #4b8af9;
     border: 1px solid #4b8af9;
     color: #fff;
+    margin-bottom: 4px;
 }
 .btn {
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,26 +116,9 @@
     box-sizing: border-box;
     outline: none;
 }
-.btn--fb {
-    color: #1877f2;
-    border: 1px solid #1877f2;
-    background-color: transparent;
-}
 
 
-.btn--default {
-    background-color: #4b8af9;
-    border: 1px solid #4b8af9;
-    color: #fff;
-}
 
-.confirmation {
-    color: #a6abb4;
-    padding: 4% 4%;
-}
-.confirmation a{
-    color: #154fbd;
-}
 
 
 

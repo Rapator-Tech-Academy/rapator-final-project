@@ -72,7 +72,7 @@
 }
 
 
-/*VIP, Lates, Premium product section*/
+/*Lates product section*/
 .section-title {
     background-color: #fff;
     padding: 20px 26px;
@@ -94,6 +94,7 @@
     margin-left: 15px;
     color: #2289f8;
     font-size: 16px;
+    float: right;
     font-weight: bold;
     text-transform: uppercase;
     
@@ -101,5 +102,82 @@
 }
 .section-title a:hover{
     text-decoration: none;
+}
+
+/* Product cards section */
+.products-i{
+    display: inline-block;
+    vertical-align: top;
+    width: 15rem;
+    background-color: white;
+    box-sizing: border-box;
+    margin-right: 0.2%;
+    margin-bottom: 6px;
+}
+
+
+.products .products-link{
+    text-decoration: none;
+}
+.products .products-link .card{
+    position: relative;
+    z-index: 1;
+    height: 300px;
+}
+
+.products .products-link .card img{
+    overflow: hidden;
+    display: block;
+    background-color: #fff;
+}
+
+
+.products .products-link .card .products-price-container{
+
+    width: 45%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+}
+
+.products-price-container .products-price {
+    padding: 7px 10px;
+    background-color: #ff6617;
+    color: #fff;
+    text-align: center ;
+}
+.products-price .price-val {
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 18px;
+}
+
+.products-name{
+    display: -webkit-box;
+    max-height: 38.4px;
+    font-size: 18px;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 50px;
+    color: #444;
+    font-weight: bold;
+}
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0px 10px;
+    color: #b3b3b3;
+    font-size: 14px;
+    position: absolute;
+    left: 7px;
+    bottom: 8px;
+    box-sizing: border-box;
 }
 

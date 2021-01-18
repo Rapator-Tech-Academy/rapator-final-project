@@ -5,13 +5,13 @@ from .models import *
 
 class RegisterForm(UserCreationForm):
     name = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'name'}))
+        attrs={'placeholder': 'Name'}))
     surname = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'surname'}))
+        attrs={'placeholder': 'Surname'}))
     email = forms.CharField(widget=forms.EmailInput(
         attrs={'placeholder': 'Email'}))
     phone = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'phone_number'}))
+        attrs={'placeholder': 'Phone_number'}))
     password1 = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': 'Password1'}))
     password2 = forms.CharField(widget=forms.PasswordInput(
