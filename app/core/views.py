@@ -30,7 +30,7 @@ class NewProductFormView(FormView):
 
         return super().form_valid(form)
 
-class HomePageView(TemplateView):
+class HomePageView(TemplateView): #added
     template_name = 'home_page.html'
     
 

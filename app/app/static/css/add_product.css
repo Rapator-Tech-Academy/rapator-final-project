@@ -4,6 +4,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
+
 h1 {
     display: block;
     font-size: 2em;
@@ -13,6 +14,7 @@ h1 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
+
 .new-lot-form .col-md-12 {
     background-color: #f3f3f3;
     padding-top: 15px;

@@ -7,4 +7,4 @@ class ActiveUserDetail(models.Model):
 
     class Meta:
         db_table = "ActiveUserDetail"
-        verbose_name_plural = "Active User Detail"
+        verbose_name_plural = "Active_Users_Detail"

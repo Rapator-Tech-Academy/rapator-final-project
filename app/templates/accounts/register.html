@@ -1,6 +1,5 @@
 {% extends "../includes/base.html" %}
 {% load static %}
-
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/register.css'%}">
 {% endblock css %}
@@ -15,7 +14,8 @@
                     <a href="{% url 'users:login'%}" type="button" class="back-btn" >
                         <img src="{% static 'img/back.jpg' %}">
                     </a>
-                    <div class="title title--main">QEYDIYYAT</div>
+                    <div class="title title--main">Qeydiyyat</div>
+                        
                         <form action="#" method="POST">
                             {% csrf_token %}
                             <div class="input-group">
@@ -49,7 +49,6 @@
                     <div>
                 </div>
             </div>
-            
         </div>
     </div>
 {% endblock body %}

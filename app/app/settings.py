@@ -41,7 +41,6 @@ DJANGO_APPS = [
     'django.contrib.flatpages',
 ]
 
-
 THIRD_PARTY_APPS = [
     'ckeditor',
     'mptt',
@@ -79,7 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'core.custom_context_processor.subject_renderer',
+                'core.custom_context_processor.subject_renderer', #added
             ],
         },
     },

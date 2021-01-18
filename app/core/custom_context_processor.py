@@ -26,6 +26,6 @@ def subject_renderer(request):
 
 
     return {
-        'active_users': total,  # avoid naming it `user` as this is
-                                # the current signed in user
-    }
+        'active_users': total,  
+                              
+           }

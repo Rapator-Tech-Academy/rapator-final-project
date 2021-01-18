@@ -14,9 +14,8 @@ class FlatPageCustom(FlatPageAdmin):
         models.TextField: {'widget': CKEditorWidget}
     }
 
-class ActiveUserAdmin(admin.ModelAdmin):
+class ActiveUserAdmin(admin.ModelAdmin): #added
     list_display =['ip','is_user', 'visited_time',]
-
 
 
 
@@ -29,4 +28,4 @@ admin.site.register(Category, MPTTModelAdmin)
 admin.site.register(ProductImage)
 admin.site.register(Product)
 
-admin.site.register(ActiveUserDetail, ActiveUserAdmin)
+admin.site.register(ActiveUserDetail, ActiveUserAdmin) #added

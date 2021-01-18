@@ -25,7 +25,7 @@ def setup_periodic_tasks(sender, **kwargs):
         crontab(minute=0, hour=0),
         task_update_product_status.s()
         )
-
+@app.task
 def task_update_product_status():
     products = Product.objects.filter(status=1)
     for product in products:

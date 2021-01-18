@@ -5,9 +5,6 @@ from .forms import RegisterForm,  LoginForm
 from django.contrib.auth import logout
 
 
-
-
-
 class RegisterView(FormView):
     form_class = RegisterForm
     model = User

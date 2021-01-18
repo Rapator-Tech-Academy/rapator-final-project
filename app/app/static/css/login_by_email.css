@@ -59,11 +59,13 @@
 .login{
     padding: 10% 2% 5% 2%;
 }
+
 .title{
     font-size: 20px;
     font-weight: bold;
     color: #4387fd;
 }
+
 .title--main{
     line-height: 1.64;
     margin-bottom: 30px;
@@ -72,6 +74,7 @@
     position: relative;
     margin-bottom: 15px;
 }
+
 .input-group input{
     height: 60px;
     padding: 10px 15px 10px;
