@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.core.mail import send_mail
-from .utils import account_activation_token
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 
 from django.urls import reverse

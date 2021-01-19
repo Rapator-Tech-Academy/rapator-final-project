@@ -19,8 +19,8 @@ def send_welcome_email(user_id):
     user = User.objects.get(id=user_id)
     if user.email:
         send_mail(
-            subject="Welcome to tap.az",
-            message="tap.az.elanlar@gmail.com",
+            subject="Tap.az",
+            message="Welcome to Tap.Az",
             from_email= settings.EMAIL_HOST_USER,
             recipient_list=[user.email, settings.EMAIL_HOST_USER],
             fail_silently=False
