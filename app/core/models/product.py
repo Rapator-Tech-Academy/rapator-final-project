@@ -1,9 +1,12 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth import get_user_model
 
 from .category import Category
 from app.utils.helpers import STATUS_TYPES
 from .city import City
+
+User = get_user_model()
 
 class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name="Product name")
@@ -20,6 +23,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(f'{self.title}-{self.pk}')
@@ -27,6 +31,9 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return self.slug
+
+    def get_image_url(self):
+        return self.image.url
 
     class Meta:
         verbose_name = "Product"
