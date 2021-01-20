@@ -1,7 +1,11 @@
-from rest_framework.generics import ListAPIView
+from django.contrib.auth import get_user_model
+
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 
 from core.models import Product
-from .serializers import ProductSerializer
+from .serializers import *
+
+User = get_user_model()
 
 # Create your views here.
 
@@ -22,3 +26,27 @@ class FilterProductListAPIView(ListAPIView):
 
         return query
 
+
+class UserProductsListAPIView(ListAPIView):
+    serializer_class = ProductSerializer
+    
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+
+        if user_id:
+            query = Product.objects.filter(user__id=user_id)
+
+            return query
+
+
+class UserInformationsListAPIView(RetrieveUpdateAPIView):
+    serializer_class = UserInformationSerializer
+    queryset = User.objects.all()
+    
+    def get_queryset(self):
+        user_id = self.kwargs['pk']
+
+        if user_id:
+            queryset = User.objects.filter(id=user_id)
+
+            return queryset
