@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth import get_user_model
 
 from .category import Category
 from app.utils.helpers import STATUS_TYPES
@@ -7,6 +8,7 @@ from django.utils.text import slugify
 
 from .city import City
 
+User = get_user_model()
 
 class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name="Product name")
@@ -22,17 +24,23 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     view_count = models.PositiveIntegerField(default=0)
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(f'{self.title}-{self.pk}')
-    #     super(Product, self).save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return self.slug
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         verbose_name = "Product"
         verbose_name_plural = "Products"
+
+    def __unicode__(self):
+        return self.title
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return self.slug
+
+    def get_image_url(self):
+        return self.image.url
 
     def save(self, **kwargs):
         if not self.slug:
@@ -41,8 +49,4 @@ class Product(models.Model):
             return super().save(**kwargs)
         return super().save(**kwargs)
 
-    def __unicode__(self):
-        return self.title
-
-    def __str__(self):
-        return self.title
+    

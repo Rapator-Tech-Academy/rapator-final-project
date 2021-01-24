@@ -16,12 +16,12 @@ class NewProductFormView(FormView):
 
         context = {
             'categories': Category.objects.filter(level=0),
-            'cities': City.objects.all().order_by('name')
         }
 
         return context
 
     def form_valid(self, form):
+        print(form.cleaned_data.get('title'))
 
         CreateProduct().create(
             form=form
@@ -29,9 +29,8 @@ class NewProductFormView(FormView):
         return super().form_valid(form)
 
 
-
 class PostView(DetailView):
-    template_name = "pages/new_product.html"
+    template_name = "pages/product_detail.html"
     model = Product
 
     def get_slug_field(self):
@@ -46,13 +45,13 @@ class PostView(DetailView):
 
     def get_object_categories(self):
         obj = self.get_object()
-        return obj.category.all()
+        return obj.category
 
     def get_related_posts(self):
         category = self.get_object_categories()
         obj = self.get_object()
         return self.model.objects.filter(
-            category__in=category).order_by('-updated_at')
+            category=category).order_by('-updated_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -74,3 +73,12 @@ class CategoryView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class HomePageView(TemplateView):
+    # TODO: Implement Home Page View (get latest products, total product count etc.)
+    template_name = 'home_page.html'
+
+
+class BasicTestView(TemplateView):
+    template_name = 'pages/basic_card.html'
