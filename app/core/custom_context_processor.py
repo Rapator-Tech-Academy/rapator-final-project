@@ -18,7 +18,7 @@ def subject_renderer(request):
     active_user.save()
     
     last_day = (datetime.now() - timedelta(days=1)).strftime('%d')
-    ActiveUserDetail.objects.filter(visited_time__day = last_day).delete() 
+    ActiveUserDetail.objects.filter(visited_time__day__lte = last_day).delete() 
     #guest = str(ActiveUserDetail.objects.filter(is_user=False).count())   #qeydiyyatda olmayanlarin sayi
     #users = str(ActiveUserDetail.objects.filter(is_user=True).count())    #qeydiyyatdan kecenlerin sayi
     

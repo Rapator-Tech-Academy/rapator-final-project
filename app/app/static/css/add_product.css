@@ -1,3 +1,6 @@
+.col-md-12 {
+    display: inline-flex;
+}
 .new-lot-form {
     border-bottom: 0;
     padding: 3% 10% 2% 10%;
