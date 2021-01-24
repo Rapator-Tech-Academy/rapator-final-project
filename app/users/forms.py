@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
+from django.contrib.auth import get_user_model
 
-from .models import *
+User = get_user_model()
+
 
 class RegisterForm(forms.Form):
     name = forms.CharField()
@@ -11,15 +13,14 @@ class RegisterForm(forms.Form):
     password = forms.CharField()
 
 
-# class LoginForm(AuthenticationForm):
-#     email = forms.CharField(widget=forms.EmailInput(
-#         attrs={'placeholder': 'Email'}))
-#     password = forms.CharField(widget=forms.PasswordInput(
-#         attrs={'placeholder': 'Password'}))
-
-#     class Meta:
-#         model = UserModel
-#         fields = ['email', 'password']
+class LoginForm(AuthenticationForm):
+    email = forms.CharField(widget=forms.EmailInput(
+        attrs={'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={'placeholder': 'Password'}))
+    class Meta:
+        model = User
+        fields = ['email', 'password']
 
 
 class ResetPasswordForm(PasswordResetForm):

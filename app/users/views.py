@@ -1,35 +1,30 @@
-from django.shortcuts import render
-from .models import User
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView
-from django.contrib.auth.views import LoginView, PasswordResetView
-from django.conf import settings
-from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
+from django.views.generic import FormView
+from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth import get_user_model
 
-from .forms import RegisterForm, ResetPasswordForm
-from .models import User
+from users.forms import RegisterForm, ResetPasswordForm, LoginForm
 
-UserModel = User
 
-# class LoginView(LoginView):
-#     form_class = LoginForm
-#     template_name = 'accounts/login.html'
-#     success_url = 'accounts/register.html'
+User = get_user_model()
+
+
+class LoginView(LoginView):
+    form_class = LoginForm
+    template_name = 'accounts/login.html'
+    success_url = 'accounts/register.html'
 
 
 class ForgetPasswordView(PasswordResetView):
     form_class = ResetPasswordForm
     template_name = 'accounts/forget_password.html'
-    success_url='accounts/login.html'
+    success_url = 'accounts/login.html'
 
 
 class SignUpView(FormView):
@@ -63,7 +58,7 @@ class SignUpView(FormView):
         if user:
             return HttpResponse('Email has already taken.')
         else:
-            new_user = UserModel.objects.create_user(
+            new_user = User.objects.create_user(
                 email = email,
                 password = form.cleaned_data.get('password')
             )
@@ -77,7 +72,7 @@ class SignUpView(FormView):
     def activate(request, uidb64, token):
         try:
             uid = urlsafe_base64_decode(uidb64).decode()
-            user = UserModel._default_manager.get(pk=uid)
+            user = User._default_manager.get(pk=uid)
         except(TypeError, ValueError, OverflowError, User.DoesNotExist):
             user = None
         if user is not None and default_token_generator.check_token(user, token):
@@ -92,10 +87,3 @@ class SignUpView(FormView):
         self.create_new_user(form=form)
 
         return super().form_valid(form)
-
-
-
-
-    
-
-
