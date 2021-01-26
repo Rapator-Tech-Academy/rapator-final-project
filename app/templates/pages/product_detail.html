@@ -1,274 +1,261 @@
+{% extends "includes/base.html" %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block css %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{object.title}}</title>
-</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+<link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
-<body>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
+{% endblock css %}
 
-        body {
-            font-family: 'Literata', serif;
-        }
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
 
-        section {
-            height: 100vh;
-        }
 
-        header {
-            background: steelblue;
-            height: 50%;
-            position: absolute;
-            width: 100%;
-            z-index: -99;
-        }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-left: 1em;
-            margin-bottom: 0;
-            color: white;
-        }
+<div class="container">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!------ Include the above in your HEAD tag ---------->
 
-        header h3 {
-            margin-top: 0;
-            margin-left: 2em;
-            font-size: 1.3em;
-            color: white;
-            font-weight: 500;
-        }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<div class="container">
+	<div class="row">
+		<div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
 
-        [data-product-detail] {
-            width: 90%;
-            height: 400px;
-            margin: 0 auto;
-            position: relative;
-            top: 200px;
-            background: white;
-            box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+          
 
-        [data-product-detail] .img-card {
-            width: 40%;
-            height: 80%;
-            border: 1px solid lightgrey;
-            border-radius: 5px;
-        }
 
-        .img-card .img {
-            height: 80%;
-            display: flex;
-            flex-direction: column;
-        }
 
-        .img-card .img i {
-            color: skyblue;
-            margin-left: 21em;
-            margin-top: 10px;
-        }
+            
+        </div>
 
-        .img-card .img img {
-            width: 70%;
-            height: 200px;
-            position: relative;
-            left: 60px;
-            top: 20px;
-        }
 
-        .img-card .img-options {
-            border-top: 1px solid lightgrey;
-        }
-
-        [data-product-detail] .product-details {
-            height: 80%;
-            width: 50%;
-            /*   border: 1px solid teal; */
-            padding-left: 20px;
-        }
-
-        .product-details h2 {
-            margin: 0;
-            font-size: 35px;
-        }
-
-        .product-details p:first-of-type {
-            margin: 0;
-        }
-
-        .product-details p:nth-of-type(2) {
-            border: 1px solid lightgrey;
-            width: 140px;
-            height: 25px;
-            padding-left: 5px;
-        }
-
-        .product-details p:nth-of-type(2) span {
-            font-size: 12px;
-            position: relative;
-            bottom: 1px;
-        }
-
-        .product-details p:nth-of-type(3) {
-            color: grey;
-            margin-bottom: 0;
-        }
-
-        .product-details p:nth-of-type(4) {
-            margin-top: 0;
-        }
-
-        .product-details p:nth-of-type(4) span:first-of-type {
-            font-weight: 800;
-            font-size: 25px;
-            margin-right: 10px;
-        }
-
-        .product-details p:nth-of-type(4) span:nth-of-type(2) {
-            text-decoration: line-through;
-        }
-
-        .product-details p:nth-of-type(4) span:nth-of-type(3) {
-            color: teal;
-            font-size: 17px;
-            margin-left: 10px;
-        }
-
-        .product-details p:nth-of-type(5) {
-            color: grey;
-            font-size: 14px;
-        }
-
-        .product-details i.fas {
-            color: #FFC107;
-            margin-right: 5px;
-        }
-
-        .sample-colors {
-            display: flex;
-        }
-
-        .sample-colors div {
-            width: 30px;
-            height: 25px;
-            /*   border: 1px solid grey; */
-        }
-
-        .sample-colors div:first-of-type {
-            margin-right: 15px;
-            background: maroon;
-        }
-
-        .sample-colors div:first-of-type div {
-            background: maroon;
-            width: 10px;
-            height: 10px;
-            transform: translate(22px, -5px);
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .sample-colors div:not(:first-of-type) {
-            background: teal;
-            margin: 0 15px;
-        }
-
-        button {
-            width: 170px;
-            height: 35px;
-            border: none;
-            margin-top: 14px;
-            font-family: 'Literata', serif;
-        }
-
-        button:first-of-type {
-            background: #4FC3F7;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        button:nth-of-type(2) {
-            background: white;
-            border: 2px solid #4FC3F7;
-            border-radius: 4px;
-        }
-
-        .img-options {
-            display: flex;
-            padding-left: 10px;
-        }
-
-        .img-options div {
-            border: 1px solid lightgrey;
-            margin: 10px 20px;
-            width: 40px;
-            height: 40px;
-        }
-
-        .img-options div img {
-            width: 80%;
-            margin: 7px 4px;
-        }
-
-        .img-options div:nth-of-type(2) img {
-            transform: rotate(90deg);
-        }
-
-        .img-options div:nth-of-type(3) img {
-            transform: rotate(-45deg);
-        }
-
-        .img-options div:nth-of-type(4) img {
-            transform: rotate(45deg);
-        }
-    </style>
-    <section>
-
-        <div data-product-detail>
-            <div class="img-card">
-                <div class='img'>
-                    <i class="far fa-heart"></i>
-                    <img
-                        src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
-                </div>
-                <div class='img-options'>
-                    <div><img
-                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
                     </div>
-                    <div><img
-                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
                     </div>
-                    <div><img
-                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
-                    </div>
-                    <div><img
-                            src="https://img.freepik.com/free-vector/black-bow-tie-realistic-icon-isolated-white-background_33099-969.jpg?size=626&ext=jpg" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="product-details">
-                <h2>{{object.title}}</h2>
-                <tr>
-                    <td>Şəhər:
-                    </td>
-                    <td>{{object.city}}</td>
-                </tr>
-                <p>Price</p>
-                <p><span>{{object.price}}</span></p>
-                <p>{{object.description}}</p>
-                <div class="sample-colors">
+        </div>
+	</div>
+</div>
+  <div class="header-main" style="background-color: #f0f0f0;">
+    <div class="container-fluid">
+      <div class="row header-main-row" id="header">
+        <div class="col-md-4">
+          <div class="price">100 AZN</div>
 
+
+        </div>
+        <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
+          <h3>Samsung Galaxy TAB SM-T295 A 8.0 (2019) LTE</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row" style="padding-top: 1rem;">
+      <div class="col-sm-4">
+        <div class="author">
+          <ul style="list-style: none; align-items: start;">
+            <li style="font-weight: bold;">(050)-123-45-67 <img style="height: 60px;" src="{% static 'img/phone.png'%}">
+            </li>
+            <li>John</li>
+            <li><a style="font-size: 20px;" href="">İstifadəçinin bütün elanları</a></li>
+
+          </ul>
+
+        </div>
+        <div class="additions">
+          <ul style="list-style: none;">
+            <li>Elanın nömrəsi:22111983
+            </li>
+            <li>Baxışların sayı: 12086
+
+            </li>
+            <li>Yeniləndi: Bugün, 17:57
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-8" style="font-size: 20px;">
+        <table class="details">
+
+          <tr>
+            <td>Şəhər</td>
+            <td>Bakı</td>
+          </tr>
+          <tr>
+            <td>Malın növü </td>
+            <td>Planşetlər</td>
+          </tr>
+          <tr>
+            <td>Yeni </td>
+            <td>Bəli</td>
+          </tr>
+          <tr>
+            <td>Çatdırılma? </td>
+            <td>Bəli</td>
+          </tr>
+        </table>
+
+        <p style="padding-top: 1rem;">Аккумулятор - 5100 мАч
+
+          Камера - 8 Мп
+
+          Память - 2/32 ГБ
+
+          Процессор - Qualcomm / Snapdragon 429 / 2 ГГц / 4 ядра
+
+          Связь - 1 SIM / Nano-SIM
+
+          Экран - 8"
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- latest products-->
+  <div class="products-container products-container_latest">
+    <div class="section-title">
+      <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
+      </h2>
+    </div>
+    <div class="products">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- All products here-->
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
                 </div>
-            </div>
-    </section>
-</body>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title </h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="products-i">
+            <a href="#" class="products-link mb-2">
+              <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="{% static 'img/product_1.jpg' %}" alt="Card image cap">
+                <div class="products-price-container">
+                  <div class="products-price">
+                    <span class="price-val">10 AZN</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
+                  <p class="card-text">Bakı, bugün, 18:21</p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-</html>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--products-->
+</div>
+
+
+<script src="{% static 'js/image_slider.js' %}"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock body %}
