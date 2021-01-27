@@ -5,6 +5,7 @@ from .category import Category
 from app.utils.helpers import STATUS_TYPES
 from .city import City
 
+
 class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name="Product name")
     slug = models.SlugField(unique=True)
@@ -19,19 +20,16 @@ class Product(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(f'{self.title}-{self.pk}')
-    #     super(Product, self).save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return self.slug
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = "Product"
         verbose_name_plural = "Products"
 
+    def get_absolute_url(self):
+        return self.slug
+ 
     def __unicode__(self):
         return self.title
 
