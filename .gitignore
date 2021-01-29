@@ -6,13 +6,5 @@ redisdb/
 *.log
 app/db.sqlite3
 app/media
-
-app/app/settings.py
-_development/
-Dockerfile
-dockerignore
-README.md
-_nginx/
-docker-compose.yml
-uwsgi.ini
-.gitignore
+venv/
+**/migrations/**
