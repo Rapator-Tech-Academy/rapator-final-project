@@ -32,15 +32,16 @@
     <div class="row">
       <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-            data-image=""
+          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
             data-target="#image-gallery">
-            <img class="img-thumbnail"
-              src=""
-              alt="Another alt text">
+            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
+          </a>
+        </div>    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
+            data-target="#image-gallery">
+            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
           </a>
         </div>
-      
       </div>
 
 
@@ -55,7 +56,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+              <img id="image-gallery-image" class="img-responsive col-md-12" src="{{product.image.url}}">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
@@ -75,7 +76,7 @@
     <div class="container-fluid">
       <div class="row header-main-row" id="header">
         <div class="col-md-4">
-          <div class="price">{{product.price}}</div>
+          <div class="price">{{product.price}}AZN</div>
 
 
         </div>
@@ -119,18 +120,27 @@
             <td>Şəhər</td>
             <td>{{product.city}}</td>
           </tr>
-    
+
           <tr>
             <td>Yeni </td>
-            <td>{{product.delivery}}</td>
+            <td>{% if product.is_new != True %}
+              Bəli
+              {% else %}
+              Xeyr
+              {% endif %}
+            </td>
           </tr>
           <tr>
             <td>Çatdırılma? </td>
-            <td></td>
+            <td>{% if product.delivery != True %}
+              Var
+              {% else %}
+              Yoxdur
+              {% endif %}</td>
           </tr>
         </table>
 
-        <p style="padding-top: 1rem;">{{product.description}}
+        <p style="padding-top: 1rem; text-align: left;">{{product.description}}
         </p>
       </div>
     </div>
@@ -156,7 +166,7 @@
                 <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
                 <div class="products-price-container">
                   <div class="products-price">
-                    <span class="price-val">{{product.price}}</span>
+                    <span class="price-val">{{product.price}}AZN</span>
                   </div>
                 </div>
                 <div class="card-body">
@@ -166,7 +176,7 @@
               </div>
             </a>
           </div>{%endfor%}
-        
+
 
 
         </div>

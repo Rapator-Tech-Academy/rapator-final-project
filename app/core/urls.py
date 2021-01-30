@@ -9,5 +9,5 @@ urlpatterns = [
     path('card/', views.BasicTestView.as_view()),
     path('profile/', UserProfilePageView.as_view(), name='user-profile'),
     path('profile-settings/', UserAccountSettingsView.as_view(), name='profile-settings'),
-    path("product_detail/<slug>/", views.ProductDetailView.as_view(),name="product-detail"),
+    path("product_detail/<slug>/", views.ProductView.as_view(),name="product-detail"),
 ]
