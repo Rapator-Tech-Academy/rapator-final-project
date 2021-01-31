@@ -6,3 +6,5 @@ redisdb/
 *.log
 app/db.sqlite3
 app/media
+venv/
+**/migrations/**
