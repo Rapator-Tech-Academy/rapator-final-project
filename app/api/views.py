@@ -13,8 +13,13 @@ class FilterProductListAPIView(ListAPIView):
     serializer_class = ProductSerializer
     
     def get_queryset(self):
-        query = Product.objects.filter(status=1)
+        query = Product.objects.filter(status=1).order_by('-updated_at')
+
         data = self.request.query_params
+
+        if data.get('keyword'):
+            kw = data.get('keyword')
+            query = query.filter(title__icontains=kw)
 
         if data.get('max'):
             kw = data.get('max')
@@ -23,6 +28,7 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('min'):
             kw = data.get('min')
             query = query.filter(price__gte=kw)
+        
 
         return query
 

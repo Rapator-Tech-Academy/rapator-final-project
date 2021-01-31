@@ -4,13 +4,13 @@
     <div class="container">
         <div class="container-fluid">
             <div class="row header-nav ">
-                <form method="GET" class="form-inline pt-4">
+                <form action="{% url 'search-result-page' %}" method="GET" class="form-inline pt-4">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group has-search">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                    <input type="text" class="form-control" placeholder="Məsələn, iPhone X">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                        <input type="text" name='keyword' class="form-control" placeholder="Məsələn, iPhone X">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -24,8 +24,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group btn-navigation">
-                                    <a type="button" class="btn-header-navigation">Tap
-                                        <span class="fa fa-search form-control"></span></a>
+                                    <button type="submit" class="btn-header-navigation">Tap
+                                    <span class="fa fa-search form-control"></span></button>
                                 </div>
                             </div>
                         </div>
@@ -37,9 +37,9 @@
                 <div class="dropdown">
                     <button class="dropbtn" style=" background-color: #FFF;
                             ">Qiymət, AZN</button>
-                    <div class="dropdown-content" style="  padding:  10px">
-                        <input class="form-control " id="price_range" placeholder="min." type="text">
-                        <input class="form-control " id="price_range" placeholder="max." type="text">
+                    <div class="dropdown-content" style="padding:10px">
+                        <input class="form-control " id="price_range" placeholder="min." type="number" class="min">
+                        <input class="form-control " id="price_range" placeholder="max." type="number" class="max">
                     </div>
 
                 </div>
