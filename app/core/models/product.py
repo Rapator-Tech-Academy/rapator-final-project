@@ -20,7 +20,6 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0, verbose_name="Product price")
     description = models.TextField(max_length=3000, null=False, blank=True)
     image = models.ImageField(blank=True)
-egory, on_delete=models.SET_NULL, null=True)
 
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
