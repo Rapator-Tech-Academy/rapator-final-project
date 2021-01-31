@@ -6,6 +6,7 @@ from .forms import NewProductForm
 from .stories import CreateProduct
 
 
+
 class NewProductFormView(FormView):
     template_name = 'pages/new_product.html'
     form_class = NewProductForm
@@ -28,10 +29,10 @@ class NewProductFormView(FormView):
         )
         return super().form_valid(form)
 
-
-class PostView(DetailView):
-    template_name = "pages/product_detail.html"
+class ProductView(DetailView):
+    template_name = 'pages/product_detail.html'
     model = Product
+    context_object_name = 'product'
 
     def get_slug_field(self):
         return 'slug'
@@ -46,8 +47,7 @@ class PostView(DetailView):
     def get_object_categories(self):
         obj = self.get_object()
         return obj.category
-
-    def get_related_posts(self):
+    def get_related_products(self):
         category = self.get_object_categories()
         obj = self.get_object()
         return self.model.objects.filter(
@@ -55,12 +55,16 @@ class PostView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['related_posts'] = self.get_related_posts()
+        context['related_products'] = self.get_related_products()
         return context
+
+    def get_products_price_range(self):
+        return Product.objects.filter(price_range(min_price, max_price))
 
 
 class CategoryView(ListView):
-    template_name = "pages/product_detail.html"
+    template_name = "/pages/product_detail.html"
+
     model = Product
 
     def get_category(self):
@@ -85,12 +89,9 @@ class BasicTestView(TemplateView):
 
 
 class UserProfilePageView(TemplateView):
-    template_name='pages/user_profile.html'
+    template_name = 'pages/user_profile.html'
 
-    
+
 class UserAccountSettingsView(TemplateView):
-    template_name='pages/profile_settings.html'
+    template_name = 'pages/profile_settings.html'
 
-
-class ProductDetailView(TemplateView):
-    template_name='pages/product_detail.html'

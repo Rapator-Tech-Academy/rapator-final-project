@@ -20,16 +20,22 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0, verbose_name="Product price")
     description = models.TextField(max_length=3000, null=False, blank=True)
     image = models.ImageField(blank=True)
+egory, on_delete=models.SET_NULL, null=True)
+
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     view_count = models.PositiveIntegerField(default=0)
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-
+    
     class Meta:
         verbose_name = "Product"
         verbose_name_plural = "Products"
 
+    def get_absolute_url(self):
+        return self.slug
+ 
     def __unicode__(self):
         return self.title
 

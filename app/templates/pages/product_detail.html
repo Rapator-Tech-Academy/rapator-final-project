@@ -1,5 +1,4 @@
 {% extends "includes/base.html" %}
-
 {% load static %}
 
 {% block css %}
@@ -25,72 +24,64 @@
 
 <div class="container">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!------ Include the above in your HEAD tag ---------->
+  <!------ Include the above in your HEAD tag ---------->
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<div class="container">
-	<div class="row">
-		<div class="row">
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-
-          
-
-
-
-            
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <div class="container">
+    <div class="row">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
+            data-target="#image-gallery">
+            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
+          </a>
+        </div>    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
+            data-target="#image-gallery">
+            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
+          </a>
         </div>
+      </div>
 
 
-        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="image-gallery-title"></h4>
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
-                        </button>
-
-                        <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
+      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="image-gallery-title"></h4>
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                  class="sr-only">Close</span>
+              </button>
             </div>
+            <div class="modal-body">
+              <img id="image-gallery-image" class="img-responsive col-md-12" src="{{product.image.url}}">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
+                  class="fa fa-arrow-left"></i>
+              </button>
+
+              <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i
+                  class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
-	</div>
-</div>
+      </div>
+    </div>
+  </div>
   <div class="header-main" style="background-color: #f0f0f0;">
     <div class="container-fluid">
       <div class="row header-main-row" id="header">
         <div class="col-md-4">
-          <div class="price">100 AZN</div>
+          <div class="price">{{product.price}}AZN</div>
 
 
         </div>
         <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
-          <h3>Samsung Galaxy TAB SM-T295 A 8.0 (2019) LTE</h3>
+          <h3>{{ product.title }}</h3>
         </div>
       </div>
     </div>
@@ -113,10 +104,10 @@
           <ul style="list-style: none;">
             <li>Elanın nömrəsi:22111983
             </li>
-            <li>Baxışların sayı: 12086
+            <li>Baxışların sayı: {{product.view_count}}
 
             </li>
-            <li>Yeniləndi: Bugün, 17:57
+            <li>Yeniləndi: {{product.updated_at}}
 
             </li>
           </ul>
@@ -127,34 +118,29 @@
 
           <tr>
             <td>Şəhər</td>
-            <td>Bakı</td>
+            <td>{{product.city}}</td>
           </tr>
-          <tr>
-            <td>Malın növü </td>
-            <td>Planşetlər</td>
-          </tr>
+
           <tr>
             <td>Yeni </td>
-            <td>Bəli</td>
+            <td>{% if product.is_new != True %}
+              Bəli
+              {% else %}
+              Xeyr
+              {% endif %}
+            </td>
           </tr>
           <tr>
             <td>Çatdırılma? </td>
-            <td>Bəli</td>
+            <td>{% if product.delivery != True %}
+              Var
+              {% else %}
+              Yoxdur
+              {% endif %}</td>
           </tr>
         </table>
 
-        <p style="padding-top: 1rem;">Аккумулятор - 5100 мАч
-
-          Камера - 8 Мп
-
-          Память - 2/32 ГБ
-
-          Процессор - Qualcomm / Snapdragon 429 / 2 ГГц / 4 ядра
-
-          Связь - 1 SIM / Nano-SIM
-
-          Экран - 8"
-
+        <p style="padding-top: 1rem; text-align: left;">{{product.description}}
         </p>
       </div>
     </div>
@@ -172,70 +158,25 @@
       <div class="row">
         <div class="col-md-12">
           <!-- All products here-->
+          {% for product in related_products %}
+
           <div class="products-i">
             <a href="#" class="products-link mb-2">
               <div class="card">
                 <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
                 <div class="products-price-container">
                   <div class="products-price">
-                    <span class="price-val">10 AZN</span>
+                    <span class="price-val">{{product.price}}AZN</span>
                   </div>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title products-name">Card title </h5>
-                  <p class="card-text">Bakı, bugün, 18:21</p>
+                  <h5 class="card-title products-name">{{product.title}}</h5>
+                  <p class="card-text">{{product.updated_at}}</p>
                 </div>
               </div>
             </a>
-          </div>
-          <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">10 AZN</span>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
-                  <p class="card-text">Bakı, bugün, 18:21</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">10 AZN</span>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
-                  <p class="card-text">Bakı, bugün, 18:21</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card" style="width: 15rem;">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg' %}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">10 AZN</span>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">Card title Card title Card title Card title</h5>
-                  <p class="card-text">Bakı, bugün, 18:21</p>
-                </div>
-              </div>
-            </a>
-          </div>
+          </div>{%endfor%}
+
 
 
         </div>
@@ -255,7 +196,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock body %}
