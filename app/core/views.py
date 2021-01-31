@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, DetailView, ListView
+from django.views.generic import TemplateView, FormView, ListView, DetailView
 
-from core.models import Category, City, Product
-from core.forms import NewProductForm
-from core.stories import CreateProduct
+from .models import Category, City, Product
+from .forms import NewProductForm
+from .stories import CreateProduct
+
 
 
 class NewProductFormView(FormView):
@@ -28,7 +29,6 @@ class NewProductFormView(FormView):
         )
         return super().form_valid(form)
 
-
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'
     model = Product
@@ -47,7 +47,6 @@ class ProductView(DetailView):
     def get_object_categories(self):
         obj = self.get_object()
         return obj.category
-
     def get_related_products(self):
         category = self.get_object_categories()
         obj = self.get_object()
@@ -65,6 +64,7 @@ class ProductView(DetailView):
 
 class CategoryView(ListView):
     template_name = "/pages/product_detail.html"
+
     model = Product
 
     def get_category(self):
@@ -80,6 +80,7 @@ class CategoryView(ListView):
 
 
 class HomePageView(TemplateView):
+    # TODO: Implement Home Page View (get latest products, total product count etc.)
     template_name = 'home_page.html'
 
 
