@@ -84,6 +84,12 @@ class HomePageView(TemplateView):
     template_name = 'home_page.html'
 
 
+class SearchResultPageView(ListView):
+    template_name = 'pages/result_page.html'
+    model = Product
+    context_object_name = 'products'
+
+
 class BasicTestView(TemplateView):
     template_name = 'pages/basic_card.html'
 

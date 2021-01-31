@@ -1,16 +1,31 @@
 $(document).ready(() => {
     let api_url = `${location.origin}/api/get-products/`
-    let products = $('.products-list')
+    let products = $('.products')
+
+
+    // Getting query params
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                          .exec(window.location.search);
+    
+        return (results !== null) ? results[1] || 0 : false;
+    }
+    
+    if ($.urlParam('keyword')){
+        api_url = `${api_url}?keyword=${$.urlParam('keyword')}`
+    }
 
     fetch(api_url)
         .then((response) => response.json())
-        .then((data) => Prodcut(data))
+        .then((data) => Product(data))
+        
     
-    function Prodcut(data){
+    function Product(data){
+        console.log(data)
         for(value in data){
             products.append(`
             <div class="products-i">
-                <a href="#" class="products-link mb-2">
+                <a href="${location.origin}/product_detail/${data[value]['slug']}" class="products-link mb-2">
                     <div class="card">
                         <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
                         <div class="products-price-container">
@@ -27,4 +42,9 @@ $(document).ready(() => {
             </div>`)
         }
     }
+
+    $("#price_range").keypress(function() {
+        console.log($("#price_range").val());
+      });
+
 })

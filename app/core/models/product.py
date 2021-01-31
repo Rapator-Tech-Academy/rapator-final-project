@@ -1,12 +1,13 @@
+from django.utils import timezone
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 
-from .category import Category
 from app.utils.helpers import STATUS_TYPES
 from django.utils.text import slugify
 
 from .city import City
+from .category import Category
 
 User = get_user_model()
 
@@ -21,6 +22,7 @@ class Product(models.Model):
     description = models.TextField(max_length=3000, null=False, blank=True)
     image = models.ImageField(blank=True)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
@@ -52,6 +54,7 @@ class Product(models.Model):
             slug = f"{self.title[:5]}"
             self.slug = slugify(slug)
             return super().save(**kwargs)
+
         return super().save(**kwargs)
 
     
