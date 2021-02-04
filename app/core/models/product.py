@@ -48,6 +48,10 @@ class Product(models.Model):
 
     def get_image_url(self):
         return self.image.url
+    
+    @property
+    def product_id(self):
+        return 1000 + self.pk
 
     def save(self, **kwargs):
         if not self.slug:

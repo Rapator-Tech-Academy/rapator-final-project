@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
 
+from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from core.models import Product
 from .serializers import *
@@ -35,6 +38,7 @@ class FilterProductListAPIView(ListAPIView):
 
 class UserProductsListAPIView(ListAPIView):
     serializer_class = ProductSerializer
+    permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
         user_id = self.kwargs['user_id']
@@ -48,6 +52,7 @@ class UserProductsListAPIView(ListAPIView):
 class UserInformationsListAPIView(RetrieveUpdateAPIView):
     serializer_class = UserInformationSerializer
     queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
         user_id = self.kwargs['pk']
@@ -56,3 +61,11 @@ class UserInformationsListAPIView(RetrieveUpdateAPIView):
             queryset = User.objects.filter(id=user_id)
 
             return queryset
+    
+
+class AuthView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
