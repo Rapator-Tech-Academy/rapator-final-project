@@ -8,7 +8,7 @@ from .stories import CreateProduct
 
 
 class NewProductFormView(FormView):
-    template_name = 'pages/new_product.html'
+    template_name = 'add_product.html'
     form_class = NewProductForm
     success_url = '/'
 

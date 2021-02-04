@@ -21,9 +21,87 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <form class="simple_form lot-form js-lot-form no-banners lot-form--unauthorized" accept-charset="UTF-8" method="post">
-                                              {{form}}
-                                              form
+                                    <form class="simple_form lot-form js-lot-form no-banners lot-form--unauthorized product-form" accept-charset="UTF-8" method="post">
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Kateqoriya</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <select class="form-control">
+                                                    <option selected="selected" disabled>Siyahıdan seçin</option>
+                                                    {% for category in categories %}
+                                                      <optgroup label="{{ category.name }}">
+                                                            {% for children in category.get_children %}
+                                                                <option value="{{ children.name }}">{{ children.name }}</option>
+                                                            {% endfor %}
+                                                      </optgroup>
+                                                    {% endfor %}
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Şəhər</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <select class="form-control">
+                                                    <option selected="selected" disabled>Siyahıdan seçin</option>
+                                                    {% for city in cities %}
+                                                        <option value="{{ city.name }}">{{ city.name }}</option>
+                                                    {% endfor %}
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Qiymət, AZN</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <input class="form-control" type="number">
+                                            </div>
+                                        </div>  
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Məzmun</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                  </div>
+                                            </div>
+                                        </div> 
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Şəkillər</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                            </div>
+                                        </div> 
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Ad</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">    
+                                            </div>
+                                        </div> 
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>E-mail</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <input type="email" class="form-control" id="exampleInputName" aria-describedby="nameHelp">    
+                                            </div>
+                                        </div> 
+                                        <div class='row'>
+                                            <div class='col-md-5'>
+                                                <span>Mobil nömrə</span>
+                                            </div>
+                                            <div class='col-md-7'>
+                                                <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">    
+                                            </div>
+                                        </div> 
 
                                         <div class="confirm-rules">Elan yerləşdirərək, siz Tap.az-ın 
                                             <a target="_blank" href="/pages/terms-and-conditions">İstifadəçi razılaşması</a> 

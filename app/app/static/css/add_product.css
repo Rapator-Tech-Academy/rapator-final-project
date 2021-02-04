@@ -90,3 +90,20 @@ padding-left: 235px;
 .new-lot-form .all-rules a{
     color: #ff6617;
 }
+
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+.product-form span {
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-form .row{
+    margin-top: 1.2rem;
+}
+

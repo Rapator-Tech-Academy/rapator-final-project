@@ -102,7 +102,7 @@
         </div>
         <div class="additions">
           <ul style="list-style: none;">
-            <li>Elanın nömrəsi:22111983
+            <li>Elanın nömrəsi: {{ product.product_id }}
             </li>
             <li>Baxışların sayı: {{product.view_count}}
 
@@ -175,7 +175,8 @@
                 </div>
               </div>
             </a>
-          </div>{%endfor%}
+          </div>
+          {%endfor%}
 
 
 

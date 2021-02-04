@@ -11,9 +11,6 @@ app = Celery()
 User = get_user_model()
 
 
-
-
-
 @shared_task
 def send_welcome_email(user_id):
     user = User.objects.get(id=user_id)
