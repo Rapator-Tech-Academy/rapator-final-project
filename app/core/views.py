@@ -22,11 +22,16 @@ class NewProductFormView(FormView):
         return context
 
     def form_valid(self, form):
-        print(form.cleaned_data.get('title'))
+        print(form)
 
         CreateProduct().create(
             form=form
         )
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+
         return super().form_valid(form)
 
 class ProductView(DetailView):

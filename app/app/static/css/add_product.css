@@ -1,12 +1,12 @@
 .new-lot-form {
     border-bottom: 0;
-    padding: 3% 10% 2% 10%;
+    padding:0 10% 2% 10%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 h1 {
     display: block;
-    font-size: 2em;
+    font-size: 1.8em;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
@@ -57,7 +57,7 @@ padding-left: 235px;
     font-family: Helvetica, Arial, sans-serif;;
     font-size: 14px;
     color: #ff6617;
-    padding: 0% 7% 0% 7%;
+    padding: 0% 10% 0% 10%;
 }
 
 .new-lot-form .rules .rules-header {
@@ -91,7 +91,6 @@ padding-left: 235px;
     color: #ff6617;
 }
 
-
 .row {
     --bs-gutter-x: 0 !important;
 }
@@ -99,11 +98,58 @@ padding-left: 235px;
 .product-form span {
     padding: 0 20px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     color: #333;
 }
 
 .product-form .row{
-    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.product-form select {
+    max-width: 352px;
+    margin-top: -2px;
+}
+
+
+.product-form textarea, .product-form input, .product-form select {
+    display: inline-block;
+    font-size: 16px;
+    border: 0.7px solid #999;
+    border-radius: 0;
+    max-width: 352px;
+}
+
+.product-form textarea:focus, .product-form input:focus, .product-form select:focus {
+    border: 0.7px solid #999;
+    box-shadow: none;
+}
+
+.price-row input {
+    width: 200px;
+}
+
+.price-row .currency {
+    font-weight: 400;
+    font-size: 0.8rem;
+    padding: 0 0 0 5px;
+}
+
+.contact {
+    padding: 15px 0 0;
+    background-color: #fafafa;
+    border-top: 1px solid #d5d5d5;
+    margin-bottom: 20px;
+    padding-bottom: 17px;
+}   
+
+.contact-span {
+    padding: 0 !important;
+    font-weight: 400 !important;
+}
+
+.required {
+    padding: 0 !important;
+    color: #fe6617 !important;
 }
 
