@@ -28,6 +28,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     view_count = models.PositiveIntegerField(default=0)
+    daily_view_count = models.PositiveIntegerField(default=0)
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     
