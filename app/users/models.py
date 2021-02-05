@@ -19,7 +19,6 @@ class UserManager(UserManager):
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
-        return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):

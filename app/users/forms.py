@@ -23,16 +23,3 @@ class LoginForm(AuthenticationForm):
         fields = ['email', 'password']
 
 
-class ResetPasswordForm(PasswordResetForm):
-    email = forms.CharField(widget=forms.EmailInput(
-        attrs={'placeholder': 'Email'}))
-
-
-class ResetPasswordConfirmForm(SetPasswordForm):
-    new_password1 = forms.CharField(widget=forms.PasswordInput(
-        attrs={'placeholder': 'New password1'}))
-    new_password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'New password2'}))
-
-    class Meta:
-        fields = ("new_password1", 'new_password2', )

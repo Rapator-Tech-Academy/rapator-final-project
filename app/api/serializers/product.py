@@ -28,4 +28,3 @@ class ProductSerializer(serializers.ModelSerializer):
         date_time = obj.updated_at.strftime("%m %d %Y, %H:%M:%S")
         return date_time
     
-

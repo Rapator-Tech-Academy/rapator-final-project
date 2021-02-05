@@ -45,5 +45,4 @@ $(document).ready(() => {
     $('#price-range').keyup(function(){
         console.log('Hello')
     })
-
 })

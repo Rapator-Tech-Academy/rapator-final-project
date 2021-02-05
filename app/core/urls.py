@@ -15,3 +15,4 @@ urlpatterns = [
     path('elanlar/', views.SearchResultPageView.as_view(), name='search-result-page'),
     path('test/', views.BasicTestView.as_view(), name='test')
 ]
+

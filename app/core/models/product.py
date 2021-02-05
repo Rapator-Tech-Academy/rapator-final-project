@@ -12,6 +12,8 @@ from .image import ProductImage
 
 User = get_user_model()
 
+User = get_user_model()
+
 class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name="Product name")
     slug = models.SlugField(unique=True, null=True, blank=True)

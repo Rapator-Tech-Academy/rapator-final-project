@@ -12,13 +12,12 @@
                     <img src="{% static 'img/close.jpg' %}">
                 </a>
                 <div class="login">
-                    <a href="#" type="button" class="back-btn" >
+                    <a href="{% url 'users:login-email'%}" type="button" class="back-btn" >
                         <img src="{% static 'img/back.jpg' %}">
                     </a>
                     <div class="title title--main">Kodun təsdiqlənməsi</div>
                      <div class="col mt-2 mb-2"> 
                         {% if messages %}
-                            
                             {% for message in messages %}      <!--Django.da danger mesajlari olmadigina gore info mesajini danger kimi gostereceyik-->
                                 {% if message.tags == "info" %}
                                 <div class="alert alert-danger">{{ message }}</div>  <!--burda ise message daha dinamikdi-->
@@ -26,7 +25,6 @@
                                 <div class="alert alert-{{ message.tags }}">{{ message }}</div>
                                 {% endif %}
                             {% endfor %}
-
                         {% endif %}
                     </div>
                     <div class="promo">Elektron poçta kod göndərildi</div>
@@ -42,7 +40,6 @@
                     </form>   
                 </div>
             </div>
-            
         </div>
     </div>
 {% endblock body %}

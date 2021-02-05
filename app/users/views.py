@@ -1,5 +1,6 @@
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.contrib.auth.views import PasswordResetView, LoginView
+from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
@@ -8,22 +9,15 @@ from django.template.response import TemplateResponse
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+
 from django.contrib.auth import get_user_model
-
-from users.forms import RegisterForm, ResetPasswordForm, LoginForm
-
+from .forms import RegisterForm, LoginForm
 
 User = get_user_model()
 
 
-class LoginView(LoginView):
-    form_class = LoginForm
-    template_name = 'accounts/login.html'
-    success_url = 'accounts/register.html'
-
-
 class ForgetPasswordView(PasswordResetView):
-    form_class = ResetPasswordForm
+    form_class = PasswordResetForm
     template_name = 'accounts/forget_password.html'
     success_url = 'accounts/login.html'
 
@@ -86,5 +80,19 @@ class SignUpView(FormView):
 
     def form_valid(self, form):
         self.create_new_user(form=form)
-
         return super().form_valid(form)
+
+
+class LoginEmailView(FormView):
+    form_class    =  LoginForm
+    template_name = 'accounts/login_by_email.html'
+    success_url   = 'accounts/register.html'
+
+class LoginView(TemplateView):
+    template_name = 'accounts/login.html'
+
+class EmailConfirmView(TemplateView):
+    template_name = 'accounts/confirmation.html'
+
+
+

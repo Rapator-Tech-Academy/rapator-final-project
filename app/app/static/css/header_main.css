@@ -5,14 +5,15 @@
     font-size: 15px;
 
 }
+
 .header-main-row{
     padding: 0 5% 0 5%;
 }
+
 .header-main a {
     color: #fff; 
     font-weight: bold;
-    margin-left: 40px;
-   
+    margin-left: 25px; 
 }
 
 .header-btn {
@@ -20,9 +21,10 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 14px;
-    padding: 12px 63px;
+    padding: 12px 60px;
     background-color: #3fa425;
 }
+
 .dropbtn {
     color: #939292;
     border: none;

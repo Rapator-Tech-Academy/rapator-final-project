@@ -8,6 +8,7 @@
     min-height: 100vh;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
+
 .auth {
     margin: 10% 0 10% 0;
     width: 33%;
@@ -20,6 +21,7 @@
     position: relative;
     overflow-y: auto;
 }
+
 .auth__close-btn {
     display: inline-block;
     position: fixed;
@@ -37,6 +39,7 @@
     background-color: transparent;
     cursor: pointer;
 }
+
 .back-btn {
     width: 48px;
     height: 54px;
@@ -59,26 +62,26 @@
 .login{
     padding: 10% 2% 5% 2%;
 }
-
 .title{
     font-size: 20px;
+    font-weight: 500;
+    color: #4b8af9;
     font-weight: bold;
-    color: #4387fd;
 }
-
 .title--main{
     line-height: 1.64;
     margin-bottom: 30px;
 }
+
 .input-group {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .input-group input{
-    height: 60px;
-    padding: 10px 15px 10px;
-    margin-bottom: 15px;
+
+    height: 46px;
+    padding: 12px 15px 12px;
     width: 100%;
     font-size: 14px;
     line-height: 1.2;
@@ -90,7 +93,13 @@
     box-sizing: border-box;
     box-shadow: none;
     appearance: none;
-    }
+
+}
+
+.btn.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
 
 .btn--default {
     background-color: #4b8af9;
@@ -98,6 +107,7 @@
     color: #fff;
     margin-bottom: 4px;
 }
+
 .btn {
     display: flex;
     align-items: center;
@@ -112,10 +122,7 @@
     box-sizing: border-box;
     outline: none;
 }
-.confirmation a{
-    color:  #8895ad;
-    padding: 4% 4%;
-}
+
 
 
 
