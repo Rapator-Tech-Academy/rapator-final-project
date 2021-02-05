@@ -1,0 +1,71 @@
+{% extends "includes/base.html" %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/profile_settings.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+<link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+{% endblock css %}
+
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+
+<div class="container">
+
+  <div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom">Hesab Parametrləri</h4>
+    <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section"> <b>Profil Şəkli</b>
+            <p>Accepted file type .png. Less than 1MB</p> <button class="btn button border"><b>Yüklə</b></button>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6"> <label for="firstname">Ad</label> <input type="text" class="bg-light form-control" placeholder="Steve"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Soyad</label> <input type="text" class="bg-light form-control" placeholder="Smith"> </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" placeholder="steve_@email.com"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Əlaqə nömrəsi</label> <input type="tel" class="bg-light form-control" placeholder="+994 (012)-345-6789"> </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-md-6"> <label for="oldpassword">Cari şifrə</label> <input type="password" class="bg-light form-control" placeholder="Cari şifrə"> </div>
+      </div>
+        <div class="row py-2">
+          <div class="col-md-6"> <label for="newpassword1">Yeni şifrə</label> <input type="password" class="bg-light form-control" placeholder="Yeni şifrə daxil edin"> </div>
+          <div class="col-md-6 pt-md-0 pt-3"> <label for="newpassword1">Yeni şifrə(təkrar)</label> <input type="password" class="bg-light form-control" placeholder="Yeni şifrə daxil edin"> </div>
+      </div>
+        <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3">Yadda Saxla</button> <button class="btn border button">Ləğv Et</button> </div>
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> origin/development
+    </div>
+</div>   
+</div>
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+{% endblock body %}

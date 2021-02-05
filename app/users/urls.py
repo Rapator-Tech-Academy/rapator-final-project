@@ -3,17 +3,20 @@ from django.urls import path, include
 from django.conf.urls import url
 
 
-from .views import RegisterView, LoginView, ForgetPasswordView, ResetPasswordView
+from .views import *
+
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth import views as auth_views
+from . import views
 
-
-app_name = 'users'
+app_name="users"
 
 urlpatterns = [
-    path('login/', LoginView.as_view(), name='login'),
-    path('log-out/', LogoutView.as_view(), name='log-out'),
-    path('reset-password/', ForgetPasswordView.as_view(), name='reset-password'),
-    url('register',RegisterView.signup, name='signup'),
-    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        RegisterView.activate, name='activate'),
+    path('signup/', views.SignUpView.as_view(), name='register'),
+    path('login/email', views.LoginEmailView.as_view(), name='login-email'),
+    path('activate/<uidb64>/<token>/', views.SignUpView.activate, name='activate'),
+    path("password_reset/", auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'), name="password_reset"),
+    path('login/', views.LoginView.as_view(), name='login'),
+    #path('log-out/', LogoutView.as_view(), name='log-out'),
+    path('login/email/confirmation/', views.EmailConfirmView.as_view(), name='email-confirmation'),
 ]

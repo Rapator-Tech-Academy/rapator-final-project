@@ -1,27 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-* {
+
+.main-content {
     font-family: 'Open Sans', sans-serif;
     color: #454545;
+    line-height: 1.5;
+    width: 74%;
 }
 
-
 .main-content h1{
-    margin-top: 35px;
-    margin-bottom: 20px;
     display: block;
-    line-height: 1.5;
     font-size: 2em;
     margin-top: 30px;
     font-weight: 600;
 }
 
-.main-content h2{
-    margin-bottom: 20px;
-    display: block;
+.main-content .col-md-9{
+    text-align: justify;
 }
 
+.main-content p{
+    margin-top: 20px;
+}
 
 .pages{
     margin-top: 35px;

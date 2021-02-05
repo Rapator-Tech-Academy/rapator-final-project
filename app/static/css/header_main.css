@@ -5,6 +5,9 @@
     font-size: 15px;
 
 }
+.header-main-row{
+    padding: 0 5% 0 5%;
+}
 .header-main a {
     color: #fff; 
     font-weight: bold;
@@ -19,4 +22,20 @@
     font-size: 14px;
     padding: 12px 63px;
     background-color: #3fa425;
+}
+.dropbtn {
+    color: #939292;
+    border: none;
+    cursor: pointer;
+  }
+.dropdown{
+    color: #939292;
+    padding-left: 10px;
+    line-height: 40px;
+}
+#price_range{
+    width: 90px;
+    padding: 0 10px;
+    height: 50px;
+    display: initial;
 }

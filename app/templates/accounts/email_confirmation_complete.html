@@ -1,0 +1,16 @@
+{% extends '../includes/base.html' %}
+{% block body %} 
+  
+  <!--Password Reset Complete-->
+    <div class="container p-4">
+	    <h2 class="font-weight-bold mt-3">{{ message }}</h2>
+		  <hr>
+        {% if status == 'success' %}
+          <p> Davam edib indi <a href="{url 'users:login-email'}">sayta giriş </a> edə bilərsiniz</p>
+        {% else %}
+          <p> Link-ə keçid edərək təsdiqlənmə üçün yenidən müraciət edə bilərsiniz </p>
+        {% endif %}                 
+    </div>
+
+
+{% endblock %}

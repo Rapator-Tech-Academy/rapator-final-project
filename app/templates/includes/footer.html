@@ -1,3 +1,4 @@
+{% load static%}
 <div class="footer-info-container">
             <div class="container">
                 <div class="container-fluid">
@@ -109,47 +110,47 @@
                                                 </ul>
                                             </div>
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li>
-                                                        <a href="#">Qəbələ</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Xaçmaz</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Horadiz</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">İmişli</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">İsmayıllı</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kəlbəcər</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Kürdəmir</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Laçın</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Lerik</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Masallı</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Nabran</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Naftalan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Naxçıvan</a>
-                                                    </li>
-                                                </ul>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li>
+                                                            <a href="#">Qəbələ</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Xaçmaz</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Horadiz</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">İmişli</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">İsmayıllı</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Kəlbəcər</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Kürdəmir</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Laçın</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Lerik</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Masallı</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Nabran</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Naftalan</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Naxçıvan</a>
+                                                        </li>
+                                                    </ul>
                                             </div>
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
                                                 <ul class="list-unstyled mb-0">
@@ -241,6 +242,7 @@
                                             </div>
                                             <!--Grid column-->
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
+                                
                                                 <ul class="list-unstyled mb-0">
                                                     <li>
                                                         <a href="#">Lənkəran</a>
@@ -294,17 +296,18 @@
                                     </div>
                                     <div class="links-sites">
                                         <a class="link-bossaz" target="_blank" href="https://boss.az">
-                                            <img alt="bos.az" src="../static/img/boss_az.jpg">
+                                            <img alt="bos.az"  src="{% static 'img/boss_az.jpg' %}">
                                         </a>
                                         <a class="link-turboaz" target="_blank" href="https://turbo.az">
-                                            <img alt="burbo.az" src="../static/img/turbo_az.jpg">
+                                            <img alt="burbo.az" src="{% static 'img/turbo_az.jpg' %}">
                                         </a>
                                         <a class="link-binaaz" target="_blank" href="https://bina.az">
-                                            <img alt="bina.az" src="../static/img/bina_az.jpg"> 
+                                            <img alt="bina.az" src="{% static 'img/bina_az.jpg' %}"> 
                                         </a>
+                                    
                                         <div class="counters">
                                             <a rel="nofollow noopener" target="_blank" href="#">
-                                                <img alt="LiveInternet: показано количество просмотров и посетителей" height="109" src="../static/img/footer_end.png">
+                                                <img alt="LiveInternet: показано количество просмотров и посетителей" height="109" src="{%static 'img/footer_end.png' %}">
                                             </a>
                                         </div>
                                     </div>
@@ -313,4 +316,5 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
+</div>

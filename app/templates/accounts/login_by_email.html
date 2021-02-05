@@ -1,0 +1,39 @@
+{% extends "../includes/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login_by_email.css'%}">
+{% endblock css %}
+{% block body %}
+    <div id="auth-app">
+        <div class="main stage-0">
+            <div class="auth">
+                <a type="button" href="#" class="auth__close-btn">
+                    <img src="{% static 'img/close.jpg' %}">
+                </a>
+                <div class="login">
+                    <a href="{% url 'users:login'%}" type="button" class="back-btn" >
+                        <img src="{% static 'img/back.jpg' %}">
+                    </a>
+                    <div class="title title--main">Kabinetə giriş</div>
+                    
+                    <form action="#">
+                        <div class="input-group">
+                                {{form.email}}
+                                {{form.email.errors}}
+                            
+                                {{form.password}}
+                                {{form.password.errors}}
+                        </div>
+                        <button href= "{% url 'users:email-confirmation'%}" type="submit" class="btn btn--default "> 
+                            E-mail kod göndərilsin
+                        </button>
+                    </form>
+                    <div class="confirmation">   
+                        <a href="{% url 'users:password_reset' %}">Parolu unutmusan?</a>
+                    <div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

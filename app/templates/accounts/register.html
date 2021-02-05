@@ -1,88 +1,55 @@
+{% extends "../includes/base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    {% block content %}
-    <h2>Sign up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-        <p>
-            {{ field.label_tag }}<br>
-            {{ field }}
-            {% if field.help_text %}
-            <small style="display: none">{{ field.help_text }}</small>
-            {% endif %}
-            {% for error in field.errors %}
-        <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        </p>
-        {% endfor %}
-        <button type="submit">Sign up</button>
-    </form>
-    {% endblock %}
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
-
-
-<!-- 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>    
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            {{form.email}}
-            {{form.email.errors}}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+{% endblock css %}
+{% block body %}
+    <div id="auth-app">
+        <div class="main stage-3">
+            <div class="auth">
+                <a type="button" href="{% url 'homepage'%}" class="auth__close-btn">
+                    <img src="{% static 'img/close.jpg' %}">
+                </a>
+                <div class="login">
+                    <a href="{% url 'users:login'%}" type="button" class="back-btn" >
+                        <img src="{% static 'img/back.jpg' %}">
+                    </a>
+                    <div class="title title--main">Qeydiyyat</div>
+                        
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                {{form.email}}
+                                {{form.email.errors}}
+                            </div>
+                            <div class="input-group">
+                                {{form.name}}
+                                {{form.name.errors}}
+                            </div>
+                            <div class="input-group">
+                                {{form.surname}}
+                                {{form.surname.errors}}
+                            </div>
+                            <div class="input-group">
+                                {{form.phone}}
+                                {{form.phone.errors}}
+                            </div>
+                            <div class="input-group">
+                                {{form.password1}}
+                                {{form.password1.errors}}
+                            </div>
+                            <div class="input-group">
+                                {{form.password2}}
+                                {{form.password2.errors}}
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Register" class="btn btn--default">
+                            </div>
+                        </form>
+                    <div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            {{form.name}}
-            {{form.name.errors}}
-        </div>
-        <div class="form-group">
-            {{form.surname}}
-            {{form.surname.errors}}
-        </div>
-        <div class="form-group">
-            {{form.phone}}
-            {{form.phone.errors}}
-        </div>
-        <div class="form-group">
-            {{form.password1}}
-            {{form.password1.errors}}
-        </div>
-        <div class="form-group">
-            {{form.password2}}
-            {{form.password2.errors}}
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
-        </div>
-    </form>
-</body>
-</html> -->
+    </div>
+{% endblock body %}
+ 
