@@ -56,7 +56,7 @@ services:
     env_file: .env
     environment:
       - DEBUG=True
-    command: celery --app=......
+    command: celery --app=app.celery:app worker -B --loglevel=DEBUG
     volumes:
       - ./app:/code
       - ./uwsgi.ini:/conf/uwsgi.ini

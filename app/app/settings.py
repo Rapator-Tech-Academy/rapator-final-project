@@ -25,7 +25,7 @@ SECRET_KEY = 'xnubsf)ft^2!at&8u-&ps@&qir53%l(4rk572tn4x-k(21(=p!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['app.com', 'app.localhost', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -34,14 +34,25 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.flatpages',
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'ckeditor',
+    'mptt',
+    'rest_framework',
+]
 
-CUSTOM_APPS = []
+CUSTOM_APPS = [
+    'core.apps.CoreConfig',
+    'users.apps.UsersConfig',
+    'api'
+]
+
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
@@ -68,6 +79,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom Processors
+                'core.context_processors.cities',
+                'core.context_processors.latest_products',
+
             ],
         },
     },
@@ -80,10 +96,6 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('POSTGRES_DB', "app_db"),
@@ -139,3 +151,48 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+# Site configurations
+SITE_ID = 1
+
+
+# CK Editor configurations
+CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "media/"
+
+
+
+AUTH_USER_MODEL = 'users.User'
+
+
+# Celery configurations
+CELERY_BROKER_URL = os.environ.get(
+    "BROKER_URL",
+    "redis://:dKqs72RhtaPPYyfN@localhost:6379/0"
+)
+
+CELERY_TIMEZONE = TIME_ZONE
+
+
+# EMAİL configurations
+# DEFAULT_FROM_EMAIL = "Tap.az <tap.az.elanlar@gmail.com>"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'tap.az.elanlar@gmail.com'
+EMAIL_HOST_PASSWORD = 'tapazelan'
+
+
+# Rest Framework Configurations
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}

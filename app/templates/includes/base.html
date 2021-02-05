@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    {% block css %}
+    <link href="{% static 'fonts/font-awesome/css/all.css' %}" rel="stylesheet"> <!--load all styles -->
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% endblock css %}
+    
+    <title>Tap.az</title>
+    <link rel="icon"  type="image/jpg"  href="{% static 'img/title.jpg' %}">
+<body>
+    {% block body %}
+    
+    {% endblock body %}
+    
+</body>
+    <script src="{% static 'js/main.js' %}"></script>
+</html>
