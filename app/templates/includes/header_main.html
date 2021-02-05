@@ -33,4 +33,172 @@
             </div>
         </div>
 
-        
+        <!-- Header search form-->
+        <div class="header-navigation">
+            <div class="container">
+                <div class="container-fluid"> 
+                    <div class="row header-nav ">        
+                        <form method="GET" class="form-inline pt-4">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group has-search">
+                                            <span class="fa fa-search form-control-feedback"></span>
+                                            <input type="text" class="form-control" placeholder="Məsələn, iPhone X">
+                                        </div>  
+                                    </div>              
+                                    <div class="col-md-6">
+                                        <div class="form-group has-select">
+                                            <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
+                                            <select class="form-control">
+                                                <option value="0">BÜTÜN AZƏRBAYCAN</option>
+                                                <option value="1">Abşeron</option>
+                                                <option value="2">Ağcabədi</option>
+                                                <option value="3">Ağdam</option>
+                                                <option value="4">Ağdaş</option>
+                                                <option value="5">Ağstafa</option>
+                                                <option value="6">Ağsu</option>
+                                                <option value="7">Astara</option>
+                                                <option value="8">Balakən</option>
+                                                <option value="9">Bərdə</option>
+                                                <option value="10">Beyləqan</option>
+                                                <option value="11">Biləsuvar</option>
+                                                <option value="12">Cəbrayıl</option>
+                                                <option value="13">Cəlilabad</option>
+                                                <option value="14">Daşkəsən</option>
+                                                <option value="15">Fizuli</option>
+                                                <option value="16">Gəncə</option>
+                                            </select>
+                                        </div>  
+                                        <div class="form-group btn-navigation">
+                                            <a type="button" class="btn-header-navigation">Tap
+                                            <span class="fa fa-search form-control"></span></a> 
+                                        </div>  
+                                    </div>                                    
+                                </div>  
+                            </div>   
+                        </form>
+                        <div class="search-footer">
+                            <a class="search-all" href="#">Bütün elanlar</a>
+                        </div>
+                
+                        <!-- Header categories-->
+                        <div class="header-categories-row">
+                            <a class="header-category consumer-electronics" href="#">
+                                <img src="{% static 'img/ev.jpg' %}"  class="header-category-icon">
+                                <span>Ev və bağ üçün</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category consumer-electronics" target="_blank" href="#">
+                                <img alt="bos.az" src="{% static 'img/mob.jpg' %}">
+                                <span>Elektronika</span>
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+                            
+                            <a class="header-category transport" target="_blank" href="#">
+                                <img alt="burbo.az" src="{% static 'img/avt.jpg' %}" >
+                                <span>Nəqliyyat</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category real-estate" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/home.jpg' %}"> 
+                                <span>Daşınmaz əmlak</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="header-categories-row">
+                            <a class="header-category personal-belongings" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/dress.jpg' %}"> 
+                                <span>Şəxsi əşyalar</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category services" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/tools.jpg' %}"> 
+                                <span>Xidmətlər və biznes</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category hobby-leisure" target="_blank" href="#">
+                                <img alt="bina.az" src="{%static 'img/gitar.jpg' %}"> 
+                                <span>Hobbi və asudə</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category kids-world" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/kids.jpg' %}"> 
+                                <span>Hobbi və asudə</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="header-categories-row">
+                            <a class="header-category animals" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/animals.jpg' %}"> 
+                                <span>Heyvanlar</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category work-and-business" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/job.jpg' %}"> 
+                                <span>İş elanları</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category all-categories" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/others.jpg' %}"> 
+                                <span>Bütün kateqoriyalar</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+
+                            <a class="header-category-shop shop" target="_blank" href="#">
+                                <img alt="bina.az" src="{% static 'img/shop.jpg' %}"> 
+                                <span>Mağazalar və şirkətlər</span> 
+                            </a>
+                            <div class="header-subcategories">
+                            </div>
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="header-subcategory-wrapper">
+                                <div class="placeholder"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+

@@ -1,0 +1,31 @@
+.header-categories-row img {
+    width: 50px;
+    height: 50px;
+}
+.header-categories-row {
+    display: inline-flex;
+}
+.header-categories-row a span{
+    font-size: 13px;
+    color: #148cb0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.header-categories-row a {
+    display: block;
+    width: 23%;
+    float: left;
+    height: 47px;
+    margin: 20px 0;
+    margin-right: 2%;
+    text-decoration: none;
+}
+.header-categories-row a :hover{
+color: #ff6617;
+}
+
+.search-footer .search-all{
+    color: #ff6617;
+    margin-left: 80%;
+}
+
