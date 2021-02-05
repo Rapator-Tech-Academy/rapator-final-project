@@ -9,3 +9,4 @@ urlpatterns = [
     path('user-products/<str:user_id>/', views.UserProductsListAPIView.as_view(), name='user-products'),
     path('user-info/<pk>/', views.UserInformationsListAPIView.as_view(), name='user-informations-update'),
     path('hello/', views.AuthView.as_view(), name='hello'),
+]

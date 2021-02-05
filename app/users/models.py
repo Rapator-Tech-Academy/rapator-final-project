@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 from django.conf import settings
 from django.core.mail import send_mail
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
-
 from django.urls import reverse
 from django.shortcuts import render
-
-
-=======
->>>>>>> origin/development
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
