@@ -1,23 +1,24 @@
 {% extends "includes/base.html" %}
+
 {% load static %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
-    <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header_search.css'%}">
-    <link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
-    <link rel="stylesheet" href="{% static 'css/home_content.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/all.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+<link rel="stylesheet" href="{% static 'css/header_search.css'%}">
+<link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
+<link rel="stylesheet" href="{% static 'css/home_content.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
 {% endblock css %}
-    
+
 {% block body %}
 <div class="home-page">
-        {% include "includes/navbar.html" %}
-        {% include "includes/header_main.html" %}
-        {% include "includes/header_search.html" %}
-       
+    {% include "includes/navbar.html" %}
+    {% include "includes/header_main.html" %}
+    {% include "includes/header_search.html" %}
 
-        <!-- Content-->
+    <!-- Content-->
         <div class = "content">
             <div class="container">
                 <div class="container-fluid">
@@ -45,16 +46,19 @@
                                     </div>
                                     <div class="statistic-counters-text">baxış<br>gün ərzində</div>
                                 </div>
-                                <div class="statistic-counters-i">
-                                    <div class="statistic-counters-quantity">
-                                        <span>2</span>
-                                        <span>2</span>
-                                        <span>3</span>
-                                        <span>6</span>
-                                        <span>0</span>
-                                    </div>
-                                    <div class="statistic-counters-text">yeni elan<br>gün ərzində</div>
+                                <div class="statistic-counters-text">istifadəçi<br>gün ərzində</div>
+                            </div>
+                            <div class="statistic-counters-i">
+                                <div class="statistic-counters-quantity day-hits">
+                                    <span>4</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span>5</span>
+                                    <span>0</span>
+                                    <span>0</span>
+                                    <span>0</span>
                                 </div>
+                                <div class="statistic-counters-text">baxış<br>gün ərzində</div>
                             </div>
                         </div>
 
@@ -214,18 +218,43 @@
                                             </a>
                                         </div>
 
-                                    </div>                                    
+                        <!-- Home products-->
+                        <div class="home-products">
+                            <div class="l-center">
+                                <div class="products-container">
+                                    <div class="section-title">
+                                        <h2 class="section-title_name">PREMİUM ELANLAR</h2>
+                                    </div>
+                                    <div class="products">
+                                    <!-- Home products cards here-->
+                                    
+                                  </div>
                                 </div>
+                                <div class="statistic-counters-text">yeni elan<br>gün ərzində</div>
                             </div>
                         </div>
                         <!--pruducts-->
                     </div>
+
+
+                    <!-- latest products-->
+                    <div class="products-container products-container_latest">
+                        <div class="section-title">
+                            <h2 class="section-title_name">SON ELANLAR</h2>
+                            <a class="section-title_more" href="#">Hamısını göstər</a>
+                        </div>
+                        <div class="products">
+                            
+                        </div>
+                  </div>
+                    <!--products-->
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--Fotter-->
-        {% include 'includes/footer.html'%}
-    </div>                                  
+    <!--Footer-->
+    {% include 'includes/footer.html'%}
+</div>
 
 {% endblock body %}

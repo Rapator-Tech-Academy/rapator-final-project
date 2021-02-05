@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
 
+from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from core.models import Product
 from .serializers import *
@@ -13,8 +16,13 @@ class FilterProductListAPIView(ListAPIView):
     serializer_class = ProductSerializer
     
     def get_queryset(self):
-        query = Product.objects.filter(status=1)
+        query = Product.objects.filter(status=1).order_by('-updated_at')
+
         data = self.request.query_params
+
+        if data.get('keyword'):
+            kw = data.get('keyword')
+            query = query.filter(title__icontains=kw)
 
         if data.get('max'):
             kw = data.get('max')
@@ -23,12 +31,14 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('min'):
             kw = data.get('min')
             query = query.filter(price__gte=kw)
-
+            
         return query
 
 
 class UserProductsListAPIView(ListAPIView):
     serializer_class = ProductSerializer
+
+    permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
         user_id = self.kwargs['user_id']
@@ -42,6 +52,7 @@ class UserProductsListAPIView(ListAPIView):
 class UserInformationsListAPIView(RetrieveUpdateAPIView):
     serializer_class = UserInformationSerializer
     queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
         user_id = self.kwargs['pk']
@@ -50,3 +61,11 @@ class UserInformationsListAPIView(RetrieveUpdateAPIView):
             queryset = User.objects.filter(id=user_id)
 
             return queryset
+    
+
+class AuthView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)

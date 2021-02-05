@@ -26,9 +26,18 @@
 }
 
 .dropbtn {
-    color: white;
+    color: #939292;
     border: none;
     cursor: pointer;
   }
-  
-  
+.dropdown{
+    color: #939292;
+    padding-left: 10px;
+    line-height: 40px;
+}
+#price_range{
+    width: 90px;
+    padding: 0 10px;
+    height: 50px;
+    display: initial;
+}

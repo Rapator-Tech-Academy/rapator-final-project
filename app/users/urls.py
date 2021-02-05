@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
 
+from .views import *
+
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import views as auth_views
 from . import views
 
-app_name = 'users'
+app_name="users"
 
 urlpatterns = [
     path('signup/', views.SignUpView.as_view(), name='register'),
@@ -15,7 +17,4 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(), name='login'),
     #path('log-out/', LogoutView.as_view(), name='log-out'),
     path('login/email/confirmation/', views.EmailConfirmView.as_view(), name='email-confirmation'),
-
-
 ]
- 

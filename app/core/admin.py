@@ -18,7 +18,6 @@ class ActiveUserAdmin(admin.ModelAdmin): #added
     list_display =['ip','is_user', 'visited_time',]
 
 
-
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, FlatPageCustom)
 
