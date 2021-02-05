@@ -28,11 +28,7 @@ class NewProductFormView(FormView):
             form=form
         )
         return super().form_valid(form)
-    
-    def form_invalid(self, form):
-        print(form.errors)
 
-        return super().form_valid(form)
 
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'
@@ -96,7 +92,7 @@ class SearchResultPageView(ListView):
 
 
 class BasicTestView(TemplateView):
-    template_name = 'pages/basic_card.html'
+    template_name = 'accounts/email_confirmation_complete.html'
 
 
 class UserProfilePageView(TemplateView):
