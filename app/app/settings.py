@@ -163,7 +163,6 @@ CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
 
 
-
 AUTH_USER_MODEL = 'users.User'
 
 

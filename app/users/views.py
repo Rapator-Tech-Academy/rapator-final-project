@@ -21,7 +21,6 @@ class ForgetPasswordView(PasswordResetView):
     template_name = 'accounts/forget_password.html'
     success_url = 'accounts/login.html'
 
-
 class SignUpView(FormView):
     template_name = 'accounts/signup.html'
     form_class = RegisterForm
@@ -93,6 +92,4 @@ class LoginView(TemplateView):
 
 class EmailConfirmView(TemplateView):
     template_name = 'accounts/confirmation.html'
-
-
 
