@@ -82,8 +82,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'core.custom_context_processor.subject_renderer', #added
+                
                 # Custom Processors
+                'core.custom_context_processor.subject_renderer', 
                 'core.context_processors.cities',
                 'core.context_processors.latest_products',
                             ],
