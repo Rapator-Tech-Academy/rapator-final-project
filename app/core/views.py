@@ -6,7 +6,6 @@ from .forms import NewProductForm
 from .stories import CreateProduct
 
 
-
 class NewProductFormView(FormView):
     template_name = 'add_product.html'
     form_class = NewProductForm
@@ -29,6 +28,7 @@ class NewProductFormView(FormView):
         )
         return super().form_valid(form)
 
+
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'
     model = Product
@@ -47,6 +47,7 @@ class ProductView(DetailView):
     def get_object_categories(self):
         obj = self.get_object()
         return obj.category
+
     def get_related_products(self):
         category = self.get_object_categories()
         obj = self.get_object()
@@ -57,9 +58,6 @@ class ProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context['related_products'] = self.get_related_products()
         return context
-
-    def get_products_price_range(self):
-        return Product.objects.filter(price_range(min_price, max_price))
 
 
 class CategoryView(ListView):
@@ -100,4 +98,3 @@ class UserProfilePageView(TemplateView):
 
 class UserAccountSettingsView(TemplateView):
     template_name = 'pages/profile_settings.html'
-
