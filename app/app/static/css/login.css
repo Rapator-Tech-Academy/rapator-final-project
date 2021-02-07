@@ -8,7 +8,6 @@
     min-height: 100vh;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
-
 .auth {
     margin: 10% 0% 0% 0%;
     width: 33%;
@@ -21,7 +20,6 @@
     position: relative;
     overflow-y: auto;
 }
-
 .auth__close-btn {
     display: inline-block;
     position: fixed;
@@ -39,7 +37,6 @@
     background-color: transparent;
     cursor: pointer;
 }
-
 .login{
     padding: 10% 0% 5% 0%;
 }
@@ -50,6 +47,7 @@
     margin-right: 10px;
     vertical-align: middle;
 }
+
 
 .tapaz-logo {
     width: 106px;
@@ -63,17 +61,14 @@
     line-height: 1.25;
     color: #a6abb4;
 }
-
 .confirmation{
     padding: 4% 4%;;
 }
-
 .btn--default {
     background-color: #4b8af9;
     border: 1px solid #4b8af9;
     color: #fff;
 }
-
 .btn {
     margin-bottom: 15px;
     display: flex;
@@ -89,7 +84,6 @@
     box-sizing: border-box;
     outline: none;
 }
-
 .btn--fb {
     color: #1877f2;
     border: 1px solid #1877f2;
@@ -107,9 +101,8 @@
     color: #a6abb4;
     padding: 4% 4%;
 }
-
 .confirmation a{
-    color: #154fbd;
+    color: #a6abb4;
 }
 
 

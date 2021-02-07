@@ -77,7 +77,6 @@
     background: #ff6617;
     color: #fff;
     border: none;
-  
 }
 
 .btn-header-navigation {
@@ -100,5 +99,73 @@
         cursor: pointer;
     }
 
+    @media only screen and (max-width:480px) and (min-width: 120px) {
+        .header-nav{
+            padding: 0;
+        }
+        .has-search .form-control {
+            font-size: 12px; 
+         }
+        .has-search .form-control-feedback {
+            width: 2.3rem;
+            height: 2rem;
+            line-height: 2rem;   
+        }
+        .has-select .form-control {
+            font-size: 12px;
+            outline: 0;
+            margin-top: 5px;
+       }
+       .btn-header-navigation {
+            margin-top: 5px;
+            font-size: 11px;
+            min-width: 20px;
+       }
+    
+    }    
+@media only screen and (max-width: 765px) and (min-width: 480px) {
+        
+        .header-nav{
+            padding: 0;
+        }
+        .has-search .form-control {
+            font-size: 14px; 
+         }
+        .has-search .form-control-feedback {
+            width: 2.3rem;
+            height: 2rem;
+            line-height: 2rem;   
+        }
+        .has-select .form-control {
+            font-size: 14px;
+            margin-top: 5px;
+            width:300px;
 
+       }
+       .btn-header-navigation {
+            margin-top: 5px;
+            font-size: 14px;
+       }     
 
+}
+@media screen and (min-width: 765px) and (max-width: 1198px) {
+    .header-nav{
+        padding: 0;
+    }
+    .has-search .form-control {
+        font-size: 15px; 
+     }
+    .has-select .form-control {
+        font-size: 14px;
+        width: 200px;
+        padding-left:21px;
+   }
+   .btn-header-navigation {
+        font-size: 14px;
+        min-width: 20px;
+
+   }     
+}
+    
+   
+        
