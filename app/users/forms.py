@@ -13,13 +13,11 @@ class RegisterForm(forms.Form):
     password = forms.CharField()
 
 
-class LoginForm(AuthenticationForm):
-    email = forms.CharField(widget=forms.EmailInput(
+class LoginForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(
         attrs={'placeholder': 'Email'}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': 'Password'}))
-    class Meta:
-        model = User
-        fields = ['email', 'password']
+    
 
 

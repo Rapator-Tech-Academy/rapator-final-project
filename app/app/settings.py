@@ -100,6 +100,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('POSTGRES_DB', "app_db"),
         'USER': os.environ.get('POSTGRES_USER', "app_user"),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', "d11ad0b3f014465b96e9c42639838c4"),

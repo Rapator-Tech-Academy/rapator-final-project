@@ -9,7 +9,7 @@ from .tasks import send_welcome_email
 
 @receiver(signals.post_save, sender=User, dispatch_uid="user_create_log")
 def send_message(sender, instance, created, **kwargs):
-    if created:
+    if created and instance.is_superuser is not True:
         print(instance.email)
         send_welcome_email.apply_async(args=(instance.id,))
         

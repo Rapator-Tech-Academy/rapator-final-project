@@ -1,3 +1,5 @@
+import ipdb
+
 from django.views.generic import FormView, TemplateView
 from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.auth.forms import PasswordResetForm
@@ -10,7 +12,7 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login
 from .forms import RegisterForm, LoginForm
 
 User = get_user_model()
@@ -85,7 +87,27 @@ class SignUpView(FormView):
 class LoginEmailView(FormView):
     form_class    =  LoginForm
     template_name = 'accounts/login_by_email.html'
-    success_url   = 'accounts/register.html'
+    success_url   = '/'
+
+    def form_valid(self, form):
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        print(email, password)
+
+        # ipdb.set_trace()
+
+        if User.objects.filter(email=email).exists():
+            user = User.objects.get(email=email)
+            ok = user.check_password(password) 
+            if ok:
+                login(self.request, user)
+                return super().form_valid(form)
+        
+        return super().form_invalid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
 
 class LoginView(TemplateView):
     template_name = 'accounts/login.html'
