@@ -75,7 +75,7 @@
     margin-bottom: 15px;
 }
 
-.input-group input{
+form input{
     height: 60px;
     padding: 10px 15px 10px;
     margin-bottom: 15px;
@@ -116,10 +116,3 @@
     color:  #8895ad;
     padding: 4% 4%;
 }
-
-
-
-
-
-    
-    
