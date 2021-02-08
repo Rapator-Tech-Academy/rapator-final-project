@@ -94,8 +94,6 @@ class LoginEmailView(FormView):
         password = form.cleaned_data.get('password')
         print(email, password)
 
-        # ipdb.set_trace()
-
         if User.objects.filter(email=email).exists():
             user = User.objects.get(email=email)
             ok = user.check_password(password) 
