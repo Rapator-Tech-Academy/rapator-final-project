@@ -1,1 +1,1 @@
-from .newproduct import CreateProduct
+from .new_product import CreateProduct

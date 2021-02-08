@@ -128,7 +128,7 @@
                                                     <span>Ad <span class='required'>*</span></span>
                                                 </div>
                                                 <div class='col-md-7'>
-                                                    <input type="text" class="form-control" name="name" id="exampleInputName" aria-describedby="nameHelp" required>    
+                                                    <input type="text" class="form-control" name="name" id="exampleInputName" aria-describedby="nameHelp" required {% if request.user.is_authenticated %} value='{{ user.name }} {{ user.surname }}' readonly {% endif %}>    
                                                 </div>
                                             </div> 
                                             <div class='row'>
@@ -136,7 +136,7 @@
                                                     <span>E-mail <span class='required'>*</span></span>
                                                 </div>
                                                 <div class='col-md-7'>
-                                                    <input type="email" name="email" class="form-control" id="exampleInputName" aria-describedby="nameHelp" required>    
+                                                    <input type="email" name="email" class="form-control" id="exampleInputName" aria-describedby="nameHelp" required {% if request.user.is_authenticated %} value='{{ user.email }}' readonly {% endif %}>    
                                                 </div>
                                             </div> 
                                             <div class='row'>
@@ -144,7 +144,7 @@
                                                     <span>Mobil nömrə <span class='required'>*</span></span>
                                                 </div>
                                                 <div class='col-md-7'>
-                                                    <input type="text" name="phone_number" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="(000) 000-00-00" required>    
+                                                    <input type="text" name="phone_number" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="(000) 000-00-00" required {% if request.user.is_authenticated %} value='{{ user.phone }}' readonly {% endif %}>    
                                                 </div>
                                             </div> 
                                         </fieldset>
