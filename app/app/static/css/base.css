@@ -1,0 +1,19 @@
+html, body {
+    width: inherit;
+    margin: 0 auto;
+}
+@media screen and (min-width: 480px) and (max-width: 765px) {
+    body{
+        margin: 0;
+        padding: 0;
+        min-width: 575px;
+
+    }
+}
+@media screen and (min-width: 120px ) and (max-width: 480px) {
+    body{
+        min-width: 565px;
+        margin: 0;
+        padding: 0;
+    }
+}

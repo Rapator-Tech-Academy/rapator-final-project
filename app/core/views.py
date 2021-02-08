@@ -5,7 +5,6 @@ from .models import Category, City, Product
 from .forms import NewProductForm
 from .stories import CreateProduct
 
-
 class NewProductFormView(FormView):
     template_name = 'add_product.html'
     form_class = NewProductForm
@@ -21,8 +20,6 @@ class NewProductFormView(FormView):
         return context
 
     def form_valid(self, form):
-        print(form.cleaned_data.get('title'))
-
         CreateProduct().create(
             form=form
         )
@@ -62,7 +59,6 @@ class ProductView(DetailView):
 
 class CategoryView(ListView):
     template_name = "/pages/product_detail.html"
-
     model = Product
 
     def get_category(self):
@@ -76,11 +72,9 @@ class CategoryView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-
 class HomePageView(TemplateView):
     # TODO: Implement Home Page View (get latest products, total product count etc.)
     template_name = 'home_page.html'
-
 
 class SearchResultPageView(ListView):
     template_name = 'pages/result_page.html'
@@ -89,7 +83,7 @@ class SearchResultPageView(ListView):
 
 
 class BasicTestView(TemplateView):
-    template_name = 'pages/basic_card.html'
+    template_name = 'accounts/email_confirmation_complete.html'
 
 
 class UserProfilePageView(TemplateView):

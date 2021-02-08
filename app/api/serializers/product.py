@@ -17,7 +17,9 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['title', 'price', 'slug', 'description', 'image_url', 'city', 'status', 'time']
     
     def get_image_url(self, obj):
-        return obj.get_image_url()
+        if obj.image:
+            return obj.get_image_url()
+        return 'null'
     
     def get_city(self, obj):
         return obj.city.name
@@ -26,4 +28,3 @@ class ProductSerializer(serializers.ModelSerializer):
         date_time = obj.updated_at.strftime("%m %d %Y, %H:%M:%S")
         return date_time
     
-

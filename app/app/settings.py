@@ -44,6 +44,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'ckeditor',
     'mptt',
+    'django_celery_results',
     'rest_framework',
 ]
 
@@ -52,6 +53,8 @@ CUSTOM_APPS = [
     'users.apps.UsersConfig',
     'api'
 ]
+
+
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -79,12 +82,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
+                
                 # Custom Processors
+                'core.custom_context_processor.subject_renderer', 
                 'core.context_processors.cities',
                 'core.context_processors.latest_products',
-
-            ],
+                            ],
         },
     },
 ]
@@ -162,7 +165,6 @@ CKEDITOR_BASEPATH = f"{STATIC_URL}/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
 
 
-
 AUTH_USER_MODEL = 'users.User'
 
 
@@ -183,6 +185,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tap.az.elanlar@gmail.com'
 EMAIL_HOST_PASSWORD = 'tapazelan'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
 
 
 # Rest Framework Configurations

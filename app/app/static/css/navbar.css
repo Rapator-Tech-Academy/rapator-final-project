@@ -22,4 +22,28 @@ nav {
 #nav-right {
     font-weight: bold;
 }
-
+@media screen and (min-width: 480px) and (max-width: 640px) {
+    @-ms-viewport { width: 400px; }
+    .navbar-toggler span{
+        size: 10px;}
+      #nav {
+      background-color: #555;
+      font-size: 10px;
+      color: #fff; 
+      height:60px; 
+  }    
+    }
+@media  only screen and (max-width: 1198px) and  (min-width: 765px){
+    .navbar-toggler span{
+            size: 14px;
+    }
+    #nav {
+        background-color: #555;
+        font-size: 10px;
+        color: #fff; 
+        height:60px; 
+    }
+    #navbarSupportedContent{
+        padding:0;
+    }
+}

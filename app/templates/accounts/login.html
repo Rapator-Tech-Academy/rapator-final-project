@@ -8,7 +8,7 @@
     <div id="auth-app">
         <div class="main stage-1">
             <div class="auth">
-                <a type="button" href="{% url 'homepage'%}" class="auth__close-btn">
+                <a type="button" href="{% url 'home-page'%}" class="auth__close-btn">
                     <img src="{%static 'img/close.jpg' %}">
                 </a>
                 <div class="login">
@@ -18,11 +18,12 @@
                     <div class="promo">Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</div>
                     <a type="button" href="{% url 'users:login-email'%}" class="btn btn--default">Elektron poçt ilə giriş</a>
                     <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=106094292840661&kid_directed_site=0&app_id=106094292840661&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv4.0%2Fdialog%2Foauth%3Fclient_id%3D106094292840661%26redirect_uri%3Dhttps%253A%252F%252Ftap.az%252Fauth%252Ffacebook%252Fcallback%26response_type%3Dcode%26scope%3Demail%26state%3Df2dbc4368114ade0d7e3c35b9019eec196eb749dde7c53f7%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D098f580c-f19d-49ed-8a91-fc54bbcf92ef%26tp%3Dunspecified&cancel_url=https%3A%2F%2Ftap.az%2Fauth%2Ffacebook%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Df2dbc4368114ade0d7e3c35b9019eec196eb749dde7c53f7%23_%3D_&display=page&locale=ru_RU&pl_dbl=0" class="btn btn--fb"> 
-                        <img width='22' height="22" class="facebook" src="{% static 'img/facebook.png' %}"> 
-                        Facebook vasitəsilə giriş
+                        <img width='22' height="22" class="facebook" src="{% static 'img/facebook.png' %}"> Facebook vasitəsilə giriş
                     </a>
                 </div>
+                <a href="{% url 'users:register' %}" class='confirmation'>Qeydiyyatdan keç</a> 
             </div>
+
             <div class="confirmation">Saytda avtorizasiyadan keçməklə siz Tap.az-ın 
                 <a href="/pages/terms-and-conditions">İstifadəçi razılaşmasını
                 </a> və 

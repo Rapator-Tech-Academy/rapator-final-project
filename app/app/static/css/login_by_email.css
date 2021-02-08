@@ -59,11 +59,13 @@
 .login{
     padding: 10% 2% 5% 2%;
 }
+
 .title{
     font-size: 20px;
-    font-weight: 500;
-    color: #212c3a;
+    font-weight: bold;
+    color: #4387fd;
 }
+
 .title--main{
     line-height: 1.64;
     margin-bottom: 30px;
@@ -72,11 +74,13 @@
     position: relative;
     margin-bottom: 15px;
 }
-.input-group__field {
+
+form input{
     height: 60px;
-    padding: 30px 15px 10px;
+    padding: 10px 15px 10px;
+    margin-bottom: 15px;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.2;
     letter-spacing: 1px;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -85,33 +89,8 @@
     border: 1px solid #eaebf2;
     box-sizing: border-box;
     box-shadow: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     }
-.input-group__password{
-    height: 60px;
-    margin-top: 12px;
-    padding: 30px 15px 10px;
-    width: 100%;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 1px;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-    border-radius: 4px;
-    background-color: #fff;
-    border: 1px solid #eaebf2;
-    box-sizing: border-box;
-    box-shadow: none;
-    
-
-    }
-
-
-.btn.disabled {
-    opacity: .5;
-    pointer-events: none;
-}
 
 .btn--default {
     background-color: #4b8af9;
@@ -137,10 +116,3 @@
     color:  #8895ad;
     padding: 4% 4%;
 }
-
-
-
-
-
-    
-    

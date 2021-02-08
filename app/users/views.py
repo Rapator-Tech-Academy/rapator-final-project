@@ -1,31 +1,27 @@
-from django.views.generic import FormView
+import ipdb
+
+from django.views.generic import FormView, TemplateView
 from django.contrib.auth.views import PasswordResetView, LoginView
+from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
+from django.template.response import TemplateResponse
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.contrib.auth import get_user_model
 
-from users.forms import RegisterForm, ResetPasswordForm, LoginForm
-
+from django.contrib.auth import get_user_model, login
+from .forms import RegisterForm, LoginForm
 
 User = get_user_model()
 
 
-class LoginView(LoginView):
-    form_class = LoginForm
-    template_name = 'accounts/login.html'
-    success_url = 'accounts/register.html'
-
-
 class ForgetPasswordView(PasswordResetView):
-    form_class = ResetPasswordForm
+    form_class = PasswordResetForm
     template_name = 'accounts/forget_password.html'
     success_url = 'accounts/login.html'
-
 
 class SignUpView(FormView):
     template_name = 'accounts/signup.html'
@@ -78,12 +74,42 @@ class SignUpView(FormView):
         if user is not None and default_token_generator.check_token(user, token):
             user.is_active = True
             user.save()
-            return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+            return TemplateResponse(request, template='accounts/email_confirmation_complete.html', context={'message': 'Sizin hesabınız təsdiqləndi', 'status': 'success'})
         else:
-            return HttpResponse('Activation link is invalid!')
+            return TemplateResponse(request, template='accounts/email_confirmation_complete.html', context={'message': 'Token-in yararlılıq müddəti başa çatıb', 'status': 'error'})
         
 
     def form_valid(self, form):
         self.create_new_user(form=form)
-
         return super().form_valid(form)
+
+
+class LoginEmailView(FormView):
+    form_class    =  LoginForm
+    template_name = 'accounts/login_by_email.html'
+    success_url   = '/'
+
+    def form_valid(self, form):
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        print(email, password)
+
+        if User.objects.filter(email=email).exists():
+            user = User.objects.get(email=email)
+            ok = user.check_password(password) 
+            if ok:
+                login(self.request, user)
+                return super().form_valid(form)
+        
+        return super().form_invalid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
+
+class LoginView(TemplateView):
+    template_name = 'accounts/login.html'
+
+class EmailConfirmView(TemplateView):
+    template_name = 'accounts/confirmation.html'
+

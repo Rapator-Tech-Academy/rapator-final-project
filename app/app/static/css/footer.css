@@ -19,15 +19,16 @@
 }
 .page_foot.main-col_padding .footer-contacts .links {
     float: left;
-    font-size: 13px;
+    font-size: 10px;
+    font-size: -14px;
 }
 .footer-contacts .links a {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     display: inline-block;
     text-decoration: none;
-    margin-right: 45px;
+    margin-right: 4px;
     cursor: pointer;
 }
  .footer-contacts .contacts {
@@ -76,8 +77,9 @@
     margin-bottom: 8px;
 }
 .footer-bottom .side .resp {
+    text-align: center;
     margin-bottom: 15px;
-    width: 300px;
+    width: 100%;
 }
 .page_foot.main-col_padding .footer-bottom .side .copyright, .page_foot.main-col_padding .footer-bottom .side .mobile {
     display: inline-block;
@@ -85,6 +87,9 @@
 .footer-bottom .links-sites {
     float: right;
     line-height: 52px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 .footer-bottom .side {
     font-size: 10px;
@@ -102,6 +107,7 @@
 }
 
 .footer-bottom .counters {
+    float: right;
     height: 122px;
     width: 88px;
     overflow: hidden;
@@ -109,7 +115,7 @@
     vertical-align: middle;
     background: #7e9dd2;
     cursor: pointer;
-    position: relative;
+    /* position: relative; */
 }
 
 .footer-bottom .counters img {
@@ -118,6 +124,120 @@
 }
 a img {
     border: 0;
-    height: 250px;
-    width: 230px;
+}
+
+@media only screen and (max-width:480px) and (min-width: 120px) {
+    .footer-info{
+        padding: 0;
+    }
+    .links{
+        font-size: 10px;
+
+    }
+    .contacts{
+        margin-top:10px;
+    }
+    .all-regions .col-md-2 {
+        flex: 0 0 auto;
+        width: 16.6666666667%;
+    }
+    .footer-bottom .links-sites{
+        float:left;
+    }
+    .links-sites{
+        margin: 22px;
+    }
+    .side{
+        text-align: center;
+    }
+    .footer-bottom .links-sites{
+        float:left;
+        width: 100%;
+    }
+    .footer-bottom .side .resp {
+        text-align: center;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .footer-bottom .counters {
+        float: right;
+    }
+}
+@media only screen and (max-width:575px) and (min-width: 480px) {
+
+    .footer-info{
+        padding: 0;
+    }
+    .links{
+        font-size: 10px;
+    
+    }
+    .contacts{
+        margin-top:10px;
+    }
+    .all-regions .col-md-2 {
+        margin-top:20px;
+        flex: 0 0 auto;
+        width: 16.6666666667%;
+    }
+
+    .footer-bottom .links-sites{
+        float:left;
+        width: 100%;
+    }
+    .footer-bottom .side {
+        text-align: center;
+        width:100%;
+        float:none;
+    }
+    .footer-bottom .counters {
+        float: right;
+    }
+    
+}
+    
+@media only screen and (max-width:767px) and (min-width: 575px) {
+
+    .footer-info{
+        padding:0;
+    }
+    .container, .container-sm {
+        width: 100%;
+    }
+
+    .footer-contacts .links a {
+        font-size: 12px;
+        margin-right: 4px;
+    }
+     .all-regions .col-md-2 {
+        margin-top:20px;
+        flex: 0 0 auto;
+        width: 16.6666666667%;
+     }
+    .footer-bottom .links-sites{
+        float:left;
+    }
+    .footer-bottom .side {
+        text-align: center;
+        width:100%;
+        float:none;
+    }
+     .footer-bottom .counters {
+        float: right;
+    }
+    
+}
+@media screen and (min-width: 765px) and (max-width: 1200px) {
+    .footer-bottom .side {
+        text-align: center;
+        width:100%;
+        float:none;
+    }
+     .footer-bottom .links-sites{
+        float:left;
+        width: 100%;
+   }
+    .footer-bottom .counters {
+        float: right;
+    }
 }

@@ -21,7 +21,6 @@ $(document).ready(() => {
         
     
     function Product(data){
-        console.log(data)
         for(value in data){
             products.append(`
             <div class="products-i">
@@ -42,9 +41,8 @@ $(document).ready(() => {
             </div>`)
         }
     }
-
-    $("#price_range").keypress(function() {
-        console.log($("#price_range").val());
-      });
-
+    
+    $('#price-range').keyup(function(){
+        console.log('Hello')
+    })
 })

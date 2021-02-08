@@ -31,13 +31,13 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('min'):
             kw = data.get('min')
             query = query.filter(price__gte=kw)
-        
-
+            
         return query
 
 
 class UserProductsListAPIView(ListAPIView):
     serializer_class = ProductSerializer
+
     permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):

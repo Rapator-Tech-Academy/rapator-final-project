@@ -1,7 +1,5 @@
 from django.db import models
-from core.models import Product
-
 
 class ProductImage(models.Model):
-    name = models.ManyToManyField(Product, default=None)
+    name = models.CharField(max_length=100, verbose_name='Name')
     image = models.ImageField(upload_to="images/")
