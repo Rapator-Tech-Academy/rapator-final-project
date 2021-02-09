@@ -11,3 +11,10 @@ def cities(request):
     return {
         'cities': cities
     }
+
+def categories(request):
+    categories = Category.objects.filter(level=0)
+
+    return {
+        'categories': categories
+    }
