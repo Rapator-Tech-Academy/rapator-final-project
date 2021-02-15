@@ -92,3 +92,7 @@ class UserProfilePageView(TemplateView):
 
 class UserAccountSettingsView(TemplateView):
     template_name = 'pages/profile_settings.html'
+
+    
+class ProductDetailView(TemplateView):
+    template_name='pages/user_product_detail.html' 

@@ -83,4 +83,3 @@ $(document)
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
-
