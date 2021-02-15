@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
 <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
@@ -100,13 +102,18 @@
             <span style="font-size: 16px; vertical-align: super; color: #ffd5c8;"> AZN</span>
           </div>
 
-        </div>
-        <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
-          <h3>{{ product.title }}</h3>
+    <div class="header-main" style="background-color: #f0f0f0;">
+      <div class="container-fluid">
+        <div class="row header-main-row" id="header">
+          <div class="col-md-4">
+            <div class="price">{{product.price}}AZN</div>
+          </div>
+          <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
+            <h3>{{ product.title }}</h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
   <div class="container text-center">
     <div class="row" style="padding-top: 1rem;">
@@ -119,8 +126,7 @@
             </li>
             <li>{{user.name}}</li>
             <li><a style="font-size: 13px;" href="">İstifadəçinin bütün elanları</a></li>
-
-          </ul>
+            </ul>
 
         </div>
         <div class="additions" style="font-size: 13px;">
@@ -132,8 +138,39 @@
             </li>
             <li>Yeniləndi: {{product.created_at}}
 
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-8" style="font-size: 20px;">
+          <table class="details">
+
+            <tr>
+              <td>Şəhər</td>
+              <td>{{product.city}}</td>
+            </tr>
+
+            <tr>
+              <td>Yeni </td>
+              <td>{% if product.is_new != True %}
+                Bəli
+                {% else %}
+                Xeyr
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <td>Çatdırılma? </td>
+              <td>{% if product.delivery != True %}
+                Var
+                {% else %}
+                Yoxdur
+                {% endif %}</td>
+            </tr>
+          </table>
+
+          <p style="padding-top: 1rem; text-align: left;">{{product.description}}
+          </p>
         </div>
       </div>
       <div class="col-sm-8" style="font-size: 16px;">
@@ -169,47 +206,46 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <!-- latest products-->
-  <div class="products-container products-container_latest">
-    <div class="section-title">
-      <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
-      </h2>
-    </div>
-    <div class="products">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- All products here-->
-          {% for product in related_products %}
+  <div class="container">
+    <!-- latest products-->
+    <div class="products-container products-container_latest">
+      <div class="section-title">
+        <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
+        </h2>
+      </div>
+      <div class="products">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- All products here-->
+            {% for product in related_products %}
 
-          <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">{{product.price}}AZN</span>
+            <div class="products-i">
+              <a href="#" class="products-link mb-2">
+                <div class="card">
+                  <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                  <div class="products-price-container">
+                    <div class="products-price">
+                      <span class="price-val">{{product.price}}AZN</span>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title products-name">{{product.title}}</h5>
+                    <p class="card-text">{{product.updated_at}}</p>
                   </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">{{product.title}}</h5>
-                  <p class="card-text">{{product.updated_at}}</p>
-                </div>
-              </div>
-            </a>
+              </a>
+            </div>
+            {%endfor%}
+
+
+
           </div>
-          {%endfor%}
-
-
-
         </div>
       </div>
     </div>
+    <!--products-->
   </div>
-  <!--products-->
-</div>
 
 </div>
 

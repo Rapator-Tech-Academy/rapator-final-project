@@ -7,4 +7,6 @@ app_name ='api'
 urlpatterns = [
     path('get-products/', views.FilterProductListAPIView.as_view(), name="get-products"),
     path('user-products/<str:user_id>/', views.UserProductsListAPIView.as_view(), name='user-products'),
-    path('user-info/<pk>/', views.UserInformationsListAPIView.as_view(), name='user-informations-update'),]
+    path('user-info/<pk>/', views.UserInformationsListAPIView.as_view(), name='user-informations-update'),
+    path('statistics/', views.StatisticsView.as_view(), name='statistics'),    
+]
