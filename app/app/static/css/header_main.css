@@ -3,7 +3,6 @@
     color: #fff; 
     font-family: Helvetica, Arial, sans-serif;
     font-size: 15px;
-
 }
 .header-main-row{
     padding: 0 5% 0 5%;
@@ -11,18 +10,8 @@
 .header-main a {
     color: #fff; 
     font-weight: bold;
-    /* margin-left: 50px;
-    */
+    margin-left: 50px;
 }
-
-.logo img{
-    display: inline-block;
-    margin-left: auto;
-    margin-right:auto;
-    width: 236px;
-    margin-top: 0.9rem;
-  }
-
 .header-btn {
     text-decoration: none;
     text-transform: uppercase;
@@ -31,15 +20,44 @@
     padding: 12px 63px;
     background-color: #3fa425;
 }
-.dropbtn {
-    color: #939292;
+.pull-right .dropbtn {
+    color: white;
     border: none;
+    font-weight: bold;
     cursor: pointer;
   }
-.dropdown{
-    color: #939292;
+.pull-right .dropdown{
     line-height: 20px;
+    position: relative;
+    display: inline-block;
 }
+
+  /* Dropdown Content (Hidden by Default) */
+  .pull-right .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .pull-right .dropdown-content a {
+    font-size: 14px;
+    padding: 12px 1px 6px 0px;
+    color: #656f8f;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .pull-right .dropdown-content a:hover {background-color: #eba851}
+  
+  /* Show the dropdown menu on hover */
+  .pull-right .dropdown:hover .dropdown-content {
+    display: block;
+  }
 @media screen and (min-width: 767px) and (max-width: 1198px) {
     .header-main {
           font-size: 14px;
@@ -67,11 +85,11 @@
           padding: 12px 12px;
           background-color: #3fa425;
       }
-      .dropdown-content  a{
+      .pull-right .dropdown-content  a{
             font-size: 10px;
             margin-left:15px;
       }
-     .dropdown{
+      .pull-right .dropdown{
             color: #939292;
             line-height: 14px;
    }
@@ -102,10 +120,11 @@
         background-color: #3fa425;
     }
 
-    .dropdown-content  a{
+    .pull-right .dropdown-content  a{
         margin-left:15px;
+        font-size: 13px;
     }
-    .dropdown{
+    .pull-right .dropdown{
         color: #939292;
         line-height: 10px;
    }
@@ -129,8 +148,6 @@
         color: #fff; 
         font-weight: bold;
         margin:0;
-        
-   
     }
     .header-btn {
         text-decoration: none;
@@ -143,10 +160,12 @@
     .pull-right{
         float: left;
     }
-    .dropdown-content  a{
+    .pull-right .dropdown-content  a{
         margin-left:15px;
+        font-size: 12px;
+
     }
-    .dropdown{
+    .pull-right .dropdown{
         color: #939292;
         line-height: 10px;
    }
