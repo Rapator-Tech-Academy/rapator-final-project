@@ -38,6 +38,8 @@ class ProductView(DetailView):
         result = super().get(request, *args, **kwargs)
         obj = self.get_object()
         obj.view_count += 1
+        obj.daily_view_count += 1
+        print(obj.daily_view_count)
         obj.save()
         return result
 

@@ -6,7 +6,7 @@ $(document).ready(() => {
     let day_visits_class = $('.day-visits');
     let day_hits_class = $('.day-hits');
     let daily_new_product_class = $('.daily-new-product');
-    let products = $('.products');
+    let products = $('.products-row');
 
 
     // Getting query params
@@ -36,19 +36,20 @@ $(document).ready(() => {
             <div class="products-i">
                 <a href="${location.origin}/product_detail/${data[value]['slug']}" class="products-link mb-2">
                     <div class="card">
-                        <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
-                        <div class="products-price-container">
-                            <div class="products-price">
-                                <span class="price-val">${ data[value]['price']} AZN </span>
+                        <div class="products-top">
+                            <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
+                            <div class="products-price-container">
+                                <div class="products-price">
+                                    <span class="price-val">${ data[value]['price']} AZN</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                        <h5 class="card-title products-name">${ data[value]['title'] } </h5>
-                        <p class="card-text">${ data[value]['city'] }, bugün, 18:21</p>
-                        </div>
+                        <div class="products-name">Card title Card title Card title Card title</div>
+                        <div class="products-created">${ data[value]['city'] }, bugün, 18:21</div>
                     </div>
                 </a>
-            </div>`)
+            </div>
+            `)
         }
     }
 
