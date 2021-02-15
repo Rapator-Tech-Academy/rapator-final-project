@@ -56,9 +56,6 @@ class ProductView(DetailView):
         context['related_products'] = self.get_related_products()
         return context
 
-    def get_products_price_range(self):
-        return Product.objects.filter(price_range(min_price, max_price))
-
 
 class CategoryView(ListView):
     template_name = "/pages/product_detail.html"
@@ -95,7 +92,7 @@ class UserProfilePageView(TemplateView):
 
 class UserAccountSettingsView(TemplateView):
     template_name = 'pages/profile_settings.html'
+
     
 class ProductDetailView(TemplateView):
-    template_name='pages/product_detail.html' 
-
+    template_name='pages/user_product_detail.html' 

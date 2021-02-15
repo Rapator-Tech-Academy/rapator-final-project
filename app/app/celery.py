@@ -21,3 +21,11 @@ app.autodiscover_tasks()
 @app.task(bind=True)
 def debug_task(self):
     print("Request: {0!r}".format(self.request))
+
+
+app.conf.beat_schedule = {
+    "reset_daily_view_count" : {
+        "task" : "core.tasks.reset_product_daily_view_count",
+        "schedule" : crontab(minute=0, hour=0)
+    }
+}

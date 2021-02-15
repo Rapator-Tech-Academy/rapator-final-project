@@ -33,6 +33,12 @@ def task_update_product_status():
             product.status = 2
             product.save()
 
+@app.task 
+def reset_product_daily_view_count():
+    products = Product.objects.all()
+    products.update(daily_view_count=0)
+
+
 '''
 @periodic_task(
     run_every=crontab(minute=0, hour=0),

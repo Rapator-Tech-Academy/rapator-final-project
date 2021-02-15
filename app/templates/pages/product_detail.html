@@ -5,9 +5,11 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
-<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
 <link rel="stylesheet" href="{% static 'css/header_search.css'%}">
 <link rel="stylesheet" href="{% static 'css/header_search_categories.css'%}">
@@ -28,165 +30,224 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <div class="container">
-    <div class="row">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
-            data-target="#image-gallery">
-            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
-          </a>
-        </div>    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-          <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
-            data-target="#image-gallery">
-            <img cl ass="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
-          </a>
-        </div>
+  <div class="row" style="background-color: #323232;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Bütün kateqoriyalar<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> {{product.category.parent}} <img style=" 
+                padding-bottom: 2px;
+                height: 16px;
+                padding-right: 4px;
+            " src="https://tap.azstatic.com/assets/chevron-grey-a610c21d9fbf9e7d7c1dbdf51d7af3478d071ac3d989fe706bd03114fde12f4b.svg">
+              <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">{{ product.category.name }} </a>
+          </li>
+        </ul>
       </div>
+    </nav>
 
 
-      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="image-gallery-title"></h4>
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
-                  class="sr-only">Close</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img id="image-gallery-image" class="img-responsive col-md-12" src="{{product.image.url}}">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
-                  class="fa fa-arrow-left"></i>
-              </button>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image=""
+        data-target="#image-gallery">
+        <img class="img-thumbnail" src="{{product.image.url}}" alt="Another alt text">
+      </a>
+    </div>
 
-              <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i
-                  class="fa fa-arrow-right"></i>
-              </button>
-            </div>
+
+    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="image-gallery-title"></h4>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                class="sr-only">Close</span>
+            </button>
+          </div>
+          {% for image in related_products%}
+          <div class="modal-body">
+            <img id="image-gallery-image" class="img-responsive col-md-12" src="{{product.image.url}}">
+          </div>
+          <div class="modal-body">
+            <img id="image-gallery-image" class="img-responsive col-md-12" src="{{product.image.url}}">
+          </div>
+          {%endfor%}
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
+                class="fa fa-arrow-left"></i>
+            </button>
+
+            <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i
+                class="fa fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="header-main" style="background-color: #f0f0f0;">
     <div class="container-fluid">
       <div class="row header-main-row" id="header">
         <div class="col-md-4">
-          <div class="price">{{product.price}}AZN</div>
+          <div class="price"> <span>{{product.price}}</span>
+            <span style="font-size: 16px; vertical-align: super; color: #ffd5c8;"> AZN</span>
+          </div>
 
-
-        </div>
-        <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
-          <h3>{{ product.title }}</h3>
+    <div class="header-main" style="background-color: #f0f0f0;">
+      <div class="container-fluid">
+        <div class="row header-main-row" id="header">
+          <div class="col-md-4">
+            <div class="price">{{product.price}}AZN</div>
+          </div>
+          <div class="col-md-8 mt-3 mb-3 pr-4" id="product_title">
+            <h3>{{ product.title }}</h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
   <div class="container text-center">
     <div class="row" style="padding-top: 1rem;">
       <div class="col-sm-4">
+        
         <div class="author">
-          <ul style="list-style: none; align-items: start;">
-            <li style="font-weight: bold;">(050)-123-45-67 <img style="height: 60px;" src="{% static 'img/phone.png'%}">
+          <ul style="list-style: none;font-size: 16px; align-items: start; background-color: #f2f2f2; width: 72%;">
+            <li style="font-weight: bold;"> 0{{ user.phone }} <img style="height: 35px; margin-left: 2rem;"
+                src="https://tap.azstatic.com/assets/icon-phonebg-04b171e1917a21fb1b711831dd807d9eef8678d191949ae9d000259f86e6c81b.svg">
             </li>
-            <li>John</li>
-            <li><a style="font-size: 20px;" href="">İstifadəçinin bütün elanları</a></li>
-
-          </ul>
+            <li>{{user.name}}</li>
+            <li><a style="font-size: 13px;" href="">İstifadəçinin bütün elanları</a></li>
+            </ul>
 
         </div>
-        <div class="additions">
-          <ul style="list-style: none;">
+        <div class="additions" style="font-size: 13px;">
+          <ul style="list-style: none; color: #777;">
             <li>Elanın nömrəsi: {{ product.product_id }}
             </li>
             <li>Baxışların sayı: {{product.view_count}}
 
             </li>
-            <li>Yeniləndi: {{product.updated_at}}
+            <li>Yeniləndi: {{product.created_at}}
 
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-8" style="font-size: 20px;">
+          <table class="details">
+
+            <tr>
+              <td>Şəhər</td>
+              <td>{{product.city}}</td>
+            </tr>
+
+            <tr>
+              <td>Yeni </td>
+              <td>{% if product.is_new != True %}
+                Bəli
+                {% else %}
+                Xeyr
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <td>Çatdırılma? </td>
+              <td>{% if product.delivery != True %}
+                Var
+                {% else %}
+                Yoxdur
+                {% endif %}</td>
+            </tr>
+          </table>
+
+          <p style="padding-top: 1rem; text-align: left;">{{product.description}}
+          </p>
         </div>
       </div>
-      <div class="col-sm-8" style="font-size: 20px;">
+      <div class="col-sm-8" style="font-size: 16px;">
         <table class="details">
-
-          <tr>
-            <td>Şəhər</td>
-            <td>{{product.city}}</td>
-          </tr>
-
-          <tr>
-            <td>Yeni </td>
-            <td>{% if product.is_new != True %}
-              Bəli
-              {% else %}
-              Xeyr
-              {% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td>Çatdırılma? </td>
-            <td>{% if product.delivery != True %}
-              Var
-              {% else %}
-              Yoxdur
-              {% endif %}</td>
-          </tr>
+          <tbody style="padding-right: 5rem;">
+            <tr>
+              <td>Şəhər</td>
+              <td>{{product.city}}</td>
+            </tr>
+            <tr>
+              <td>Yeni </td>
+              <td>{% if product.is_new != True %}
+                Bəli
+                {% else %}
+                Xeyr
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <td>Çatdırılma? </td>
+              <td>{% if product.delivery != True %}
+                Var
+                {% else %}
+                Yoxdur
+                {% endif %}</td>
+            </tr>
+          </tbody>
         </table>
 
-        <p style="padding-top: 1rem; text-align: left;">{{product.description}}
+        <p style="padding-top: 1rem; text-align: left; -webkit-user-modify: read-write-plaintext-only;">
+          {{product.description}}
         </p>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <!-- latest products-->
-  <div class="products-container products-container_latest">
-    <div class="section-title">
-      <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
-      </h2>
-    </div>
-    <div class="products">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- All products here-->
-          {% for product in related_products %}
+  <div class="container">
+    <!-- latest products-->
+    <div class="products-container products-container_latest">
+      <div class="section-title">
+        <h2 style="font-weight: bold; font-size: 1.5rem;" class="section-title_name">BƏNZƏR ELANLAR
+        </h2>
+      </div>
+      <div class="products">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- All products here-->
+            {% for product in related_products %}
 
-          <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">{{product.price}}AZN</span>
+            <div class="products-i">
+              <a href="#" class="products-link mb-2">
+                <div class="card">
+                  <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
+                  <div class="products-price-container">
+                    <div class="products-price">
+                      <span class="price-val">{{product.price}}AZN</span>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title products-name">{{product.title}}</h5>
+                    <p class="card-text">{{product.updated_at}}</p>
                   </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">{{product.title}}</h5>
-                  <p class="card-text">{{product.updated_at}}</p>
-                </div>
-              </div>
-            </a>
+              </a>
+            </div>
+            {%endfor%}
+
+
+
           </div>
-          {%endfor%}
-
-
-
         </div>
       </div>
     </div>
+    <!--products-->
   </div>
-  <!--products-->
-</div>
 
+</div>
 
 <script src="{% static 'js/image_slider.js' %}"></script>
 <!-- JavaScript Bundle with Popper -->

@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -13,13 +12,11 @@ class RegisterForm(forms.Form):
     password = forms.CharField()
 
 
-class LoginForm(AuthenticationForm):
-    email = forms.CharField(widget=forms.EmailInput(
+class LoginForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(
         attrs={'placeholder': 'Email'}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': 'Password'}))
-    class Meta:
-        model = User
-        fields = ['email', 'password']
+    
 
 
