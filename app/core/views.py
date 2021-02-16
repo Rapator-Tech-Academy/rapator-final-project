@@ -27,8 +27,8 @@ class ProductView(DetailView):
     model = Product
     context_object_name = 'product'
 
-    def get_slug_field(self):
-        return 'slug'
+    # def get_slug_field(self):
+    #     return 'slug'
 
     def get(self, request, *args, **kwargs):
         result = super().get(request, *args, **kwargs)
