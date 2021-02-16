@@ -175,3 +175,47 @@
 .logo {
     margin-top: 1rem;
 }
+
+.sub-categories-row{
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.sub-categories-row a{
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.sub-categories-row i{
+    font-size: 0.8rem;
+}
+
+.all-ads {
+    border-bottom: 1px solid #efefef;
+}
+
+.total-amount {
+    color: #a9acad;
+    padding-left: 3px;
+    font-size: 0.9rem;
+}
+
+.sub-categories-row .col-md-4{
+    margin-top: 0.4rem;
+}
+
+a{
+    -webkit-transition:color 0.2s ease-in, background-color 0.1s ease-in ;  
+    -moz-transition:color 0.2s ease-in, background-color 0.1s ease-in;  
+    -o-transition:color 0.2s ease-in, background-color 0.1s ease-in;  
+    transition:color 0.2s ease-in, background-color 0.1s ease-in; 
+}
+
+a:hover{
+    color: #ff6617;
+}
+
+i:hover {
+    color: #ff6617; 
+}
