@@ -21,7 +21,7 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <form class="simple_form lot-form js-lot-form no-banners lot-form--unauthorized product-form" accept-charset="UTF-8" method="post">
+                                    <form class="simple_form lot-form js-lot-form no-banners lot-form--unauthorized product-form" accept-charset="UTF-8" id="createProduct" method="post">
                                         {% csrf_token %}
                                         <div class='row'>
                                             <div class='col-md-5'>
@@ -111,7 +111,7 @@
                                                 <span>Şəkillər </span>
                                             </div>
                                             <div class='col-md-7'>
-                                                <input class="form-control form-control-sm" id="formFileSm" type="file" accept="image/*" />
+                                                <input class="form-control form-control-sm" type="file" name="image" accept="image/*" />
                                             </div>
                                         </div> 
                                         <fieldset class='contact'>

@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, ListView, DetailView
 
@@ -10,20 +11,15 @@ class NewProductFormView(FormView):
     form_class = NewProductForm
     success_url = '/'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-
-        context = {
-            'categories': Category.objects.filter(level=0),
-        }
-
-        return context
-
     def form_valid(self, form):
         CreateProduct().create(
             form=form
         )
         return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
 
 
 class ProductView(DetailView):
@@ -31,8 +27,8 @@ class ProductView(DetailView):
     model = Product
     context_object_name = 'product'
 
-    def get_slug_field(self):
-        return 'slug'
+    # def get_slug_field(self):
+    #     return 'slug'
 
     def get(self, request, *args, **kwargs):
         result = super().get(request, *args, **kwargs)
