@@ -7,7 +7,7 @@
     <div id="auth-app">
         <div class="main stage-3">
             <div class="auth">
-                <a type="button" href="{% url 'homepage'%}" class="auth__close-btn">
+                <a type="button" href="{% url 'home-page'%}" class="auth__close-btn">
                     <img src="{% static 'img/close.jpg' %}">
                 </a>
                 <div class="login">
@@ -16,12 +16,8 @@
                     </a>
                     <div class="title title--main">Qeydiyyat</div>
                         
-                        <form action="#" method="POST">
+                        <form method="POST">
                             {% csrf_token %}
-                            <div class="input-group">
-                                {{form.email}}
-                                {{form.email.errors}}
-                            </div>
                             <div class="input-group">
                                 {{form.name}}
                                 {{form.name.errors}}
@@ -31,17 +27,18 @@
                                 {{form.surname.errors}}
                             </div>
                             <div class="input-group">
-                                {{form.phone}}
-                                {{form.phone.errors}}
+                                {{form.username}}
+                                {{form.username.errors}}
                             </div>
                             <div class="input-group">
-                                {{form.password1}}
-                                {{form.password1.errors}}
+                                {{form.email}}
+                                {{form.email.errors}}
                             </div>
                             <div class="input-group">
-                                {{form.password2}}
-                                {{form.password2.errors}}
+                                {{form.password}}
+                                {{form.password.errors}}
                             </div>
+                           
                             <div class="form-group">
                                 <input type="submit" value="Register" class="btn btn--default">
                             </div>
