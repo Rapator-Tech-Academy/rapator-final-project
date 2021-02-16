@@ -84,7 +84,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 
                 # Custom Processors
-                'core.custom_context_processor.subject_renderer', 
                 'core.context_processors.cities',
                 'core.context_processors.latest_products',
                 'core.context_processors.categories',
