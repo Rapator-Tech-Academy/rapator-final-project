@@ -5,6 +5,7 @@ from .models import Product, Category, City
 
 User = get_user_model()
 
+
 class Repo:
 
     def create_product(self, payload):
@@ -18,7 +19,7 @@ class Repo:
             last_id = 0
 
         if city and category and user:
-            new_product = Product(
+            new_product = Product.objects.create(
                 title=payload.title,
                 delivery=payload.delivery,
                 is_new=payload.is_new,
@@ -26,8 +27,18 @@ class Repo:
                 description=payload.description,
                 city=city,
                 category=category,
-                user = user
+                user=user,
+                slug=slugify(f'{payload.title}-{last_id+1}')
             )
-            new_product.slug = slugify(f'{new_product.title}-{last_id+1}')
+            return new_product
 
-            return new_product.save()
+    def update_user_info(self, payload, user):
+        user = User.objects.filter(id=user.id).first()
+        print(payload.name)
+        if user:
+            user.name=payload.name,
+            user.surname=payload.surname,
+            user.email=payload.email,
+            user.phone_number=payload.phone_number,
+
+            return user.save()
