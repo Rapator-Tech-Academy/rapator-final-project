@@ -24,7 +24,7 @@ class ForgetPasswordView(PasswordResetView):
     success_url = 'accounts/login.html'
 
 class SignUpView(FormView):
-    template_name = 'accounts/signup.html'
+    template_name = 'accounts/register.html'
     form_class = RegisterForm
     success_url = '/'
 

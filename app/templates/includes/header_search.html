@@ -60,8 +60,7 @@
                         {% for category in categories %}
                         <div class='col-3'>
                             <a href='#'>
-                                <div
-                                    class='row category-row {% if forloop.counter <= 4 %} category-first-row {% elif forloop.counter >= 9 %} category-last-row {% endif %}'>
+                                <div class='row category-row row-{{forloop.counter}} {% if forloop.counter <= 4 %} category-first-row {% elif forloop.counter >= 9 %} category-last-row {% endif %}'>
                                     <div class='col-2'>
                                         <div class='header-category-icon'>
                                             <img src="{{ category.icon.url }}">
@@ -72,10 +71,22 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                        {% endfor %}
-                    </div>
+                        </div>   
+                        {% endfor %}   
                 </div>
+                <div class="row sub-categories-row">
+                    <div class="col-12 all-ads">
+                        <a href="#"><span> Bütün elanlar </span> <span class="total-amount"> 2986 </span></a>
+                    </div>
+                    <div class="row all-categories-row">
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
+                    </div>
+                </div> 
             </div>
         </div>
     </div>

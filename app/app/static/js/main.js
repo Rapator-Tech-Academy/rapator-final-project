@@ -34,7 +34,7 @@ $(document).ready(() => {
         for(value in data){
             products.append(`
             <div class="products-i">
-                <a href="${location.origin}/product_detail/${data[value]['slug']}" class="products-link mb-2">
+                <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
                     <div class="card">
                         <div class="products-top">
                             <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
@@ -87,5 +87,7 @@ $(document).ready(() => {
         add_daily_product_view_to_header(daily_product_views)
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
+
+    $("#file").pekeUpload();
 
 })

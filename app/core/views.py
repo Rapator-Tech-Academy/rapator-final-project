@@ -1,5 +1,7 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Category, City, Product
 from .forms import NewProductForm, UserAccountUpdateForm
@@ -11,20 +13,15 @@ class NewProductFormView(FormView):
     form_class = NewProductForm
     success_url = '/'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-
-        context = {
-            'categories': Category.objects.filter(level=0),
-        }
-
-        return context
-
     def form_valid(self, form):
         CreateProduct().create(
             form=form
         )
         return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
 
 
 class UserAccountUpdateFormView(FormView):
@@ -47,8 +44,8 @@ class ProductView(DetailView):
     model = Product
     context_object_name = 'product'
 
-    def get_slug_field(self):
-        return 'slug'
+    # def get_slug_field(self):
+    #     return 'slug'
 
     def get(self, request, *args, **kwargs):
         result = super().get(request, *args, **kwargs)
@@ -73,6 +70,19 @@ class ProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context['related_products'] = self.get_related_products()
         return context
+
+
+class EditProductView(LoginRequiredMixin, DetailView):
+    model = Product
+    context_object_name = 'product'
+    template_name = 'pages/edit_product.html'
+
+    def get(self, request, *args, **kwargs):
+        product_user = self.get_object().user
+        if product_user == request.user:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponse(status=405)
 
 
 class CategoryView(ListView):

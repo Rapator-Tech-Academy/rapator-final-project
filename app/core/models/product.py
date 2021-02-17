@@ -28,7 +28,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True)
+        Category, on_delete=models.SET_NULL, null=True, related_name='category')
     view_count = models.PositiveIntegerField(default=0)
     daily_view_count = models.PositiveIntegerField(default=0)
     
