@@ -34,7 +34,7 @@ $(document).ready(() => {
         for(value in data){
             products.append(`
             <div class="products-i">
-                <a href="${location.origin}/product_detail/${data[value]['slug']}" class="products-link mb-2">
+                <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
                     <div class="card">
                         <div class="products-top">
                             <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
