@@ -2,6 +2,7 @@ from stories import story, arguments, Success, Failure, Result
 from django.contrib.auth import get_user_model
 
 from core.entities import UserEntity
+from core.repository import Repo
 
 User = get_user_model()
 
@@ -9,7 +10,7 @@ User = get_user_model()
 class UpdateAccount:
 
     @story
-    @arguments('form')
+    @arguments('user', 'form')
     def create(I):
 
         I.validate_inputs
@@ -18,10 +19,10 @@ class UpdateAccount:
         I.done
 
     def validate_inputs(self, ctx):
-        if User.name is None:
-            ctx.name = User.name
-        else:
-            return ctx.name
+        # if User.name is None:
+        #     ctx.name = User.name
+        # else:
+        #     return ctx.name
 
         return Success()
 
@@ -37,7 +38,8 @@ class UpdateAccount:
 
     def persist(self, ctx):
         ctx.result = Repo().update_user_info(
-            payload=ctx.entity
+            payload=ctx.entity,
+            user=ctx.user,
         )
         return Success()
 

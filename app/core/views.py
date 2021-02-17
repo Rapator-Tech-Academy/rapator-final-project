@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, FormView, ListView, DetailView
 
 from .models import Category, City, Product
 from .forms import NewProductForm, UserAccountUpdateForm
-from .stories import CreateProduct
+from .stories import CreateProduct, UpdateAccount
 
 
 class NewProductFormView(FormView):
@@ -30,13 +30,17 @@ class NewProductFormView(FormView):
 class UserAccountUpdateFormView(FormView):
     template_name = 'pages/profile_settings.html'
     form_class = UserAccountUpdateForm
-    success_url = 'home_page.html'
 
     def form_valid(self, form):
+        print(form.cleaned_data.get('name'))
         UpdateAccount().create(
-            form=form
+            form=form,
+            user=self.request.user
         )
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.request.path
 
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'

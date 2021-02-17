@@ -5,6 +5,6 @@ class UserEntity:
     name:str
     surname:str
     email:str
-    phone_number:int
+    phone_number:str
     password:str
     
