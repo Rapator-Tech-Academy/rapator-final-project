@@ -16,4 +16,9 @@ class NewProductForm(forms.Form):
     phone_number = forms.CharField()
 
 
-    
+class UserAccountUpdateForm(forms.Form):
+    name = forms.CharField()
+    surname=forms.CharField()
+    email = forms.EmailField()
+    phone_number = forms.CharField()
+    password=forms.PasswordInput()

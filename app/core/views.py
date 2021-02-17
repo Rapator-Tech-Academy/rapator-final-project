@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, ListView, DetailView
 
 from .models import Category, City, Product
-from .forms import NewProductForm
+from .forms import NewProductForm, UserAccountUpdateForm
 from .stories import CreateProduct
+
 
 class NewProductFormView(FormView):
     template_name = 'add_product.html'
@@ -25,6 +26,17 @@ class NewProductFormView(FormView):
         )
         return super().form_valid(form)
 
+
+class UserAccountUpdateFormView(FormView):
+    template_name = 'pages/profile_settings.html'
+    form_class = UserAccountUpdateForm
+    success_url = 'home_page.html'
+
+    def form_valid(self, form):
+        UpdateAccount().create(
+            form=form
+        )
+        return super().form_valid(form)
 
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'
@@ -74,9 +86,11 @@ class CategoryView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
+
 class HomePageView(TemplateView):
     # TODO: Implement Home Page View (get latest products, total product count etc.)
     template_name = 'home_page.html'
+
 
 class SearchResultPageView(ListView):
     template_name = 'pages/result_page.html'
@@ -95,6 +109,6 @@ class UserProfilePageView(TemplateView):
 class UserAccountSettingsView(TemplateView):
     template_name = 'pages/profile_settings.html'
 
-    
+
 class ProductDetailView(TemplateView):
-    template_name='pages/user_product_detail.html' 
+    template_name = 'pages/user_product_detail.html'

@@ -19,6 +19,7 @@
 
 .has-search .form-control {
     padding-left: 2.375rem;
+    padding-top: 0.5rem;
     text-align: left;
     font-size: 16px;
     color: #aaa;
@@ -49,7 +50,6 @@
 .has-select .form-control {
     padding-left: 2.375rem;
     text-align: left;
-    padding-top: 12px;
     border-radius: 5px;
     border: none;
     font-size: 16px;

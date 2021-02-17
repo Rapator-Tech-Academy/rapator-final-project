@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views 
-from core.views import UserProfilePageView, UserAccountSettingsView
+from core.views import UserProfilePageView, UserAccountUpdateFormView
 
 
 urlpatterns = [
@@ -9,7 +9,7 @@ urlpatterns = [
     path('', views.HomePageView.as_view(), name='home-page'),
     path('card/', views.BasicTestView.as_view()),
     path('profile/', UserProfilePageView.as_view(), name='user-profile'),
-    path('profile-settings/', UserAccountSettingsView.as_view(), name='profile-settings'),
+    path('profile-settings/', UserAccountUpdateFormView.as_view(), name='profile-settings'),
     path("product_detail/<slug>/", views.ProductView.as_view(),name="product-detail"),
     path("user_product_detail/<slug>/", views.ProductDetailView.as_view(),name="product-detail"),
 
