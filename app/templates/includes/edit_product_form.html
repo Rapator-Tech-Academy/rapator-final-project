@@ -1,0 +1,12 @@
+{% extends 'includes/new_product_form.html' %}
+
+{% block category %} {% endblock %}
+{% block city %} {% endblock %}
+{% block is_new_and_delivery_option %} {% endblock %}
+{% block contact %} {% endblock %}
+
+{% block price_value %} value={{ product.price }} {% endblock %}
+{% block product_name_value %} value={{ product.title }} {% endblock %}
+{% block textarea_value %} {{ product.description }} {% endblock %}
+
+{% block submit_button_text %} Yenilə {% endblock %}

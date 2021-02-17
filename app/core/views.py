@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Category, City, Product
 from .forms import NewProductForm
@@ -53,6 +54,19 @@ class ProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context['related_products'] = self.get_related_products()
         return context
+
+
+class EditProductView(LoginRequiredMixin, DetailView):
+    model = Product
+    context_object_name = 'product'
+    template_name = 'pages/edit_product.html'
+
+    def get(self, request, *args, **kwargs):
+        product_user = self.get_object().user
+        if product_user == request.user:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponse(status=405)
 
 
 class CategoryView(ListView):
