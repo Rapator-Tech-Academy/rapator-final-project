@@ -7,7 +7,11 @@ from core.repository import Repo
 class CreateProduct:
 
     @story
-    @arguments('form')
+    @arguments(
+        'title', 'delivery', 'is_new',
+            'price', 'description',
+        'city', 'category', 'email',
+    )
     def create(I):
 
         I.validate_inputs
@@ -16,28 +20,28 @@ class CreateProduct:
         I.done
 
     def validate_inputs(self, ctx):
-        if ctx.form.data.get('delivery') == None:
-            ctx.delivery = False
+        if ctx.delivery == 'True':
+            ctx.delivery_bool_value = True
         else:
-            ctx.delivery = True
+            ctx.delivery_bool_value = False
 
-        if ctx.form.data.get('is_new') == None:
-            ctx.is_new = False
+        if ctx.is_new == 'True':
+            ctx.is_new_bool_value = True
         else:
-            ctx.is_new = True
+            ctx.is_new_bool_value = False
 
         return Success()
 
     def build_product(self, ctx):
         ctx.entity = ProductEntity(
-            title=ctx.form.cleaned_data.get('title'),
-            delivery=ctx.delivery,
-            is_new=ctx.is_new,
-            price=ctx.form.cleaned_data.get('price'),
-            description=ctx.form.cleaned_data.get('description'),
-            city=ctx.form.cleaned_data.get('city'),
-            category=ctx.form.cleaned_data.get('category'),
-            user_email=ctx.form.cleaned_data.get('email')
+            title=ctx.title,
+            delivery=ctx.delivery_bool_value,
+            is_new=ctx.is_new_bool_value,
+            price=ctx.price,
+            description=ctx.description,
+            city=ctx.city,
+            category=ctx.category,
+            user_email=ctx.email
         )
         return Success()
 
