@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+    let valueOfDelivery;
+    let valueOfIsNew;
+
+    let alertMessageHTML = `
+        <div class="alert alert-warning" role="alert" id="alertMessage" style="margin-top:1.3rem">
+            Sizin elanınız yoxlanış üçün müvəffəqiyyətlə göndərildi. Qaydalara uyğun olduğu halda sizin mail hesabınıza bildiriş göndəriləcək.
+        </div>
+    `
+
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -16,6 +25,18 @@ $(document).ready(function(){
         return cookieValue;
     }
     const csrftoken = getCookie('csrftoken');
+
+    if ($('input[name ="is_new"]').is(':checked')) {
+        valueOfIsNew = 'True'
+    }else{
+        valueOfIsNew = 'None'
+    }
+
+    if ($('input[name ="delivery"]').is(':checked')) {
+        valueOfDelivery = 'True'
+    }else{
+        valueOfDelivery = 'None'
+    }
     
     
     $("#createProduct").on('submit', function(event) {
@@ -25,19 +46,31 @@ $(document).ready(function(){
     
     function create_product(){
         $.ajax({
-            url : window.location.pathname, // the endpoint
-            type : "POST", // http method
+            url : window.location.pathname,
+            type : "POST",
             data : { 
                 csrfmiddlewaretoken: csrftoken,
-                image: $("#formFileSm").val()
-            }, // data sent with the post request
-        
-            // handle a successful response
-            success : function(data) {
-                console.log("success")
+				title : $('input[name ="title"]').val(),
+				price : $('input[name="price"]').val(),
+				description : $('textarea[name ="description"]').val(),
+				city : $('select[name ="city"]').val(),
+                category : $('select[name ="category"]').val(),
+                user_email : $('input[name ="email"]').val(),
+                is_new : valueOfIsNew,
+                delivery : valueOfDelivery,
             },
         
-            // handle a non-successful response
+            success : function(data) {
+                console.log("success")
+                $('.new-lot-form').prepend(alertMessageHTML);
+
+                $('html, body').animate({
+                    scrollTop: $("#alertMessage").offset().top
+                }, 1000);
+
+                setTimeout(() => window.location.reload(), 5000);
+            },
+        
             error : function(xhr,errmsg,err) {
                 console.log(err)
             }
