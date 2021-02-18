@@ -33,12 +33,14 @@ class Repo:
             return new_product
 
     def update_user_info(self, payload, user):
-        user = User.objects.filter(id=user.id).first()
-        print(payload.name)
+        user = User.objects.filter(id=user.id)
         if user:
-            user.name=payload.name,
-            user.surname=payload.surname,
-            user.email=payload.email,
-            user.phone_number=payload.phone_number,
+            changed_user_id = user.update(
+                name=payload.name, 
+                surname=payload.surname,
+                email=payload.email,
+                phone=payload.phone_number,
+            )
+            
 
-            return user.save()
+            return changed_user_id
