@@ -11,17 +11,29 @@ from .stories import CreateProduct, UpdateAccount
 class NewProductFormView(FormView):
     template_name = 'add_product.html'
     form_class = NewProductForm
-    success_url = '/'
 
-    def form_valid(self, form):
-        CreateProduct().create(
-            form=form
-        )
-        return super().form_valid(form)
-    
-    def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
+    def post(self, request, *args, **kwargs):
+        form = NewProductForm(request.POST)
+        if request.is_ajax():
+            print(request.POST['delivery'])
+            print(request.POST['is_new'])
+            CreateProduct().create(
+                title=request.POST['title'],
+                delivery=request.POST['delivery'],
+                is_new=request.POST['is_new'],
+                price=request.POST['price'],
+                description=request.POST['description'],
+                city=request.POST['city'],
+                category=request.POST['category'],
+                email=request.POST['user_email']
+            )
+
+            return HttpResponse(status=201)
+
+        else:
+            print("error")
+            return HttpResponse(status=503)
+
 
 
 class UserAccountUpdateFormView(FormView):
@@ -35,9 +47,11 @@ class UserAccountUpdateFormView(FormView):
             user=self.request.user
         )
         return super().form_valid(form)
+    
 
     def get_success_url(self):
         return self.request.path
+
 
 class ProductView(DetailView):
     template_name = 'pages/product_detail.html'
@@ -118,10 +132,6 @@ class BasicTestView(TemplateView):
 
 class UserProfilePageView(TemplateView):
     template_name = 'pages/user_profile.html'
-
-
-class UserAccountSettingsView(TemplateView):
-    template_name = 'pages/profile_settings.html'
 
 
 class ProductDetailView(TemplateView):
