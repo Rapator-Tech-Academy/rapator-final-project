@@ -23,8 +23,8 @@
             <div class="container-fluid">
                <a class="navbar-brand" style="font-weight: bold;">Şəxsi hesab<span class="badge">8</span></a>
                <div class="dropdown">
-                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>Hesab
-                  parametrləri{{request.user.username}}</a>
+                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>   <a href="{% url 'profile-settings'%}"> Hesab
+                  parametrləri </a>{{request.user.username}}</a>
                </div>
             </div>
       </div>
