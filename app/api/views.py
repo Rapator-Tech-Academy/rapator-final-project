@@ -78,7 +78,7 @@ class StatisticsView(APIView):
     date_of_today = date.today()
 
     def daily_registered_new_user(self):
-        user_count = User.objects.filter(date_joined__gt=self.date_of_today).count()
+        user_count = User.objects.filter(date_joined__gt=self.date_of_today, is_active=True).count()
 
         return str(user_count)
 

@@ -35,6 +35,7 @@ class UserAccountUpdateFormView(FormView):
             user=self.request.user
         )
         return super().form_valid(form)
+    
 
     def get_success_url(self):
         return self.request.path
@@ -118,10 +119,6 @@ class BasicTestView(TemplateView):
 
 class UserProfilePageView(TemplateView):
     template_name = 'pages/user_profile.html'
-
-
-class UserAccountSettingsView(TemplateView):
-    template_name = 'pages/profile_settings.html'
 
 
 class ProductDetailView(TemplateView):

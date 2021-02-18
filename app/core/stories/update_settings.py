@@ -1,8 +1,8 @@
 from stories import story, arguments, Success, Failure, Result
 from django.contrib.auth import get_user_model
 
-from core.entities import UserEntity
-from core.repository import Repo
+from ..entities import UserEntity
+from ..repository import Repo
 
 User = get_user_model()
 
