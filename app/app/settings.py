@@ -185,7 +185,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tap.az.elanlar@gmail.com'
 EMAIL_HOST_PASSWORD = 'tapazelan'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
 
 
 # Rest Framework Configurations

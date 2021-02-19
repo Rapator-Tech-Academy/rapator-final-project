@@ -6,7 +6,7 @@
 	    <h2 class="font-weight-bold mt-3">{{ message }}</h2>
 		  <hr>
         {% if status == 'success' %}
-          <p> Davam edib indi <a href="{url 'users:login-email'}">sayta giriş </a> edə bilərsiniz</p>
+          <p> Davam edib indi <a href="{% url 'users:login' %}">sayta giriş </a> edə bilərsiniz</p>
         {% else %}
           <p> Link-ə keçid edərək təsdiqlənmə üçün yenidən müraciət edə bilərsiniz </p>
         {% endif %}                 
