@@ -1,8 +1,6 @@
 from django.urls import path
 
 from . import views 
-from core.views import UserProfilePageView, UserAccountUpdateFormView
-
 
 urlpatterns = [
     path('elanlar/new/', views.NewProductFormView.as_view(), name='new-product-add-page'),

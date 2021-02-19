@@ -88,6 +88,6 @@ $(document).ready(() => {
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
 
-    $("#file").pekeUpload();
+    $("#phone_number").inputmask({"mask": "(999) 999-99-99"});
 
 })

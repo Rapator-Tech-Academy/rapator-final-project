@@ -48,6 +48,7 @@ class SignUpView(FormView):
         email = form.cleaned_data.get('email')
         name = form.cleaned_data.get('name')
         surname = form.cleaned_data.get('surname')
+        phone_number = form.cleaned_data.get('phone_number')
 
         user = User.objects.filter(email=email).first()
 
@@ -56,10 +57,11 @@ class SignUpView(FormView):
         else:
             new_user = User.objects.create_user(
                 email = email,
-                password = form.cleaned_data.get('password')
+                password = form.cleaned_data.get('password'),
             )
             new_user.name = name
             new_user.surname = surname 
+            new_user.phone = phone_number
             new_user.is_active = False
             new_user.save()
 
