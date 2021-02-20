@@ -58,9 +58,9 @@ class Product(models.Model):
         keyword = ""
 
         if self.updated_at == timezone.now():
-            keyword = 'Bugün'
+            keyword = 'bugün'
         else:
-            keyword = self.updated_at.strftime("%m.%d.%Y")
+            keyword = self.updated_at.strftime("%d.%m.%Y")
 
         return keyword
     

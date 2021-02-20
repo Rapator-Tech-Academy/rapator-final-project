@@ -43,6 +43,10 @@
    
 }
 
+.section-title_more{
+    float: right;
+}
+
 /* Bootstrap 4 text select with search icon */
 .has-select{
     display: inline-flex;

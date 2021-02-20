@@ -10,7 +10,6 @@ html, body {
 }
 @media screen and (min-width: 120px ) and (max-width: 480px) {
     body{
-        min-width: 565px;
         margin: 0;
         padding: 0;
     }
