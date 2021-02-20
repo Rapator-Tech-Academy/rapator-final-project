@@ -1,4 +1,5 @@
 {% load static%}
+{% load i18n %}
 
 <!-- Header search form-->
 <div class="header-navigation">
@@ -19,7 +20,7 @@
                                 <div class="form-group has-select">
                                     <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
                                     <select style="height: 38px;" class="form-control">
-                                        <option style="line-height: 1rem;" value="0">Bütün Azərbaycan
+                                        <option style="line-height: 1rem;" value="0">{% translate 'Bütün Azərbaycan'%}
                                             <i class="fas fa-chevron-down"></i> </option>
                                         {% for city in cities %}
                                         <option value="{{ city.name }}">{{ city.name }}</option>
@@ -29,8 +30,7 @@
                                 <div class="form-group btn-navigation">
                                     <button type="submit" class="btn-header-navigation" style="
                                     height: 37px;
-                                    padding-top: 7.6px;
-                                ">Tap
+                                    padding-top: 7.6px;"> {% translate 'Tap'%}
                                         <i class="fa fa-search" aria-hidden="true" style="
                                         margin-left: 18px;
                                         margin-top: 3.5px;
@@ -76,7 +76,7 @@
                 </div>
                 <div class="row sub-categories-row">
                     <div class="col-12 all-ads">
-                        <a href="#"><span> Bütün elanlar </span> <span class="total-amount"> 2986 </span></a>
+                        <a href="#"><span> {% translate 'Bütün elanlar'%} </span> <span class="total-amount"> 2986 </span></a>
                     </div>
                     <div class="row all-categories-row">
                         <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>

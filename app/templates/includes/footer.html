@@ -1,4 +1,6 @@
 {% load static%}
+{% load i18n %}
+
 <div class="footer-info-container">
             <div class="container">
                 <div class="container-fluid">
@@ -6,11 +8,11 @@
                         <footer class="page_foot main-col_padding">
                             <div class="footer-contacts">
                                 <div class="links">
-                                    <a href="/pages/about">Layihə haqda</a>
-                                    <a href="/pages/advertising">Reklam yerləşdirin</a>
-                                    <a href="/pages/terms-and-conditions">İstifadəçi razılaşması</a>
+                                    <a href="/pages/about">{% translate 'Layihə haqda'%}</a>
+                                    <a href="/pages/advertising">{% translate 'Reklam yerləşdirin'%}</a>
+                                    <a href="/pages/terms-and-conditions">{% translate 'İstifadəçi razılaşması'%}</a>
                                     </div>
-                                    <div class="contacts">Əlaqə: 
+                                    <div class="contacts">{% translate 'Əlaqə:' %}
                                         <div class="tel">
                                             <a href="mailto:tap@tap.az">tap@tap.az</a> / 
                                             <a href="tel:+994125990805">(012) 599-08-05</a>; 
@@ -285,7 +287,7 @@
                                 <div class="footer-bottom">
                                     <div class="side">
                                         <div class="link_mob">
-                                            <b><a href="#">Mobil versiyası</a></b>
+                                            <b><a href="#">{% translate 'Mobil versiyası'%}</a></b>
                                         </div>
                                         <div class="resp">
                                             Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.

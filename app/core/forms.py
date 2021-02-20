@@ -10,6 +10,7 @@ class NewProductForm(forms.Form):
     city = forms.CharField()
     price = forms.DecimalField()
     description = forms.CharField()
+    image=forms.ImageField()
 
     name = forms.CharField()
     email = forms.EmailField()

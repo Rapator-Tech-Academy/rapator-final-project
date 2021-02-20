@@ -1,18 +1,20 @@
+{% load i18n %}
+
 <nav class="navbar navbar-expand-md" id="nav">   
         <div class="container">        
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li>
-                            <a class="nav-link active" href="/"><i class ="fa fa-fw fa-home"></i> Əsas səhifə</a>
+                            <a class="nav-link active" href="/"><i class ="fa fa-fw fa-home"></i>{% translate 'Əsas səhifə' %}</a>
                         </li>
                         <li class="nav-item">
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">по-русски</a>
+                            <a class="nav-link active" href="#">{% translate 'Language: EN' %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Saytda reklam</a>
+                            <a class="nav-link active" href="#">{% translate 'Saytda reklam'%}</a>
                         </li>
                     </ul>
                      <button type="button" class="navbar-toggler">
@@ -31,7 +33,7 @@
                             <a class="nav-link fa fa-android fa-lg"  target="_blank" href="https://play.google.com/store/apps/details?id=org.tapaz.android"></a>
                         </li>
                         <li>
-                            <a class="nav-link">Dəstək:</a>
+                            <a class="nav-link">{% translate 'Dəstək' %}:</a>
                         </li>
                         <li>
                             <a class="nav-link" href="tel:+994125990805">(012) 599-08-05;</a>

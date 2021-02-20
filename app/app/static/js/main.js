@@ -44,7 +44,7 @@ $(document).ready(() => {
                                 </div>
                             </div>
                         </div>
-                        <div class="products-name">Card title Card title Card title Card title</div>
+                        <div class="products-name">${ data[value]['title']}</div>
                         <div class="products-created">${ data[value]['city'] }, bugün, 18:21</div>
                     </div>
                 </a>

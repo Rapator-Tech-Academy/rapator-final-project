@@ -25,6 +25,7 @@ class NewProductFormView(FormView):
                 description=request.POST['description'],
                 city=request.POST['city'],
                 category=request.POST['category'],
+                image=request.POST['image'],
                 email=request.POST['user_email']
             )
 
