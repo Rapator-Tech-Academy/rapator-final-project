@@ -35,10 +35,10 @@ class NewProductFormView(FormView):
             return HttpResponse(status=503)
 
 
-
-class UserAccountUpdateFormView(FormView):
+class UserAccountUpdateFormView(LoginRequiredMixin, FormView):
     template_name = 'pages/profile_settings.html'
     form_class = UserAccountUpdateForm
+    login_url = '/users/login/'
 
     def form_valid(self, form):
         print(form.cleaned_data.get('name'))
@@ -89,6 +89,7 @@ class ProductView(DetailView):
 class EditProductView(LoginRequiredMixin, DetailView):
     model = Product
     context_object_name = 'product'
+    login_url = '/users/login/'
     template_name = 'pages/edit_product.html'
 
     def get(self, request, *args, **kwargs):
@@ -130,8 +131,75 @@ class BasicTestView(TemplateView):
     template_name = 'accounts/email_confirmation_complete.html'
 
 
-class UserProfilePageView(TemplateView):
+class UserProfilePageView(LoginRequiredMixin, TemplateView):
+    login_url = '/users/login/'
     template_name = 'pages/user_profile.html'
+
+    def get_logged_user(self):
+        user = self.request.user
+
+        return user
+    
+    def get_pending_products(self):
+        user = self.get_logged_user()
+        products = Product.objects.filter(user=user, status=0)
+
+        return products
+    
+    def get_published_products(self):
+        user = self.get_logged_user()
+        products = Product.objects.filter(user=user, status=1)
+
+        return products
+    
+    def get_time_finished_products(self):
+        user = self.get_logged_user()
+        products = Product.objects.filter(user=user, status=2)
+
+        return products
+    
+    def get_rejected_products(self):
+        user = self.get_logged_user()
+        products = Product.objects.filter(user=user, status=3)
+
+        return products
+    
+    def get_sum_of_total_product(self):
+        user = self.get_logged_user()
+        sum_of_products = Product.objects.filter(user=user).count()
+
+        return sum_of_products
+
+    # def get(self, request, *args, **kwargs):
+    #     print(self.get_published_products())
+
+    #     return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        condition = self.kwargs['condition']
+
+        if condition == 'expired':
+            context = {
+                'products': self.get_time_finished_products()
+            }
+        elif condition == 'published':
+            context = {
+                'products': self.get_published_products()
+            }
+        elif condition == 'pending':
+            context = {
+                'products': self.get_pending_products()
+            }
+        elif condition == 'rejected':
+            context = {
+                'products': self.get_rejected_products()
+            }
+
+        context['total_count_of_products'] = self.get_sum_of_total_product()
+
+        return context
+    
 
 
 class ProductDetailView(TemplateView):
