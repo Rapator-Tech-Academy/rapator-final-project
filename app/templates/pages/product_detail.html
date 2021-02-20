@@ -117,7 +117,7 @@
             <li>{{ product.user.name }}</li>
             
             <li>
-              <a style="font-size: 13px;" href="{% url 'search-result-page' %}?user_id={{ request.user.id }}">İstifadəçinin bütün elanları</a></li>
+              <a style="font-size: 13px;" href="{% url 'search-result-page' %}?user_id={{ product.user.id }}">İstifadəçinin bütün elanları</a></li>
               {% if request.user == product.user %}
                 <a href="{{ request.path}}ad_edits/"><li style="font-size: 13px;">Düzəliş Et</li></a>
                 <a href=""><li style="font-size: 13px;">Elanı Sil</li></a>

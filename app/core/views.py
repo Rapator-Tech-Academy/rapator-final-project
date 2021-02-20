@@ -1,4 +1,4 @@
-from django.http.response import HttpResponse
+from django.http.response import Http404, HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -97,7 +97,7 @@ class EditProductView(LoginRequiredMixin, DetailView):
         if product_user == request.user:
             return super().get(request, *args, **kwargs)
         else:
-            return HttpResponse(status=405)
+            raise Http404
 
 
 class CategoryView(ListView):
