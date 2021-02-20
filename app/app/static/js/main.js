@@ -88,6 +88,17 @@ $(document).ready(() => {
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
 
-    $("#file").pekeUpload();
+    $('input[type="file"]').on('change', function () {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var thisImage = reader.result;
+            localStorage.setItem("imgData", thisImage);
+        };
+        reader.readAsDataURL(this.files[0]);
+
+        console.log(localStorage.getItem('image'))
+    });
+
+
 
 })

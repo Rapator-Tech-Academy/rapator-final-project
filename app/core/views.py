@@ -15,8 +15,7 @@ class NewProductFormView(FormView):
     def post(self, request, *args, **kwargs):
         form = NewProductForm(request.POST)
         if request.is_ajax():
-            print(request.POST['delivery'])
-            print(request.POST['is_new'])
+            print(request.FILES['image'])
             CreateProduct().create(
                 title=request.POST['title'],
                 delivery=request.POST['delivery'],
@@ -25,8 +24,7 @@ class NewProductFormView(FormView):
                 description=request.POST['description'],
                 city=request.POST['city'],
                 category=request.POST['category'],
-                image=request.POST['image'],
-                email=request.POST['user_email']
+                email=request.POST['user_email'],
             )
 
             return HttpResponse(status=201)

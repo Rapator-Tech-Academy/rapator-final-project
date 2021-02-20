@@ -10,7 +10,7 @@ class CreateProduct:
     @arguments(
         'title', 'delivery', 'is_new',
             'price', 'description',
-        'city', 'category', 'image', 'email',
+        'city', 'category', 'email',
     )
     def create(I):
 
@@ -41,7 +41,6 @@ class CreateProduct:
             description=ctx.description,
             city=ctx.city,
             category=ctx.category,
-            image=ctx.image,
             user_email=ctx.email
         )
         return Success()

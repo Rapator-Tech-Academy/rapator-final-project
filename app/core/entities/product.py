@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from PIL import Image
-
+    
 @dataclass
 class ProductEntity:
     title: str
@@ -10,5 +9,4 @@ class ProductEntity:
     description: str
     city: str
     category: str
-    image: Image
     user_email: str
