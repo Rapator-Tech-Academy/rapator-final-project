@@ -24,11 +24,7 @@
 <div class="container">
     <div class="wrapper bg-white mt-sm-5">
         <h4 class="pb-4 border-bottom">Hesab Parametrləri</h4>
-<<<<<<< HEAD
         <div class="py-2">
-=======
-             <div class="py-2">
->>>>>>> 92b0a23367eec26512af57a5ef8c63eb2afe37ae
             <div class="row py-2">
                 <form method='POST'>
                     {% csrf_token %}
@@ -45,7 +41,7 @@
                 </div>
                 <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Əlaqə nömrəsi</label>
                     <input type="tel" name="phone_number" class="bg-light form-control"
-                        placeholder="+994{{user.phone}}">
+                        placeholder="+994 {{user.phone}}">
                 </div>
             </div>
             <div class="row py-2">
