@@ -1,6 +1,7 @@
 {% extends "includes/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block css %}
 
@@ -23,44 +24,46 @@
 
 <div class="container">
     <div class="wrapper bg-white mt-sm-5">
-        <h4 class="pb-4 border-bottom">Hesab Parametrləri</h4>
-             <div class="py-2">
-            <div class="row py-2">
-                <form method='POST'>
+        <h4 class="pb-4 border-bottom">{% translate 'Hesab Parametrləri' %}</h4>
+        <div class="py-2">
+            <form method='POST'>
+
+                <div class="row py-2">
                     {% csrf_token %}
-                    <div class="col-md-6"> <label for="firstname">Ad</label>
+                    <div class="col-md-6"> <label for="firstname">{% translate 'Ad'%}</label>
                         <input type="text" name="name" class="bg-light form-control" placeholder="{{user.name}}">
                     </div>
-                    <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Soyad</label>
+                    <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">{% translate 'Soyad'%}</label>
                         <input type="text" name="surname" class="bg-light form-control" placeholder="{{user.surname}}">
                     </div>
-            </div>
-            <div class="row py-2">
-                <div class="col-md-6"> <label for="email">Email Address</label>
-                    <input type="text" name="email" class="bg-light form-control" placeholder="{{user.email}}">
                 </div>
-                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Əlaqə nömrəsi</label>
-                    <input type="tel" name="phone_number" class="bg-light form-control"
-                        placeholder="+994{{user.phone}}">
+                <div class="row py-2">
+                    <div class="col-md-6"> <label for="email">{% translate 'Email Address'%}</label>
+                        <input type="text" name="email" class="bg-light form-control" placeholder="{{user.email}}">
+                    </div>
+                    <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">{% translate 'Əlaqə nömrəsi'%}</label>
+                        <input type="tel" name="phone_number" class="bg-light form-control"
+                            placeholder="+994{{user.phone}}">
+                    </div>
                 </div>
-            </div>
-            <div class="row py-2">
-                <div class="col-md-6"> <label for="oldpassword">Cari şifrə</label>
-                    <input type="password" name="oldpassword" class="bg-light form-control" placeholder="Cari şifrə">
+                <div class="row py-2">
+                    <div class="col-md-6"> <label for="oldpassword">{% translate 'Cari şifrə'%}</label>
+                        <input type="password" name="oldpassword" class="bg-light form-control"
+                            placeholder="Cari şifrə">
+                    </div>
+                    <div class="col-md-6"> <label for="password">{% translate 'Yeni şifrə'%}</label>
+                        <input type="password" name="password" class="bg-light form-control"
+                            placeholder="Yeni şifrə daxil edin">
+                    </div>
                 </div>
-            </div>
-            <div class="row py-2">
-                <div class="col-md-6"> <label for="password">Yeni şifrə</label>
-                    <input type="password" name="password" class="bg-light form-control"
-                        placeholder="Yeni şifrə daxil edin">
-                </div>
-                <!-- <div class="col-md-6 pt-md-0 pt-3"> <label for="newpassword1">Yeni şifrə(təkrar)</label>
+                <!--  <div class="row py-2">
+                
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="newpassword1">Yeni şifrə(təkrar)</label>
                     <input type="password" name="newpassword2" class="bg-light form-control"
                         placeholder="Yeni şifrə daxil edin">
-                </div> -->
-            </div>
-            <div class="py-3 pb-4 border-bottom"> <button type="submit" class="btn btn-primary mr-3">Yadda
-                    Saxla</button> <button class="btn border button">Ləğv Et</button> </div>
+                </div>
+            </div> -->
+                <div class="py-3 pb-4 border-bottom"> <button type="submit" class="btn btn-primary mr-3">{% translate 'Yadda Saxla' %}</button> <button class="btn border button">{% translate 'Ləğv Et'%}</button> </div>
             </form>
         </div>
     </div>

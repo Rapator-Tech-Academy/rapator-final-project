@@ -13,7 +13,7 @@
                                 <div class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
                                     <input type="text" name='keyword' class="form-control"
-                                        placeholder="Məsələn, iPhone X">
+                                        placeholder="{% translate 'Məsələn, iPhone X'%}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -21,7 +21,8 @@
                                     <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
                                     <select style="height: 38px;" class="form-control">
                                         <option style="line-height: 1rem;" value="0">{% translate 'Bütün Azərbaycan'%}
-                                            <i class="fas fa-chevron-down"></i> </option>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </option>
                                         {% for city in cities %}
                                         <option value="{{ city.name }}">{{ city.name }}</option>
                                         {% endfor %}
@@ -60,7 +61,8 @@
                         {% for category in categories %}
                         <div class='col-3'>
                             <a href='#'>
-                                <div class='row category-row row-{{forloop.counter}} {% if forloop.counter <= 4 %} category-first-row {% elif forloop.counter >= 9 %} category-last-row {% endif %}'>
+                                <div
+                                    class='row category-row row-{{forloop.counter}} {% if forloop.counter <= 4 %} category-first-row {% elif forloop.counter >= 9 %} category-last-row {% endif %}'>
                                     <div class='col-2'>
                                         <div class='header-category-icon'>
                                             <img src="{{ category.icon.url }}">
@@ -71,25 +73,32 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>   
-                        {% endfor %}   
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row sub-categories-row">
+                        <div class="col-12 all-ads">
+                            <a href="#"><span> {% translate 'Bütün elanlar'%} </span> <span class="total-amount"> 2986
+                                </span></a>
+                        </div>
+                        <div class="row all-categories-row">
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                            <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span>
+                                    <span class="total-amount"> 2986 </span> </a></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row sub-categories-row">
-                    <div class="col-12 all-ads">
-                        <a href="#"><span> {% translate 'Bütün elanlar'%} </span> <span class="total-amount"> 2986 </span></a>
-                    </div>
-                    <div class="row all-categories-row">
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                        <div class="col-md-4"><a href="#"><i class="fas fa-chevron-right"></i><span> Tikinti </span> <span class="total-amount"> 2986 </span> </a></div>
-                    </div>
-                </div> 
             </div>
         </div>
     </div>
-</div>
 
-<script>$('.dropdown-toggle').dropdown()</script>
+    <script>$('.dropdown-toggle').dropdown()</script>

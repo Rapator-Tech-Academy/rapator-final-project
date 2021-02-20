@@ -1,5 +1,7 @@
 {% extends "includes/base.html" %}
 {% load static %}
+{% load i18n %}
+
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,8 +25,7 @@
             <div class="container-fluid">
                <a class="navbar-brand" style="font-weight: bold;">Şəxsi hesab<span class="badge">8</span></a>
                <div class="dropdown">
-                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>   <a href="{% url 'profile-settings'%}"> Hesab
-                  parametrləri </a>{{request.user.username}}</a>
+                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>   <a href="{% url 'profile-settings'%}">{% translate 'Hesab parametrləri' %} </a>{{request.user.username}}</a>
                </div>
             </div>
       </div>
@@ -32,17 +33,17 @@
       <nav>
          <div class="nav nav-tabs nav-fill" style="margin-left: 1rem; color: #a3a3a4;" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-               aria-controls="nav-home" aria-selected="true">Dərc olunmuş<span class="badge">2</span></a>
+               aria-controls="nav-home" aria-selected="true">{% translate 'Dərc olunmuş' %}<span class="badge">2</span></a>
             </a>
             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-               aria-controls="nav-profile" aria-selected="false">Müddəti başa çatmış<span
+               aria-controls="nav-profile" aria-selected="false">{% translate 'Müddəti başa çatmış'%}<span
                class="badge">0</span></a>
             </a>
             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-               aria-controls="nav-contact" aria-selected="false">Yoxlanılır<span class="badge">3</span></a>
+               aria-controls="nav-contact" aria-selected="false">{% translate 'Yoxlanılır'%}<span class="badge">3</span></a>
             </a>
             <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
-               aria-controls="nav-about" aria-selected="true">Dərc olunmamış<span class="badge">3</span></a>
+               aria-controls="nav-about" aria-selected="true">{% translate 'Dərc olunmamış'%}<span class="badge">3</span></a>
             </a>
          </div>
       </nav>
@@ -60,9 +61,9 @@
    </div>
    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <div class="text-center">
-         <h3>Bu bölmədə elan yoxdur</h3>
+         <h3>{% translate 'Bu bölmədə elan yoxdur'%}</h3>
          <a style="color: #fff; font-weight: bold;" type="button" class="header-btn"><i
-            class="fa fa-fw fa-plus"></i>Elan yerləşdir</a>
+            class="fa fa-fw fa-plus"></i>{% translate 'Elan yerləşdir'%}</a>
       </div>
    </div>
    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
