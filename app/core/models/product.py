@@ -54,6 +54,17 @@ class Product(models.Model):
         return self.image.url
     
     @property
+    def is_past_due(self):
+        keyword = ""
+
+        if self.updated_at == timezone.now():
+            keyword = 'Bugün'
+        else:
+            keyword = self.updated_at.strftime("%m.%d.%Y")
+
+        return keyword
+    
+    @property
     def product_id(self):
         return 1000 + self.pk
 
