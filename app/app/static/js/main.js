@@ -20,6 +20,11 @@ $(document).ready(() => {
     if ($.urlParam('keyword')){
         product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}`
     }
+    if ($.urlParam('user_id')){
+        product_api_url = `${product_api_url}?user_id=${$.urlParam('user_id')}`
+    }
+
+
 
     fetch(product_api_url)
         .then((response) => response.json())
@@ -32,6 +37,7 @@ $(document).ready(() => {
     
     function Product(data){
         for(value in data){
+            console.log(data[value])
             products.append(`
             <div class="products-i">
                 <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">

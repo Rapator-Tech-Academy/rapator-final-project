@@ -5,42 +5,7 @@
     <div class="container">
         <div class="container-fluid">
             <div class="row header-nav ">
-                <form action="{% url 'search-result-page' %}" method="GET" class="form-inline pt-4">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group has-search">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                    <input type="text" name='keyword' class="form-control"
-                                        placeholder="Məsələn, iPhone X">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group has-select">
-                                    <span class="fa fa-map-marker fa-lg form-control-feedback"></span>
-                                    <select style="height: 38px;" class="form-control">
-                                        <option style="line-height: 1rem;" value="0">Bütün Azərbaycan
-                                            <i class="fas fa-chevron-down"></i> </option>
-                                        {% for city in cities %}
-                                        <option value="{{ city.name }}">{{ city.name }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="form-group btn-navigation">
-                                    <button type="submit" class="btn-header-navigation" style="
-                                    height: 37px;
-                                    padding-top: 7.6px;
-                                ">Tap
-                                        <i class="fa fa-search" aria-hidden="true" style="
-                                        margin-left: 18px;
-                                        margin-top: 3.5px;
-                                    "></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                {% include 'includes/search_form.html' %}
                 <!-- <div class="search-footer">
                     <a class="search-all" href="#">Bütün elanlar</a>
                 </div> -->
