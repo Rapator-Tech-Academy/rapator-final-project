@@ -2,6 +2,7 @@ $(document).ready(() => {
 
     let product_api_url = `${location.origin}/api/get-products/`
     let statistics_api_url = `${location.origin}/api/statistics/`
+    let homePageUrl = window.location.protocol + "//" + window.location.host + "/"
 
     let day_visits_class = $('.day-visits');
     let day_hits_class = $('.day-hits');
@@ -17,13 +18,39 @@ $(document).ready(() => {
         return (results !== null) ? results[1] || 0 : false;
     }
     
-    if ($.urlParam('keyword')){
-        product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}`
-    }
+    
+
+    $("#searchProductForm").on('submit', function(event) {
+        event.preventDefault();
+        let keyword = $("#keywordInput").val();
+        let city = $("#citySelect").val();
+        let category = $.urlParam('category');
+
+        if (city == "0"){
+            city = "none"
+        }
+        if (category){
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city=${city}&category=${category}`)
+        }else{
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city=${city}`)
+        }
+        
+    })
+
     if ($.urlParam('user_id')){
         product_api_url = `${product_api_url}?user_id=${$.urlParam('user_id')}`
     }
+    if ($.urlParam('category')){
+        product_api_url = `${product_api_url}?category=${$.urlParam('category')}`
+    }
 
+    if ($.urlParam('keyword') && $.urlParam('city')){
+        if ($.urlParam('category')){
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city=${$.urlParam('city')}&category=${$.urlParam('category')}`
+        }else{
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city=${$.urlParam('city')}`
+        }
+    }
 
 
     fetch(product_api_url)
@@ -37,7 +64,6 @@ $(document).ready(() => {
     
     function Product(data){
         for(value in data){
-            console.log(data[value])
             products.append(`
             <div class="products-i">
                 <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
@@ -93,6 +119,8 @@ $(document).ready(() => {
         add_daily_product_view_to_header(daily_product_views)
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
+
+
 
     $("#phone_number").inputmask({"mask": "(999) 999-99-99"});
 

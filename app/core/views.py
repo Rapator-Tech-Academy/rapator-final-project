@@ -121,10 +121,8 @@ class HomePageView(TemplateView):
     template_name = 'home_page.html'
 
 
-class SearchResultPageView(ListView):
+class SearchResultPageView(TemplateView):
     template_name = 'pages/result_page.html'
-    model = Product
-    context_object_name = 'products'
 
 
 class BasicTestView(TemplateView):
@@ -201,6 +199,9 @@ class UserProfilePageView(LoginRequiredMixin, TemplateView):
         return context
     
 
-
 class ProductDetailView(TemplateView):
     template_name = 'pages/user_product_detail.html'
+
+
+
+
