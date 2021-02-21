@@ -1,10 +1,12 @@
+from datetime import datetime
+
 from django.utils import timezone
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
+from django.utils.text import slugify
 
 from app.utils.helpers import STATUS_TYPES
-from django.utils.text import slugify
 
 from .city import City
 from .category import Category
@@ -57,7 +59,7 @@ class Product(models.Model):
     def is_past_due(self):
         keyword = ""
 
-        if self.updated_at == timezone.now():
+        if self.updated_at.date() == datetime.today().date():
             keyword = 'bugün'
         else:
             keyword = self.updated_at.strftime("%d.%m.%Y")

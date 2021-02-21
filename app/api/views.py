@@ -38,7 +38,11 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('user_id'):
             kw = data.get('user_id')
             query = query.filter(user=kw)
-            
+        
+        if data.get('category'):
+            kw = data.get('category')
+            query = query.filter(category__parent__name=kw)
+
         return query
 
 
