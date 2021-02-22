@@ -1,12 +1,41 @@
-{% extends 'includes/new_product_form.html' %}
+<form class="simple_form lot-form js-lot-form no-banners lot-form--unauthorized product-form" accept-charset="UTF-8" id="editProduct" method="post">
+    {% csrf_token %}
+    <div class='row'>
+        <div class='col-md-5'>
+            <span>Elanın adı <span class='required'>*</span></span>
+        </div>
+        <div class='col-md-7'>
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" id="productTitleInput" value="{{ product.title }}" aria-describedby="titleHelp" required>
+              </div>
+        </div>
+    </div> 
+    <div class='row price-row'>
+        <div class='col-md-5'>
+            <span>Qiymət, AZN <span class='required'>*</span></span>
+        </div>
+        <div class='col-md-7'>
+            <input class="form-control" type="number" value="{{ product.price }}" name="price" required>
+            <span class='currency'>AZN</span>
+        </div>
+    </div>  
+    <div class='row'>
+        <div class='col-md-5'>
+            <span>Məzmun</span>
+        </div>
+        <div class='col-md-7'>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"> {{ product.description }} </textarea>
+              </div>
+        </div>
+    </div> 
 
-{% block category %} {% endblock %}
-{% block city %} {% endblock %}
-{% block is_new_and_delivery_option %} {% endblock %}
-{% block contact %} {% endblock %}
-
-{% block price_value %} value={{ product.price }} {% endblock %}
-{% block product_name_value %} value={{ product.title }} {% endblock %}
-{% block textarea_value %} {{ product.description }} {% endblock %}
-
-{% block submit_button_text %} Yenilə {% endblock %}
+    <div class="confirm-rules">Elan yerləşdirərək, siz Tap.az-ın 
+        <a target="_blank" href="/pages/terms-and-conditions">İstifadəçi razılaşması</a> 
+        ilə razı olduğunuzu təsdiq edirsiniz.
+    </div>
+    <div class="styled-button">
+        <button name="button" type="submit" data-disable-with="Göndərilir..." data-disable-text="Göndərilir..." class="btn"> Yenilə </button>
+        
+    </div>
+</form>

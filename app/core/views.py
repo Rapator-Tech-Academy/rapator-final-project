@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Category, City, Product
 from .forms import NewProductForm, UserAccountUpdateForm
-from .stories import CreateProduct, UpdateAccount
+from .stories import CreateProduct, UpdateAccount, EditProduct
 
 
 class NewProductFormView(FormView):
@@ -13,10 +13,8 @@ class NewProductFormView(FormView):
     form_class = NewProductForm
 
     def post(self, request, *args, **kwargs):
-        form = NewProductForm(request.POST)
+        form = self.form_class(request.POST)
         if request.is_ajax():
-            print(request.POST['delivery'])
-            print(request.POST['is_new'])
             CreateProduct().create(
                 title=request.POST['title'],
                 delivery=request.POST['delivery'],
@@ -31,7 +29,6 @@ class NewProductFormView(FormView):
             return HttpResponse(status=201)
 
         else:
-            print("error")
             return HttpResponse(status=503)
 
 
@@ -98,6 +95,20 @@ class EditProductView(LoginRequiredMixin, DetailView):
             return super().get(request, *args, **kwargs)
         else:
             raise Http404
+    
+    def post(self, request, *args, **kwargs):
+        
+        if request.is_ajax():
+            EditProduct().update(
+                product = self.get_object(),
+                title = request.POST['title'],
+                price = request.POST['price'],
+                description = request.POST['description'],
+            )
+
+            return HttpResponse(status=201)
+        else:
+            return HttpResponse(status=503)
 
 
 class CategoryView(ListView):

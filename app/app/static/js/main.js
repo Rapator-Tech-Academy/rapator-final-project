@@ -30,9 +30,9 @@ $(document).ready(() => {
             city = "none"
         }
         if (category){
-            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city=${city}&category=${category}`)
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}&category=${category}`)
         }else{
-            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city=${city}`)
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}`)
         }
         
     })
@@ -44,13 +44,16 @@ $(document).ready(() => {
         product_api_url = `${product_api_url}?category=${$.urlParam('category')}`
     }
 
-    if ($.urlParam('keyword') && $.urlParam('city')){
+    if ($.urlParam('keyword') && $.urlParam('city_id')){
         if ($.urlParam('category')){
-            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city=${$.urlParam('city')}&category=${$.urlParam('category')}`
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}&category=${$.urlParam('category')}`
         }else{
-            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city=${$.urlParam('city')}`
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}`
         }
     }
+    
+    console.log($.urlParam('city_id'))
+    console.log(product_api_url)
 
 
     fetch(product_api_url)
@@ -64,7 +67,7 @@ $(document).ready(() => {
     
     function Product(data){
         for(value in data){
-            products.append(`
+             products.append(`
             <div class="products-i">
                 <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
                     <div class="card">
