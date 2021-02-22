@@ -15,7 +15,7 @@
                         <option style="line-height: 1rem;" value="0">Bütün Azərbaycan
                             <i class="fas fa-chevron-down"></i> </option>
                         {% for city in cities %}
-                        <option value="{{ city.name }}">{{ city.name }}</option>
+                        <option value="{{ city.pk }}">{{ city.name }}</option>
                         {% endfor %}
                     </select>
                 </div>

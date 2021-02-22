@@ -42,6 +42,12 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('category'):
             kw = data.get('category')
             query = query.filter(category__parent__name=kw)
+        
+        if data.get('city_id'):
+            kw = data.get('city_id')
+            print(kw)
+            if kw != 'none':
+                query = query.filter(city=kw)
 
         return query
 

@@ -18,7 +18,8 @@
                     </div>
 
                 </div> -->
-
+                
+                {% if 'elanlar' not in request.path %}
                 <!-- Header categories-->
                 <div class="header-categories-row">
                     <div class='row'>
@@ -39,6 +40,8 @@
                         </div>   
                         {% endfor %}   
                 </div>
+                {% endif %}
+
                 <!-- <div class="row sub-categories-row">
                     <div class="col-12 all-ads">
                         <a href="#"><span> Bütün elanlar </span> <span class="total-amount"> 2986 </span></a>
