@@ -14,8 +14,6 @@ from .image import ProductImage
 
 User = get_user_model()
 
-User = get_user_model()
-
 class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name="Product name")
     slug = models.SlugField(unique=True, null=True, blank=True)
@@ -25,7 +23,7 @@ class Product(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     price = models.PositiveIntegerField(default=0, verbose_name="Product price")
     description = models.TextField(max_length=3000, null=False, blank=True)
-    image = models.ImageField(blank=True, null=True, default='images/demo.png')
+    image = models.ImageField(blank=True, null=True, upload_to='images')
 
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -1,5 +1,6 @@
 {% extends "includes/base.html" %}
 {% load static %}
+{% load i18n %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
     <link rel="stylesheet" href="{% static 'css/header_main.css' %}">
@@ -28,7 +29,7 @@
                         <!-- lates products-->
                         <div class="products-container products-container_latest">
                             <div class="section-title">
-                                <h2 class="section-title_name">SON ELANLAR</h2>
+                                <h2 class="section-title_name">{% translate 'SON ELANLAR'%}</h2>
                             </div>
                             <div class="products">
                                 <div class="row">

@@ -1,5 +1,7 @@
 {% extends "includes/base.html" %}
 {% load static %}
+{% load i18n %}
+
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,8 +25,7 @@
             <div class="container-fluid">
                <a class="navbar-brand" style="font-weight: bold;">Şəxsi hesab<span class="badge"> {{ total_count_of_products }} </span></a>
                <div class="dropdown">
-                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>   <a href="{% url 'profile-settings'%}"> Hesab
-                  parametrləri </a>{{request.user.username}}</a>
+                  <a class="dropbtn"><i class="fa fa-fw fa-user "></i>   <a href="{% url 'profile-settings'%}">{% translate 'Hesab parametrləri' %} </a>{{request.user.username}}</a>
                </div>
             </div>
       </div>
@@ -60,9 +61,9 @@
 
    <!-- <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <div class="text-center">
-         <h3>Bu bölmədə elan yoxdur</h3>
+         <h3>{% translate 'Bu bölmədə elan yoxdur'%}</h3>
          <a style="color: #fff; font-weight: bold;" type="button" class="header-btn"><i
-            class="fa fa-fw fa-plus"></i>Elan yerləşdir</a>
+            class="fa fa-fw fa-plus"></i>{% translate 'Elan yerləşdir'%}</a>
       </div>
    </div> -->
 

@@ -1,4 +1,6 @@
 {% load static%}
+{% load i18n %}
+
 <!-- Header main-->
         <div class="header-main">
             <div class="container">
@@ -12,7 +14,7 @@
                         <div class="col-md-8 mt-3 mb-3 pr-4">
                             <div class="pull-right">
                                 {% if request.user.is_authenticated %}                 
-                                    <div class="dropdown">
+                                    <div class="dropdown" id="dropdown-1">
                                         <div class="dropbtn"><i class="fa fa-fw fa-user "></i>{{request.user.email}}</div>
                                         <div class="dropdown-content">
                                             <a href="{% url 'user-profile' condition='published' %}">Mənim elanlarım</a>
@@ -21,9 +23,9 @@
                                         </div>
                                     </div>
                                 {% else %}
-                                    <a class="login-link" href="{% url 'users:login' %}"> <i class="fa fa-fw fa-user "></i>Giriş</a>
+                                    <a class="login-link" href="{% url 'users:login' %}"> <i class="fa fa-fw fa-user "></i>{% translate 'Giriş'%}</a>
                                 {% endif %}
-                                <a type="button" href="{% url 'new-product-add-page' %}" class="header-btn"><i class="fa fa-fw fa-plus"></i>Elan yerləşdir</a>
+                                <a type="button" href="{% url 'new-product-add-page' %}" class="header-btn"><i class="fa fa-fw fa-plus"></i>{% translate 'Elan yerləşdir'%}</a>
                             </div> 
                         </div>   
                     </div>

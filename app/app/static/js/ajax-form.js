@@ -81,7 +81,6 @@ $(document).ready(function(){
             }
         });
     };
-
     function edit_product(){
         $.ajax({
             url : window.location.pathname,
@@ -109,5 +108,4 @@ $(document).ready(function(){
             }
         });
     };
-
 });

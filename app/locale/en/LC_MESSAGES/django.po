@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-21 00:40+0400\n"
+"PO-Revision-Date: 2021-02-21 00:42+0319\n"
+"Last-Translator: b'Anonymous User <sabanov@gmail.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: templates/home_page.html:32
+msgid "SON ELANLAR"
+msgstr "LATEST PRODUCTS"
+
+#: templates/includes/footer.html:11
+msgid "Layihə haqda"
+msgstr "Project Info"
+
+#: templates/includes/footer.html:12
+msgid "Reklam yerləşdirin"
+msgstr "Advertisement"
+
+#: templates/includes/footer.html:13
+msgid "İstifadəçi razılaşması"
+msgstr "Terms and Conditions"
+
+#: templates/includes/footer.html:15
+msgid "Əlaqə:"
+msgstr "Contact:"
+
+#: templates/includes/footer.html:290
+msgid "Mobil versiyası"
+msgstr "Mobil version"
+
+#: templates/includes/header_main.html:20
+msgid "Mənim elanlarım"
+msgstr "My products"
+
+#: templates/includes/header_main.html:21
+msgid "Hesab Parametrləri "
+msgstr "Account Settings"
+
+#: templates/includes/header_main.html:22
+msgid "Çıxış"
+msgstr "Log out"
+
+#: templates/includes/header_main.html:26
+msgid "Giriş"
+msgstr "Login"
+
+#: templates/includes/header_main.html:28 templates/pages/user_profile.html:66
+msgid "Elan yerləşdir"
+msgstr "Add product"
+
+#: templates/includes/header_search.html:16
+msgid "Məsələn, iPhone X"
+msgstr "Example :iPhone X"
+
+#: templates/includes/header_search.html:23
+msgid "Bütün Azərbaycan"
+msgstr "All Azerbaijan"
+
+#: templates/includes/header_search.html:34
+msgid "Tap"
+msgstr "Search"
+
+#: templates/includes/header_search.html:81
+msgid "Bütün elanlar"
+msgstr "All products"
+
+#: templates/includes/navbar.html:9
+msgid "Əsas səhifə"
+msgstr "Home page"
+
+#: templates/includes/navbar.html:14
+msgid "Language: EN"
+msgstr "Dil: AZ"
+
+#: templates/includes/navbar.html:17
+msgid "Saytda reklam"
+msgstr "Advertisement"
+
+#: templates/includes/navbar.html:36
+msgid "Dəstək"
+msgstr "Support"
+
+#: templates/pages/profile_settings.html:27
+msgid "Hesab Parametrləri"
+msgstr "Account Settings "
+
+#: templates/pages/profile_settings.html:33
+msgid "Ad"
+msgstr "Name"
+
+#: templates/pages/profile_settings.html:36
+msgid "Soyad"
+msgstr "Surname"
+
+#: templates/pages/profile_settings.html:41
+msgid "Email Address"
+msgstr "Email Address"
+
+#: templates/pages/profile_settings.html:44
+msgid "Əlaqə nömrəsi"
+msgstr "Mobile number"
+
+#: templates/pages/profile_settings.html:50
+msgid "Cari şifrə"
+msgstr "Current password"
+
+#: templates/pages/profile_settings.html:54
+msgid "Yeni şifrə"
+msgstr "New password"
+
+#: templates/pages/profile_settings.html:66
+msgid "Yadda Saxla"
+msgstr "Save"
+
+#: templates/pages/profile_settings.html:66
+msgid "Ləğv Et"
+msgstr "Cancel"
+
+#: templates/pages/user_profile.html:28
+#, fuzzy
+#| msgid "Hesab Parametrləri"
+msgid "Hesab parametrləri"
+msgstr "Account Settings "
+
+#: templates/pages/user_profile.html:36
+msgid "Dərc olunmuş"
+msgstr "Published"
+
+#: templates/pages/user_profile.html:39
+msgid "Müddəti başa çatmış"
+msgstr "Expired"
+
+#: templates/pages/user_profile.html:43
+msgid "Yoxlanılır"
+msgstr "Pending"
+
+#: templates/pages/user_profile.html:46
+msgid "Dərc olunmamış"
+msgstr "Rejected"
+
+#: templates/pages/user_profile.html:64
+msgid "Bu bölmədə elan yoxdur"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:3
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at Tap.az "
+msgstr ""
+
+#: templates/registration/password_reset_email.html:5
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:13
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:15
+msgid "The Tap.az team"
+msgstr ""
+
+#~ msgid "Profil"
+#~ msgstr "Profile"

@@ -23,7 +23,7 @@ class NewProductFormView(FormView):
                 description=request.POST['description'],
                 city=request.POST['city'],
                 category=request.POST['category'],
-                email=request.POST['user_email']
+                email=request.POST['user_email'],
             )
 
             return HttpResponse(status=201)

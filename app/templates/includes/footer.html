@@ -1,4 +1,6 @@
 {% load static%}
+{% load i18n %}
+
 <div class="footer-info-container">
             <div class="container">
                 <div class="container-fluid">
@@ -6,11 +8,11 @@
                         <footer class="page_foot main-col_padding">
                             <div class="footer-contacts">
                                 <div class="links">
-                                    <a href="/pages/about">Layihə haqda</a>
-                                    <a href="/pages/advertising">Reklam yerləşdirin</a>
-                                    <a href="/pages/terms-and-conditions">İstifadəçi razılaşması</a>
+                                    <a href="/pages/about">{% translate 'Layihə haqda'%}</a>
+                                    <a href="/pages/advertising">{% translate 'Reklam yerləşdirin'%}</a>
+                                    <a href="/pages/terms-and-conditions">{% translate 'İstifadəçi razılaşması'%}</a>
                                     </div>
-                                    <div class="contacts">Əlaqə: 
+                                    <div class="contacts">{% translate 'Əlaqə:' %}
                                         <div class="tel">
                                             <a href="mailto:tap@tap.az">tap@tap.az</a> / 
                                             <a href="tel:+994125990805">(012) 599-08-05</a>; 
@@ -24,48 +26,15 @@
                                             <!--Grid column-->
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
                                                 <ul class="list-unstyled mb-0 ">
+                                                {%for city in cities%}
                                                     <li>
-                                                        <a href="#">Bakı</a>
+                                                        <a href="#">{{city.name}}</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#">Sumqayıt</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağcabədi</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağdam</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağdaş</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağdərə</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağstafa</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Ağsu</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Astara</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Balakən</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Beyləqan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Bərdə</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Biləsuvar</a>
-                                                    </li>
+
+                                                {%endfor%}
                                                 </ul>
                                             </div>
-                                            <!--Grid column-->
+                                            <!--Grid column--><!-- 
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
                                                 <ul class="list-unstyled mb-0" >
                                                     <li>
@@ -196,7 +165,6 @@
                                                 </ul>
                                             </div>
                                     
-                                            <!--Grid column-->
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
                                                 <ul class="list-unstyled mb-0">
                                                     <li>
@@ -240,7 +208,6 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!--Grid column-->
                                             <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
                                 
                                                 <ul class="list-unstyled mb-0">
@@ -278,14 +245,14 @@
                                                         <a href="#">Zərdab</a>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer-bottom">
                                     <div class="side">
                                         <div class="link_mob">
-                                            <b><a href="#">Mobil versiyası</a></b>
+                                            <b><a href="#">{% translate 'Mobil versiyası'%}</a></b>
                                         </div>
                                         <div class="resp">
                                             Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.

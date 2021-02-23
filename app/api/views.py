@@ -7,6 +7,8 @@ from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.parsers import MultiPartParser
+
 
 from core.models import Product
 from .serializers import *
@@ -111,3 +113,4 @@ class StatisticsView(APIView):
         }
 
         return Response(context)
+
