@@ -17,9 +17,9 @@
                                     <div class="dropdown" id="dropdown-1">
                                         <div class="dropbtn"><i class="fa fa-fw fa-user "></i>{{request.user.email}}</div>
                                         <div class="dropdown-content">
-                                            <a href="{% url 'user-profile'%}">{% translate 'Mənim elanlarım'%}</a>
-                                            <a href="{% url 'profile-settings'%}">{% translate 'Hesab Parametrləri '%}</a>
-                                            <a href="{% url 'users:logout'%}">{% translate 'Çıxış'%}</a>
+                                            <a href="{% url 'user-profile' condition='published' %}">Mənim elanlarım</a>
+                                            <a href="{% url 'profile-settings'%}">Profil</a>
+                                            <a href="{% url 'users:logout'%}">Çıxış</a>
                                         </div>
                                     </div>
                                 {% else %}

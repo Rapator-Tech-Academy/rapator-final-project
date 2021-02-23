@@ -74,12 +74,15 @@
     position: relative;
 }
 
+.form-control{
+    font-size: 0.8rem !important;
+}
+
 form input{
     height: 40px;
     padding: 10px 15px 10px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     width: 100%;
-    font-size: 13px;
     line-height: 1.2;
     letter-spacing: 1px;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -89,7 +92,7 @@ form input{
     box-sizing: border-box;
     box-shadow: none;
     appearance: none;
-    }
+}
 
 .btn--default {
     background-color: #4b8af9;

@@ -36,7 +36,21 @@ class FilterProductListAPIView(ListAPIView):
         if data.get('min'):
             kw = data.get('min')
             query = query.filter(price__gte=kw)
-            
+        
+        if data.get('user_id'):
+            kw = data.get('user_id')
+            query = query.filter(user=kw)
+        
+        if data.get('category'):
+            kw = data.get('category')
+            query = query.filter(category__parent__name=kw)
+        
+        if data.get('city_id'):
+            kw = data.get('city_id')
+            print(kw)
+            if kw != 'none':
+                query = query.filter(city=kw)
+
         return query
 
 
@@ -67,14 +81,6 @@ class UserInformationsListAPIView(RetrieveUpdateAPIView):
 
             return queryset
     
-
-class AuthView(APIView):
-    permission_classes = (IsAuthenticated,)
-
-    def get(self, request):
-        content = {'message': 'Hello, World!'}
-        return Response(content)
-
 
 class StatisticsView(APIView):
     date_of_today = date.today()

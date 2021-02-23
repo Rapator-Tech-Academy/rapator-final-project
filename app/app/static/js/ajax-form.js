@@ -43,6 +43,11 @@ $(document).ready(function(){
         event.preventDefault();
         create_product();
     })
+
+    $("#editProduct").on('submit', function(event) {
+        event.preventDefault();
+        edit_product();
+    })
     
     function create_product(){
         $.ajax({
@@ -76,6 +81,31 @@ $(document).ready(function(){
             }
         });
     };
+    function edit_product(){
+        $.ajax({
+            url : window.location.pathname,
+            type : "POST",
+            data : { 
+                csrfmiddlewaretoken: csrftoken,
+				title : $('input[name ="title"]').val(),
+				price : $('input[name="price"]').val(),
+				description : $('textarea[name ="description"]').val(),
+            },
+        
+            success : function(data) {
+                console.log("success")
+                $('.new-lot-form').prepend(alertMessageHTML);
 
+                $('html, body').animate({
+                    scrollTop: $("#alertMessage").offset().top
+                }, 1000);
 
+                setTimeout(() => window.location.reload(), 5000);
+            },
+        
+            error : function(xhr,errmsg,err) {
+                console.log(err)
+            }
+        });
+    };
 });

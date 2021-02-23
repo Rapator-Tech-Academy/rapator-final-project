@@ -2,6 +2,7 @@ $(document).ready(() => {
 
     let product_api_url = `${location.origin}/api/get-products/`
     let statistics_api_url = `${location.origin}/api/statistics/`
+    let homePageUrl = window.location.protocol + "//" + window.location.host + "/"
 
     let day_visits_class = $('.day-visits');
     let day_hits_class = $('.day-hits');
@@ -17,9 +18,43 @@ $(document).ready(() => {
         return (results !== null) ? results[1] || 0 : false;
     }
     
-    if ($.urlParam('keyword')){
-        product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}`
+    
+
+    $("#searchProductForm").on('submit', function(event) {
+        event.preventDefault();
+        let keyword = $("#keywordInput").val();
+        let city = $("#citySelect").val();
+        let category = $.urlParam('category');
+
+        if (city == "0"){
+            city = "none"
+        }
+        if (category){
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}&category=${category}`)
+        }else{
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}`)
+        }
+        
+    })
+
+    if ($.urlParam('user_id')){
+        product_api_url = `${product_api_url}?user_id=${$.urlParam('user_id')}`
     }
+    if ($.urlParam('category')){
+        product_api_url = `${product_api_url}?category=${$.urlParam('category')}`
+    }
+
+    if ($.urlParam('keyword') && $.urlParam('city_id')){
+        if ($.urlParam('category')){
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}&category=${$.urlParam('category')}`
+        }else{
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}`
+        }
+    }
+    
+    console.log($.urlParam('city_id'))
+    console.log(product_api_url)
+
 
     fetch(product_api_url)
         .then((response) => response.json())
@@ -32,23 +67,23 @@ $(document).ready(() => {
     
     function Product(data){
         for(value in data){
-            products.append(`
-            <div class="products-i">
+             products.append(`
+             <div class="products-i">
                 <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
-                    <div class="card">
+                    <div class="card_">
                         <div class="products-top">
-                            <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
-                            <div class="products-price-container">
-                                <div class="products-price">
-                                    <span class="price-val">${ data[value]['price']} AZN</span>
-                                </div>
+                             <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
+                        </div>
+                        <div class="products-price-container">
+                            <div class="products-price">
+                                <span class="price-val">${ data[value]['price']} AZN</span>
                             </div>
                         </div>
                         <div class="products-name">${ data[value]['title']}</div>
                         <div class="products-created">${ data[value]['city'] }, bugün, 18:21</div>
                     </div>
                 </a>
-            </div>
+             </div>
             `)
         }
     }
@@ -88,7 +123,8 @@ $(document).ready(() => {
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
 
-    $('input[type="file"]').on('change', function () {
+
+  $('input[type="file"]').on('change', function () {
         var reader = new FileReader();
         reader.onload = function () {
             var thisImage = reader.result;
@@ -100,5 +136,7 @@ $(document).ready(() => {
     });
 
 
+
+    $("#phone_number").inputmask({"mask": "(999) 999-99-99"});
 
 })

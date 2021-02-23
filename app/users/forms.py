@@ -5,12 +5,11 @@ User = get_user_model()
 
 
 class RegisterForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Adınız...'}))
-    surname = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Soyadınız...'}))
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'İstifadəçi adınız...'}))
-    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '(000)000-00-00'}), max_length=12)
-    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email(exsamples@gmail.com)'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Şifrə'}))
+    name = forms.CharField()
+    surname = forms.CharField()
+    phone_number = forms.CharField()
+    email = forms.CharField()
+    password = forms.CharField()
 
 
 

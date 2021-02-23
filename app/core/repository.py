@@ -41,6 +41,17 @@ class Repo:
                 email=payload.email,
                 phone=payload.phone_number,
             )
-            
 
             return changed_user_id
+    
+    def update_product(self, product, title, price, description):
+        product = Product.objects.filter(id=product.id)
+        if product:
+            edited_product_id = product.update(
+                title = title,
+                price = price,
+                description = description,
+                status = 0,
+            )
+
+            return edited_product_id

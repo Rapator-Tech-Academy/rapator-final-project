@@ -19,32 +19,23 @@
                         <form method="POST">
                             {% csrf_token %}
                             <div class="input-group">
-                                {{form.name}}
-                                {{form.name.errors}}
+                                <input type="text" class="form-control" placeholder="Adınızı qeyd edin" name='name'>
                             </div>
                             <div class="input-group">
-                                {{form.surname}}
-                                {{form.surname.errors}}
+                                <input type="text" class="form-control" placeholder="Soyadınızı qeyd edin" name='surname'>  
                             </div>
                             <div class="input-group">
-                                {{form.username}}
-                                {{form.username.errors}}
+                                <input type="email" class="form-control" placeholder="E-Mail'nizi qeyd edin" name="email">
                             </div>
                             <div class="input-group">
-                                {{form.phone}}
-                                {{form.phone.errors}}
+                                <input id="phone_number" class="form-control" name="phone_number" type="text" placeholder="(070) 999-99-99" required/> 
                             </div>
                             <div class="input-group">
-                                {{form.email}}
-                                {{form.email.errors}}
-                            </div>
-                            <div class="input-group">
-                                {{form.password}}
-                                {{form.password.errors}}
+                                <input type="password" class="form-control" placeholder="Şifrənizi qeyd edin" name="password">
                             </div>
                            
                             <div class="form-group">
-                                <input type="submit" value="Register" class="btn btn--default">
+                                <input type="submit" value="Tamamla" class="btn btn--default">
                             </div>
                         </form>
                     <div>
