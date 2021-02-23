@@ -17,7 +17,7 @@ def send_review_mail(product_id):
     product = Product.objects.filter(id=product_id).first()
 
     if product and product.status == 0:
-        send_mail_helper(subject='Your product is under review :) ', to_email_addresses=['ugurguliyev7@gmail.com'])
+        send_mail_helper(subject='Your product is under review :) ', to_email_addresses=[product.user.email])
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
@@ -25,6 +25,7 @@ def setup_periodic_tasks(sender, **kwargs):
         crontab(minute=0, hour=0),
         task_update_product_status.s()
         )
+
 @app.task
 def task_update_product_status():
     products = Product.objects.filter(status=1)
