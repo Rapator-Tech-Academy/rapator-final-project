@@ -68,22 +68,22 @@ $(document).ready(() => {
     function Product(data){
         for(value in data){
              products.append(`
-            <div class="products-i">
+             <div class="products-i">
                 <a href="${location.origin}/elanlar/${data[value]['slug']}" class="products-link mb-2">
-                    <div class="card">
+                    <div class="card_">
                         <div class="products-top">
-                            <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
-                            <div class="products-price-container">
-                                <div class="products-price">
-                                    <span class="price-val">${ data[value]['price']} AZN</span>
-                                </div>
+                             <img class="card-img-top" src="${location.origin}${data[value]['image_url']}" alt="Card image cap">
+                        </div>
+                        <div class="products-price-container">
+                            <div class="products-price">
+                                <span class="price-val">${ data[value]['price']} AZN</span>
                             </div>
                         </div>
                         <div class="products-name">${ data[value]['title'] }</div>
                         <div class="products-created">${ data[value]['city'] }, bugün, 18:21</div>
                     </div>
                 </a>
-            </div>
+             </div>
             `)
         }
     }
