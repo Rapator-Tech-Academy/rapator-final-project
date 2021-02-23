@@ -52,7 +52,7 @@
                             placeholder="Yeni şifrə daxil edin">
                     </div>
                 </div>
-                <div class="py-3 pb-4 border-bottom"> <button type="submit" class="btn btn-primary mr-3">{% translate 'Yadda Saxla' %}</button> <button class="btn border button">{% translate 'Ləğv Et'%}</button> </div>
+                <div class="py-3 pb-4 border-bottom buttons"> <button type="submit" class="btn btn-primary mr-3">{% translate 'Yadda Saxla' %}</button> <a href="{% url 'user-profile' condition='published' %}" class="btn border button"> Ləğv et </a></form></div>
             </form>
         </div>
     </div>

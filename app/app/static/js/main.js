@@ -9,6 +9,8 @@ $(document).ready(() => {
     let daily_new_product_class = $('.daily-new-product');
     let products = $('.products-row');
 
+    let fileReader;
+
 
     // Getting query params
     $.urlParam = function (name) {
@@ -17,8 +19,7 @@ $(document).ready(() => {
     
         return (results !== null) ? results[1] || 0 : false;
     }
-    
-    
+
 
     $("#searchProductForm").on('submit', function(event) {
         event.preventDefault();
@@ -80,7 +81,7 @@ $(document).ready(() => {
                             </div>
                         </div>
                         <div class="products-name">${ data[value]['title']}</div>
-                        <div class="products-created">${ data[value]['city'] }, bugün, 18:21</div>
+                        <div class="products-created">${ data[value]['city'] }, ${ data[value]['date'] }, ${ data[value]['date_time'] }</div>
                     </div>
                 </a>
              </div>
@@ -122,19 +123,6 @@ $(document).ready(() => {
         add_daily_product_view_to_header(daily_product_views)
         add_daily_new_product_count_to_header(daily_added_new_products)
     }
-
-
-  $('input[type="file"]').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function () {
-            var thisImage = reader.result;
-            localStorage.setItem("imgData", thisImage);
-        };
-        reader.readAsDataURL(this.files[0]);
-
-        console.log(localStorage.getItem('image'))
-    });
-
 
 
     $("#phone_number").inputmask({"mask": "(999) 999-99-99"});

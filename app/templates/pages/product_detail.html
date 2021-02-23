@@ -187,21 +187,22 @@
           {% for product in related_products %}
 
           <div class="products-i">
-            <a href="#" class="products-link mb-2">
-              <div class="card">
-                <img class="card-img-top" src="{% static 'img/product_1.jpg'%}" alt="Card image cap">
-                <div class="products-price-container">
-                  <div class="products-price">
-                    <span class="price-val">{{product.price}}AZN</span>
-                  </div>
+            <a href="{% url 'product-detail' product.slug %}" class="products-link mb-2">
+                <div class="card_">
+                    <div class="products-top">
+                         <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+                    </div>
+                    <div class="products-price-container">
+                        <div class="products-price">
+                            <span class="price-val">{{ product.price }} AZN</span>
+                        </div>
+                    </div>
+                    <div class="products-name">{{ product.title }} </div>
+                    <div class="products-created">{{ product.city.name }}, {{ product.is_past_due }}, {{ product.updated_at|time:"H:i" }}</div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title products-name">{{product.title}}</h5>
-                  <p class="card-text">{{product.updated_at}}</p>
-                </div>
-              </div>
             </a>
-          </div>
+         </div>
+
           {%endfor%}
 
         </div>

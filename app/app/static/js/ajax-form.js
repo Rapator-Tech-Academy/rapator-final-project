@@ -48,6 +48,19 @@ $(document).ready(function(){
         event.preventDefault();
         edit_product();
     })
+
+    let imageProduct;
+
+    $('#ImageBrowse').on('change', function () {
+        fileReader = new FileReader();
+        fileReader.onload = function () {
+          var data = fileReader.result;  // data <-- in this var you have the file data in Base64 format
+        };
+        fileReader.readAsDataURL($('#ImageBrowse').prop('files')[0]);
+
+        imageProduct = fileReader
+    });
+
     
     function create_product(){
         $.ajax({
@@ -63,6 +76,7 @@ $(document).ready(function(){
                 user_email : $('input[name ="email"]').val(),
                 is_new : valueOfIsNew,
                 delivery : valueOfDelivery,
+                image : imageProduct,
             },
         
             success : function(data) {
