@@ -155,8 +155,14 @@
     font-size: 17px;
     line-height: 18px;
 }
+
+.products-price{
+    margin-top: 10px;
+    margin-left: 11px;
+}
+
 .products-name{
-    margin-left: 4px;
+    margin-left: 7px;
     padding: 0;
     display: block;
     display: -webkit-box;
@@ -175,10 +181,10 @@
     border-top: 0;
     line-height: 17px;
     box-sizing: border-box;
-    font-weight: bold;
 }
 .products-created{
     overflow: hidden;
+    margin-left: 8px;
     text-overflow: ellipsis;
     white-space: nowrap;
     position: absolute;
@@ -188,7 +194,6 @@
     padding: 2px 40px 0 5px;
     color: #bcbcbc;
     font-size: 14px;
-    line-height: 12px;
 }
 
 @media only screen and (max-width:480px) and (min-width: 120px) {
