@@ -1,11 +1,24 @@
-from django.http.response import Http404, HttpResponse
-from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, ListView, DetailView
+from django.http.response import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views.generic import TemplateView, FormView, ListView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from .models import Category, City, Product
 from .forms import NewProductForm, UserAccountUpdateForm
 from .stories import CreateProduct, UpdateAccount, EditProduct
+
+
+@login_required(login_url='/users/login/')
+def delete_product(request, slug):
+    user = request.user
+    product = Product.objects.filter(slug=slug).first()
+
+    if product and product.user==user:
+        product.delete()
+        return HttpResponseRedirect("/")
+    else:
+        raise Http404
 
 
 class NewProductFormView(FormView):
@@ -38,7 +51,6 @@ class UserAccountUpdateFormView(LoginRequiredMixin, FormView):
     login_url = '/users/login/'
 
     def form_valid(self, form):
-        print(form.cleaned_data.get('name'))
         UpdateAccount().create(
             form=form,
             user=self.request.user
@@ -63,7 +75,6 @@ class ProductView(DetailView):
         obj = self.get_object()
         obj.view_count += 1
         obj.daily_view_count += 1
-        print(obj.daily_view_count)
         obj.save()
         return result
 
@@ -179,10 +190,6 @@ class UserProfilePageView(LoginRequiredMixin, TemplateView):
 
         return sum_of_products
 
-    # def get(self, request, *args, **kwargs):
-    #     print(self.get_published_products())
-
-    #     return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
