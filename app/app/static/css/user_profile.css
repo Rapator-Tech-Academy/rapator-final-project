@@ -37,11 +37,6 @@
     list-style: none;
 }
 
-.products-price{
-    padding: 7px 10px;
-    background-color: #ff6617;
-    color: #fff;
-    text-align: left;
-    width: min-content;
-    height: 33px;
+.products-i {
+    border: 2px solid #F7F6F6;
 }

@@ -28,16 +28,17 @@ class NewProductFormView(FormView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if request.is_ajax():
-            CreateProduct().create(
-                title=request.POST['title'],
-                delivery=request.POST['delivery'],
-                is_new=request.POST['is_new'],
-                price=request.POST['price'],
-                description=request.POST['description'],
-                city=request.POST['city'],
-                category=request.POST['category'],
-                email=request.POST['user_email'],
-            )
+            print(request.POST['image'])
+            # CreateProduct().create(
+            #     title=request.POST['title'],
+            #     delivery=request.POST['delivery'],
+            #     is_new=request.POST['is_new'],
+            #     price=request.POST['price'],
+            #     description=request.POST['description'],
+            #     city=request.POST['city'],
+            #     category=request.POST['category'],
+            #     email=request.POST['user_email'],
+            # )
 
             return HttpResponse(status=201)
 
@@ -86,7 +87,7 @@ class ProductView(DetailView):
         category = self.get_object_categories()
         obj = self.get_object()
         return self.model.objects.filter(
-            category=category).order_by('-updated_at')
+            category=category).order_by('-updated_at').exclude(id=obj.pk)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

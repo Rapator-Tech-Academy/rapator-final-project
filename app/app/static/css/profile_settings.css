@@ -113,3 +113,11 @@ select:focus {
         line-height: 18px
     }
 }
+
+.buttons a{
+    color: #007bff !important;
+}
+
+.buttons a:hover{
+    color: #fff !important;
+}
