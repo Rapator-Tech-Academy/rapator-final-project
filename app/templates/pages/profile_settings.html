@@ -42,8 +42,7 @@
                         <input type="text" name="email" class="bg-light form-control" placeholder="{{user.email}}">
                     </div>
                     <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">{% translate 'Əlaqə nömrəsi'%}</label>
-                        <input type="tel" name="phone_number" class="bg-light form-control"
-                            value="{{user.phone}}">
+                        <input id="phone_number" class="form-control" name="phone_number" type="text" placeholder="{{ user.phone }}" required/>
                     </div>
                 </div>
                 <div class="row py-2">
