@@ -27,7 +27,8 @@ class FilterProductListAPIView(ListAPIView):
 
         if data.get('keyword'):
             kw = data.get('keyword')
-            query = query.filter(title__icontains=kw)
+            if kw != "none":
+                query = query.filter(title__icontains=kw)
 
         if data.get('max'):
             kw = data.get('max')

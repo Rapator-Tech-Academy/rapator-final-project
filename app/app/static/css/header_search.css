@@ -1,11 +1,11 @@
 .header-navigation {
     margin: 0%;
     padding: 0%;
-    background: #ffd8a2;
-    padding-bottom: 1.2rem;
+    background: #F7F6F6;
 }
 .header-nav{
     padding: 0 5% 0 5%;
+    background-color: #FCD8A2;
 }
 .header-navigation form{
     columns: #fff; 

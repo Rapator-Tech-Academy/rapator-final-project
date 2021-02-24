@@ -30,6 +30,9 @@ $(document).ready(() => {
         if (city == "0"){
             city = "none"
         }
+        if (keyword == 0){
+            keyword = "none"
+        }
         if (category){
             window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}&category=${category}`)
         }else{
@@ -53,7 +56,7 @@ $(document).ready(() => {
         }
     }
     
-    console.log($.urlParam('city_id'))
+    console.log($.urlParam('keyword'))
     console.log(product_api_url)
 
 
