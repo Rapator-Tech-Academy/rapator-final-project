@@ -27,6 +27,7 @@ class Repo:
                 description=payload.description,
                 city=city,
                 category=category,
+                image = payload.image,
                 user=user,
                 slug=slugify(f'{payload.title}-{last_id+1}')
             )

@@ -9,6 +9,18 @@ $(document).ready(function(){
         </div>
     `
 
+    function loadInputValues(formData, img_data){
+        formData.append('title', $('input[name ="title"]').val())
+        formData.append('description', $('textarea[name ="description"]').val())
+        formData.append('price', $('input[name="price"]').val())
+        formData.append('city', $('select[name ="city"]').val())
+        formData.append('category', $('select[name ="category"]').val())
+        formData.append('user_email', $('input[name ="email"]').val())
+        formData.append('is_new', valueOfIsNew)
+        formData.append('delivery', valueOfDelivery)
+        formData.append('image',  img_data)
+    }
+
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -24,7 +36,6 @@ $(document).ready(function(){
         }
         return cookieValue;
     }
-    const csrftoken = getCookie('csrftoken');
 
     if ($('input[name ="is_new"]').is(':checked')) {
         valueOfIsNew = 'True'
@@ -49,36 +60,26 @@ $(document).ready(function(){
         edit_product();
     })
 
-    let imageProduct;
-
-    $('#ImageBrowse').on('change', function () {
-        fileReader = new FileReader();
-        fileReader.onload = function () {
-          var data = fileReader.result;  // data <-- in this var you have the file data in Base64 format
-        };
-        fileReader.readAsDataURL($('#ImageBrowse').prop('files')[0]);
-
-        imageProduct = fileReader
-    });
 
     
     function create_product(){
+        const img_data = $('#ImageBrowse').get(0).files[0];
+        let formData = new FormData();
+
+        loadInputValues(formData, img_data)
+
+        $.ajaxSetup({
+            headers: { "X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').val() }
+        });
         $.ajax({
             url : window.location.pathname,
             type : "POST",
-            data : { 
-                csrfmiddlewaretoken: csrftoken,
-				title : $('input[name ="title"]').val(),
-				price : $('input[name="price"]').val(),
-				description : $('textarea[name ="description"]').val(),
-				city : $('select[name ="city"]').val(),
-                category : $('select[name ="category"]').val(),
-                user_email : $('input[name ="email"]').val(),
-                is_new : valueOfIsNew,
-                delivery : valueOfDelivery,
-                image : imageProduct,
-            },
-        
+            // processData: false,
+            data : formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
             success : function(data) {
                 console.log("success")
                 $('.new-lot-form').prepend(alertMessageHTML);
@@ -91,6 +92,7 @@ $(document).ready(function(){
             },
         
             error : function(xhr,errmsg,err) {
+                console.log($('#ImageBrowse')[0].files[0]);
                 console.log(err)
             }
         });

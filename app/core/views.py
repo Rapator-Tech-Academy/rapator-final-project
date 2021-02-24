@@ -26,19 +26,19 @@ class NewProductFormView(FormView):
     form_class = NewProductForm
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request.FILES)
         if request.is_ajax():
-            print(request.POST['image'])
-            # CreateProduct().create(
-            #     title=request.POST['title'],
-            #     delivery=request.POST['delivery'],
-            #     is_new=request.POST['is_new'],
-            #     price=request.POST['price'],
-            #     description=request.POST['description'],
-            #     city=request.POST['city'],
-            #     category=request.POST['category'],
-            #     email=request.POST['user_email'],
-            # )
+            CreateProduct().create(
+                title=request.POST['title'],
+                delivery=request.POST['delivery'],
+                is_new=request.POST['is_new'],
+                price=request.POST['price'],
+                description=request.POST['description'],
+                city=request.POST['city'],
+                category=request.POST['category'],
+                email=request.POST['user_email'],
+                image = request.FILES['image'],
+            )
 
             return HttpResponse(status=201)
 
@@ -148,10 +148,6 @@ class SearchResultPageView(TemplateView):
     template_name = 'pages/result_page.html'
 
 
-class BasicTestView(TemplateView):
-    template_name = 'accounts/email_confirmation_complete.html'
-
-
 class UserProfilePageView(LoginRequiredMixin, TemplateView):
     login_url = '/users/login/'
     template_name = 'pages/user_profile.html'
@@ -217,9 +213,6 @@ class UserProfilePageView(LoginRequiredMixin, TemplateView):
 
         return context
     
-
-class ProductDetailView(TemplateView):
-    template_name = 'pages/user_product_detail.html'
 
 
 
