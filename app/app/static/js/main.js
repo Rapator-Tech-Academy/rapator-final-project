@@ -26,6 +26,7 @@ $(document).ready(() => {
         let keyword = $("#keywordInput").val();
         let city = $("#citySelect").val();
         let category = $.urlParam('category');
+        let user_id = $.urlParam('category');
 
         if (city == "0"){
             city = "none"
@@ -35,15 +36,18 @@ $(document).ready(() => {
         }
         if (category){
             window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}&category=${category}`)
-        }else{
+        }else if(user_id){
+            window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}&user_id=${user_id}`)
+        }
+        else{
             window.location.replace(`${homePageUrl}elanlar/?keyword=${keyword}&city_id=${city}`)
         }
         
     })
 
-    if ($.urlParam('user_id')){
-        product_api_url = `${product_api_url}?user_id=${$.urlParam('user_id')}`
-    }
+    // if ($.urlParam('user_id')){
+    //     product_api_url = `${product_api_url}?user_id=${$.urlParam('user_id')}`
+    // }
     if ($.urlParam('category')){
         product_api_url = `${product_api_url}?category=${$.urlParam('category')}`
     }
@@ -51,7 +55,10 @@ $(document).ready(() => {
     if ($.urlParam('keyword') && $.urlParam('city_id')){
         if ($.urlParam('category')){
             product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}&category=${$.urlParam('category')}`
-        }else{
+        }else if($.urlParam('user_id')){
+            product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}&user_id=${$.urlParam('user_id')}`
+        }
+        else{
             product_api_url = `${product_api_url}?keyword=${$.urlParam('keyword')}&city_id=${$.urlParam('city_id')}`
         }
     }

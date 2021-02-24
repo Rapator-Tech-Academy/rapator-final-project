@@ -51,6 +51,7 @@ class FilterProductListAPIView(ListAPIView):
             print(kw)
             if kw != 'none':
                 query = query.filter(city=kw)
+        
 
         return query
 
