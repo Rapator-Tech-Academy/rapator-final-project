@@ -107,7 +107,7 @@
     border-radius: 13px;
     background-color: white;
     transition: box-shadow 0.5s, transform 0.5s;
-
+    border: 2px solid #F7F6F6;
     
 }
 .products-i:hover{
