@@ -1,0 +1,21 @@
+{% extends "includes/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_product.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+{% endblock css %}
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+<div class="container">
+    <div class="col-md-12 main">
+        <img id="success" src="https://cdn1.iconfinder.com/data/icons/security-and-protection-2/200/vector_325_08-512.png" alt="Success">
+        <br>
+        <h3>Bu səhifəyə giriş hüququnuz yoxdur!</h3>
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock body %}
