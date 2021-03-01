@@ -1,0 +1,30 @@
+{% extends "includes/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_product.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+{% endblock css %}
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+<div class="container">
+    
+    <h1>Səhifə tapılmadı</h1>
+    <div class="row">
+        <div class="col-lg-8">
+
+            <div class="thank-you mb-5">
+                Axtardığınız səhifə tapılmadı ana səhifəyə geri dön
+            </div>
+            <div class="btn-wrap d-flex justify-content-end mt-4">
+                <button class="btn btn-danger" href="{% url 'home-page'%}"> Ana səhifə </button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% include "includes/footer.html" %}
+{% endblock body %}
