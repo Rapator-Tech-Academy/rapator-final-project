@@ -74,9 +74,13 @@ class ProductView(DetailView):
     def get(self, request, *args, **kwargs):
         result = super().get(request, *args, **kwargs)
         obj = self.get_object()
-        obj.view_count += 1
-        obj.daily_view_count += 1
-        obj.save()
+
+        if obj.status != 1:
+            raise Http404
+        else:
+            obj.view_count += 1
+            obj.daily_view_count += 1
+            obj.save()
         return result
 
     def get_object_categories(self):
@@ -87,7 +91,7 @@ class ProductView(DetailView):
         category = self.get_object_categories()
         obj = self.get_object()
         return self.model.objects.filter(
-            category=category).order_by('-updated_at').exclude(id=obj.pk)
+            category=category, status=1).order_by('-updated_at').exclude(id=obj.pk)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
