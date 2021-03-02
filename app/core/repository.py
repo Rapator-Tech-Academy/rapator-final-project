@@ -46,13 +46,13 @@ class Repo:
             return changed_user_id
     
     def update_product(self, product, title, price, description):
-        product = Product.objects.filter(id=product.id)
+        product = Product.objects.filter(id=product.id).first()
         if product:
-            edited_product_id = product.update(
-                title = title,
-                price = price,
-                description = description,
-                status = 0,
-            )
+            product.title = title
+            product.price = price
+            product.description = description
+            product.status = 0
 
-            return edited_product_id
+            product.save()
+            
+            return product

@@ -81,7 +81,6 @@ $(document).ready(function(){
             contentType: false,
             enctype: 'multipart/form-data',
             success : function(data) {
-                console.log("success")
                 $('.new-lot-form').prepend(alertMessageHTML);
 
                 $('html, body').animate({
@@ -98,18 +97,19 @@ $(document).ready(function(){
         });
     };
     function edit_product(){
+        $.ajaxSetup({
+            headers: { "X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').val() }
+        });
         $.ajax({
             url : window.location.pathname,
             type : "POST",
             data : { 
-                csrfmiddlewaretoken: csrftoken,
 				title : $('input[name ="title"]').val(),
 				price : $('input[name="price"]').val(),
 				description : $('textarea[name ="description"]').val(),
             },
         
             success : function(data) {
-                console.log("success")
                 $('.new-lot-form').prepend(alertMessageHTML);
 
                 $('html, body').animate({
