@@ -1,0 +1,147 @@
+/* .header-categories-row img {
+    width: 50px;
+    height: 50px;
+}
+.header-categories-row {
+    display: inline-flex;
+}
+.header-categories-row a span{
+    font-size: 13px;
+    color: #148cb0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.header-categories-row a {
+    display: block;
+    width: 23%;
+    float: left;
+    height: 47px;
+    margin: 20px 0;
+    margin-right: 2%;
+    text-decoration: none;
+}
+.header-categories-row a :hover{
+color: #ff6617;
+}
+
+.search-footer .search-all{
+    color: #ff6617;
+    margin-left: 80%;
+}
+
+
+    
+@media only screen and (max-width:480px) and (min-width: 120px) {
+
+    .search-footer .search-all{
+        display: none;   
+    }
+    .header-categories-row img {
+        width: 45px;
+        height: 45px;
+    }
+    .header-categories-row a {
+        width: 40%;
+        height:25px;
+        margin-right:0;
+
+    }
+    .header-categories-row a span{
+        font-size: 10px;
+
+    }
+    .header-categories-row {
+        display: block;
+    }
+
+}
+@media screen and (min-width: 480px) and (max-width: 765px) {
+    .header-categories-row {
+        display: inline;
+    }
+    .header-categories-row img {
+        width: 40px;
+        height: 40px;
+    }
+    .search-footer .search-all{
+           float: left;
+           margin-left:0;
+    }
+    .header-categories-row a {
+        width: 100px;
+        height:30px;
+        width: 40%;
+
+    }
+    .header-categories-row a span{
+        font-size: 10px;
+        list-style: none;
+      }
+
+}
+
+@media screen and (min-width: 765px) and (max-width: 1198px) {
+    .search-footer .search-all{
+           float: left;
+           margin-left:0;
+        }
+    .header-categories-row a span{
+        font-size: 10px;
+
+        }
+    .header-categories-row a {
+        display: block;
+        height: 30px;
+        width: 30%;
+        margin-right: 0;
+       }
+} */
+
+.header-category-icon {
+    position: relative;
+    background-color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+}
+
+.header-category-icon img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 18%;
+    top: 17%;
+    fill: #ff6617;
+}
+
+a {
+    text-decoration: none;
+}
+
+.category-title span{
+    margin-left: 0.4rem;
+    top: 25%;
+    position: relative;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: underline;
+} 
+
+.category-title span:hover{
+    color: #ff6617;
+} 
+
+.category-row {
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+    position: relativel
+}
+
+.category-first-row{
+    margin-top: 2rem;
+}
+
+.category-last-row {
+    margin-bottom: 2rem;
+}

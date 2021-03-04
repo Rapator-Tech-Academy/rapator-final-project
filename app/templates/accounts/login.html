@@ -1,0 +1,32 @@
+{% extends "../includes/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+{% endblock css %}
+{% block body %}
+    <div id="auth-app">
+        <div class="main stage-1">
+            <div class="auth">
+                <a type="button" href="{% url 'home-page'%}" class="auth__close-btn">
+                    <img src="{%static 'img/close.jpg' %}">
+                </a>
+                <div class="login">
+                    <div class="tapaz-logo">
+                        <img src="{% static 'img/login.jpg' %}" alt="tap.az logo">
+                    </div>
+                    <div class="promo">Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</div>
+                    <a type="button" href="{% url 'users:login-email'%}" class="btn btn--default">Daxil ol</a>
+                    <a type="button" href="{% url 'users:register' %}" class="btn btn--default">Qeydiyyatdan keç</a>
+
+                </div>
+            </div>
+            <div class="confirmation">Saytda avtorizasiyadan keçməklə siz Tap.az-ın 
+                <a href="/pages/terms-and-conditions">İstifadəçi razılaşmasını
+                </a> və 
+                <a href="/pages/rules">Qaydalarını
+                </a> qəbul etdiyinizi təsdiqləmiş olursunuz.
+            </div>
+        </div>
+    </div>
+{% endblock body %}

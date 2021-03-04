@@ -1,0 +1,47 @@
+{% extends "../includes/base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+{% endblock css %}
+{% block body %}
+    <div id="auth-app">
+        <div class="main stage-3">
+            <div class="auth">
+                <a type="button" href="{% url 'home-page'%}" class="auth__close-btn">
+                    <img src="{% static 'img/close.jpg' %}">
+                </a>
+                <div class="login">
+                    <a href="{% url 'users:login'%}" type="button" class="back-btn" >
+                        <img src="{% static 'img/back.jpg' %}">
+                    </a>
+                    <div class="title title--main">Qeydiyyat</div>
+                        
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Adınızı qeyd edin" name='name'>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Soyadınızı qeyd edin" name='surname'>  
+                            </div>
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="E-Mail'nizi qeyd edin" name="email">
+                            </div>
+                            <div class="input-group">
+                                <input id="phone_number" class="form-control" name="phone_number" type="text" placeholder="(070) 999-99-99" required/> 
+                            </div>
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Şifrənizi qeyd edin" name="password">
+                            </div>
+                           
+                            <div class="form-group">
+                                <input type="submit" value="Tamamla" class="btn btn--default">
+                            </div>
+                        </form>
+                    <div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+ 

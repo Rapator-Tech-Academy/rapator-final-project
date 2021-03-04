@@ -1,0 +1,72 @@
+#product_title, h3{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 31px;
+  color: #323232;
+  font-weight: bold;
+}
+.h3, h3{
+font-weight: bold !important;
+}
+.price{
+    width:180px;
+    height:75px;
+    border:18px solid #ff6617; 
+    background: #ff6617;
+    font-weight: bold;
+    font-size: 29px;
+    text-align: center;
+}
+.details{
+    font-weight: bold;
+    text-align: left;
+}
+.details tr td{
+  border-bottom: 1px solid #e6e6e6 !important;
+
+}
+#accordion{
+    text-align: start;
+    background: #f2f2f2;
+    margin-top: 1rem;
+}
+a{
+    color: #ff6617;
+}
+a:hover{
+    color: #ff6617 !important;
+}
+
+.author{
+  font-size: 25px;
+}
+
+li{
+  text-align: left;
+}
+
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding-right: 5rem;
+  
+}

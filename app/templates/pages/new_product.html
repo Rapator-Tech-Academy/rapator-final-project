@@ -1,0 +1,224 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_dropdown.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new_product.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+{% endblock css %}
+{% block body %}
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+ 
+    <div class="content">
+        <div class="row">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="new-lot-form ">
+                        <h1>Yeni elan</h1>
+                        
+                        <div class="col-md-12">
+                            <div class='row'>
+                                
+                                <div class="col-md-8">
+                                    <div class='container'>
+                                        <form method='POST'>
+                                            {% csrf_token %}
+                                           
+                                            <div class='row'>
+                                               
+                                                <div class='row mt-2'>
+                                                    <div class='col-md-4'>
+                                                        <span> Kateqoriya </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="form-group">
+                                                            <select class="custom-select" name="category">
+                                                                <option selected="selected" disabled>Siyahıdan seçin</option>
+                                                                {% for category in categories %}
+                                                                <optgroup label="{{ category.name }}">
+                                                                        {% for children in category.get_children %}
+                                                                            <option value="{{ children.name }}">{{ children.name }}</option>
+                                                                        {% endfor %}
+                                                                </optgroup>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Çatdırılma? </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="delivery">
+                                                        </div>           
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Yeni? </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="is_new">
+                                                        </div>           
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Elanın Adı </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <input type="text" class="form-control" name="title" placeholder="Elanın Adı">
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Şəhər </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="city">
+                                                                <option selected="selected" disabled>Siyahıdan seçin</option>
+                                                                {% for city in cities %}
+                                                                    <option value="{{ city.name }}">{{ city.name }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Qiymət, AZN </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <input type="number" class="form-control" name="price" placeholder="Qiymət">
+                                                            </div>
+                                                            <div class="col-md-4 pt-2 ml-0">
+                                                                AZN 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Məzmun </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4'>
+                                                        <span> Adınız </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <input type="text" class="form-control" name="name" placeholder="Adınız">
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3'>
+                                                    <div class='col-md-4' >
+                                                        <span> E-Mail </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <input type="mail" class="form-control" name="email" placeholder="E-Mail">
+                                                    </div>
+                                                </div>
+
+                                                <div class='row mt-3 mb-4'>
+                                                    <div class='col-md-4'>
+                                                        <span> Mobil Nömrə </span>
+                                                    </div>
+                                                    <div class='col-md-8'>
+                                                        <input type="text" class="form-control" name="phone_number" placeholder="Mobil Nömrə">
+                                                    </div>
+                                                </div>
+                                            
+                                        
+            
+
+                                                <div class="confirm-rules mt-4">Elan yerləşdirərək, siz Tap.az-ın 
+                                                    <a target="_blank" href="/pages/terms-and-conditions">İstifadəçi razılaşması</a> 
+                                                    ilə razı olduğunuzu təsdiq edirsiniz.
+                                                </div>
+                                                <div class="styled-button">
+                                                    <button name="button" type="submit" data-disable-with="Göndərilir..." data-disable-text="Göndərilir..." class="btn">Elanı əlavə et</button>
+                                                    
+                                                </div>
+                                            </div>
+                                       
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="rules">
+                                        <div class="rules-header">Tap.Az-ın sadə qaydaları</div>
+                                            <ul>
+                                                <li><p> Eyni elanı bir neçə dəfə təqdim etməyin.</p> </li>
+                                                <li><p> Təsvir və ya şəkillərdə telefon, email və ya sayt ünvanı göstərməyin.</p></li>
+                                                <li><p> Ad yerində qiymət yazmayın - bunun üçün ayrıca yer var.</p></li>
+                                                <li><p> Qadağan olunmuş məhsulları satmayın</p></li>
+                                            </ul>
+                                            <div class="all-rules">
+                                                <a target="_blank" href="/pages/rules">Saytın tam qaydaları</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class='row' style='margin-top: 20px'>
+                        <div class='col-md-3'>
+                            <span style='margin-left: 10px'> Adınız </span>
+                        </div>
+                        <div class='col-md-9'>
+                            <input type="text" class="form-control" name="name" placeholder="Adınız">
+                        </div>
+                    </div>
+                    <div class='row' style='margin-top: 20px'>
+                        <div class='col-md-3' >
+                            <span style='margin-left: 10px'> E-Mail </span>
+                        </div>
+                        <div class='col-md-9'>
+                            <input type="mail" class="form-control" name="email" placeholder="E-Mail">
+                        </div>
+                    </div>
+                    <div class='row' style='margin-top: 20px'>
+                        <div class='col-md-3'>
+                            <span style='margin-left: 10px'> Mobil Nömrə </span>
+                        </div>
+                        <div class='col-md-9'>
+                            <input type="text" class="form-control" name="phone_number" placeholder="Mobil Nömrə">
+                        </div>
+                    </div>
+
+                    <button type='submit' class='btn btn-primary' style='margin-top: 40px; margin-left: 10px'> Davam Et </button>
+                </div>
+                <div class='col-md-3'>
+                    <p> Hello </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% include "includes/footer.html" %}
+{% endblock body %}

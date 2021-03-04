@@ -1,0 +1,38 @@
+{% extends "../includes/base.html" %}
+{% load static %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/header_main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/add_product.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock css %}
+{% block body %}
+
+{% include "includes/navbar.html" %}
+{% include "includes/header_main.html" %}
+ 
+  <div class="container main-content">
+    <div class='row'>
+        <div class='col-md-3'>
+            <div class='background-ul'>
+                <ul class='pages'>
+                  {% for page in flatpages %}
+                    <li class="pages-li{% if page.url in request.path %}-current{% endif %}"> <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/pages{{ page.url }}"> {{ page.title }} </a> </li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class='col-md-9'>
+            <h1> {{ flatpage.title }} </h1>
+            <span>
+                {{ flatpage.content }}
+            </span>
+        </div>
+    </div>
+  </div>
+  </div>
+{% include "includes/footer.html" %}
+{% endblock body %}

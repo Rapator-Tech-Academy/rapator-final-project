@@ -1,0 +1,49 @@
+{% load static%}
+{% load i18n %}
+
+<!-- Header search form-->
+<div class="header-navigation">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row header-nav ">
+                {% include 'includes/search_form.html' %}
+                <!-- <div class="search-footer">
+                    <a class="search-all" href="#">Bütün elanlar</a>
+                </div> -->
+                <!-- <div class="dropdown">
+                    <button class="dropbtn" style=" background-color: #FFF;
+                            "><span>Qiymət, AZN</span> <i class="fas fa-chevron-down arrow-down"></i> </button>
+                    <div class="dropdown-content" style="padding:10px">
+                        <input class="form-control " id="price_range" class="minimum" placeholder="min." type="number" >
+                        <input class="form-control " id="price_range" class="maximum" placeholder="max." type="number" >
+                    </div>
+
+                </div> -->
+                
+                {% if 'elanlar' not in request.path %}
+                <!-- Header categories-->
+                <div class="header-categories-row">
+                    <div class='row'>
+                        {% for category in categories %}
+                        <div class='col-3'>
+                            <a href='{{ request.path }}?category={{ category.name }}'>
+                                <div class='row category-row row-{{forloop.counter}} {% if forloop.counter <= 4 %} category-first-row {% elif forloop.counter >= 9 %} category-last-row {% endif %}'>
+                                    <div class='col-2'>
+                                        <div class='header-category-icon'>
+                                            <img src="{{ category.icon.url }}">
+                                        </div>
+                                    </div>
+                                    <div class='col-10 category-title'>
+                                        <span> {{ category.name }} </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>   
+                        {% endfor %}   
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>$('.dropdown-toggle').dropdown()</script>
